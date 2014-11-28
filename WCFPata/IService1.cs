@@ -28,7 +28,7 @@ namespace WCFPata
     public class CompositeType
     {
         bool boolValue = true;
-        string stringValue = "Hello ";
+        string stringValue = "Hello MAN ";
 
         [DataMember]
         public bool BoolValue
