@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="acupuntura"
+    targetNamespace="http://tempuri.org/acupuntura.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/acupuntura.xsd"
+    xmlns:mstns="http://tempuri.org/acupuntura.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="PATA" type="Ptype"/>
+
+  <xs:complexType name="Ptype">
+    <xs:sequence>
+      <xs:element name="ListaSintomas" type="ListSintGerType"/>
+      <xs:element name="TratamentosEDiagnosticos" type="TratsDiagsType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ListSintGerType">
+    <xs:sequence>
+      <xs:element name="Sintoma" type="SintType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="SintType">
+    <xs:sequence>
+      <xs:element name="nome" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TratsDiagsType">
+    <xs:sequence>
+      <xs:element name="DiagnosticoETratamento" type="TratDiagType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TratDiagType">
+    <xs:sequence>
+      <xs:element name="Orgao" type="xs:string"/>
+      <xs:element name="Diagnostico" type="xs:string"/>
+      <xs:element name="Tratamento" type="xs:string"/>
+      <xs:element name="ListaSintomas" type="ListSint"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ListSint">
+    <xs:sequence>
+      <xs:element name="sintoma" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+</xs:schema>

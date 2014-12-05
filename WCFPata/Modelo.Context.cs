@@ -25,7 +25,5 @@ namespace WCFPata
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Entity1> Entity1Set { get; set; }
-        public DbSet<Entity2> Entity2Set { get; set; }
     }
 }
