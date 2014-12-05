@@ -6,19 +6,176 @@
     <edmx:StorageModels>
     <Schema Namespace="Modelo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ModeloStoreContainer">
+    <EntitySet Name="UtilizadorSet" EntityType="Modelo.Store.UtilizadorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PacienteSet" EntityType="Modelo.Store.PacienteSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilizadorSet_Terapeuta" EntityType="Modelo.Store.UtilizadorSet_Terapeuta" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilizadorSet_Administrador" EntityType="Modelo.Store.UtilizadorSet_Administrador" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PacienteTerapeuta" Association="Modelo.Store.PacienteTerapeuta">
+      <End Role="Paciente" EntitySet="PacienteSet" />
+      <End Role="Terapeuta" EntitySet="UtilizadorSet_Terapeuta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Terapeuta_inherits_Utilizador" Association="Modelo.Store.FK_Terapeuta_inherits_Utilizador">
+      <End Role="Utilizador" EntitySet="UtilizadorSet" />
+      <End Role="Terapeuta" EntitySet="UtilizadorSet_Terapeuta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Administrador_inherits_Utilizador" Association="Modelo.Store.FK_Administrador_inherits_Utilizador">
+      <End Role="Utilizador" EntitySet="UtilizadorSet" />
+      <End Role="Administrador" EntitySet="UtilizadorSet_Administrador" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="UtilizadorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="token" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cc" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PacienteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerapeutaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilizadorSet_Terapeuta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilizadorSet_Administrador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PacienteTerapeuta">
+    <End Role="Paciente" Type="Modelo.Store.PacienteSet" Multiplicity="*" />
+    <End Role="Terapeuta" Type="Modelo.Store.UtilizadorSet_Terapeuta" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Terapeuta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="TerapeutaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Terapeuta_inherits_Utilizador">
+    <End Role="Utilizador" Type="Modelo.Store.UtilizadorSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Terapeuta" Type="Modelo.Store.UtilizadorSet_Terapeuta" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Terapeuta">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Administrador_inherits_Utilizador">
+    <End Role="Utilizador" Type="Modelo.Store.UtilizadorSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Administrador" Type="Modelo.Store.UtilizadorSet_Administrador" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Administrador">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Modelo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="ModeloContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UtilizadorSet" EntityType="Modelo.Utilizador" />
+          <EntitySet Name="PacienteSet" EntityType="Modelo.Paciente" />
+          <AssociationSet Name="PacienteTerapeuta" Association="Modelo.PacienteTerapeuta">
+            <End Role="Paciente" EntitySet="PacienteSet" />
+            <End Role="Terapeuta" EntitySet="UtilizadorSet" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Utilizador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="password" Type="String" Nullable="false" />
+          <Property Name="nome" Type="String" Nullable="false" />
+          <Property Name="token" Type="String" Nullable="false" />
+          <Property Name="cc" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Terapeuta" BaseType="Modelo.Utilizador" >
+          <NavigationProperty Name="Paciente" Relationship="Modelo.PacienteTerapeuta" FromRole="Terapeuta" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Administrador" BaseType="Modelo.Utilizador" />
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Terapeuta" Relationship="Modelo.PacienteTerapeuta" FromRole="Paciente" ToRole="Terapeuta" />
+          <Property Name="TerapeutaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PacienteTerapeuta">
+          <End Type="Modelo.Paciente" Role="Paciente" Multiplicity="*" />
+          <End Type="Modelo.Terapeuta" Role="Terapeuta" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Terapeuta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Paciente">
+              <PropertyRef Name="TerapeutaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="ModeloContainer">
+    <EntitySetMapping Name="UtilizadorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Utilizador)">
+        <MappingFragment StoreEntitySet="UtilizadorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="cc" ColumnName="cc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Terapeuta)">
+        <MappingFragment StoreEntitySet="UtilizadorSet_Terapeuta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Administrador)">
+        <MappingFragment StoreEntitySet="UtilizadorSet_Administrador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PacienteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo.Paciente)">
+        <MappingFragment StoreEntitySet="PacienteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TerapeutaId" ColumnName="TerapeutaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -34,6 +191,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
