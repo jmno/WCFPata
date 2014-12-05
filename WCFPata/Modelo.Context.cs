@@ -25,5 +25,7 @@ namespace WCFPata
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Utilizador> UtilizadorSet { get; set; }
+        public DbSet<Paciente> PacienteSet { get; set; }
     }
 }
