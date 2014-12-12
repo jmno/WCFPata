@@ -20,10 +20,6 @@
       <End Role="Terapeuta" EntitySet="TerapeutaSet" />
       <End Role="Paciente" EntitySet="PacienteSet" />
     </AssociationSet>
-    <AssociationSet Name="PacienteEpisodioClinico" Association="Model.Store.PacienteEpisodioClinico">
-      <End Role="Paciente" EntitySet="PacienteSet" />
-      <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
-    </AssociationSet>
     <AssociationSet Name="FK_EpisodioClinicoSintoma_EpisodioClinico" Association="Model.Store.FK_EpisodioClinicoSintoma_EpisodioClinico">
       <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
       <End Role="EpisodioClinicoSintoma" EntitySet="EpisodioClinicoSintoma" />
@@ -31,6 +27,10 @@
     <AssociationSet Name="FK_EpisodioClinicoSintoma_Sintoma" Association="Model.Store.FK_EpisodioClinicoSintoma_Sintoma">
       <End Role="Sintoma" EntitySet="SintomaSet" />
       <End Role="EpisodioClinicoSintoma" EntitySet="EpisodioClinicoSintoma" />
+    </AssociationSet>
+    <AssociationSet Name="EpisodioClinicoPaciente" Association="Model.Store.EpisodioClinicoPaciente">
+      <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
+      <End Role="Paciente" EntitySet="PacienteSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ContaSet">
@@ -70,9 +70,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PacienteId" Type="int" Nullable="false" />
     <Property Name="data" Type="datetime" Nullable="false" />
     <Property Name="diagnostico" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Paciente_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="SintomaSet">
     <Key>
@@ -113,15 +113,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="PacienteEpisodioClinico">
-    <End Role="Paciente" Type="Model.Store.PacienteSet" Multiplicity="1" />
+  <Association Name="EpisodioClinicoPaciente">
     <End Role="EpisodioClinico" Type="Model.Store.EpisodioClinicoSet" Multiplicity="*" />
+    <End Role="Paciente" Type="Model.Store.PacienteSet" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Paciente">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="EpisodioClinico">
-        <PropertyRef Name="PacienteId" />
+        <PropertyRef Name="Paciente_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -323,6 +323,14 @@
       </EndProperty>
       <EndProperty Name="Sintoma">
         <ScalarProperty Name="Id" ColumnName="Sintoma_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EpisodioClinicoPaciente" TypeName="Model.EpisodioClinicoPaciente" StoreEntitySet="EpisodioClinicoSet">
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Paciente_Id" />
+      </EndProperty>
+      <EndProperty Name="EpisodioClinico">
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
