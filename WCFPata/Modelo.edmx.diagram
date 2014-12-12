@@ -10,7 +10,7 @@
         <InheritanceConnector EntityType="Modelo.Terapeuta" />
         <EntityTypeShape EntityType="Modelo.Administrador" Width="1.5" PointX="1" PointY="4.125" />
         <InheritanceConnector EntityType="Modelo.Administrador" />
-        <EntityTypeShape EntityType="Modelo.Paciente" Width="1.5" PointX="7.5" PointY="3.75" />
+        <EntityTypeShape EntityType="Modelo.Paciente" Width="1.5" PointX="6.875" PointY="4" />
         <AssociationConnector Association="Modelo.PacienteTerapeuta" />
       </Diagram>
     </edmx:Diagrams>
