@@ -13,6 +13,42 @@ namespace WCFPata
     public interface IService1
     {
 
+
+
+        /*
+         * AUTHENTICATION
+         * */
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "login?username={username}&password={password}")]
+        string logIn(string username, string password);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "logout")]
+        void logOut(string token);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "isAdmin?token={token}")]
+        bool isAdmin(string token);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "isLoggedIn?token={token}")]
+        bool isLoggedIn(string token);
+
+
+        /*
+         *  END AUTHENTICATION
+         * 
+         */
         [OperationContract]
         string GetData(int value);
 
@@ -43,5 +79,19 @@ namespace WCFPata
             get { return stringValue; }
             set { stringValue = value; }
         }
+    }
+
+    [DataContract]
+    public class ContaWEB
+    {
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public string username { get; set; }
+        [DataMember]
+        public string password { get; set; }
+        [DataMember]
+        public Boolean isAdmin { get; set; }
+
     }
 }

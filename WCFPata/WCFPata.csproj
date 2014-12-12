@@ -76,6 +76,7 @@
     <Compile Include="EpisodioClinico.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="HandlerBD.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
