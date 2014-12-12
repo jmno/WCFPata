@@ -13,10 +13,10 @@ namespace WCFPata
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ModeloContainer : DbContext
+    public partial class ModelContainer : DbContext
     {
-        public ModeloContainer()
-            : base("name=ModeloContainer")
+        public ModelContainer()
+            : base("name=ModelContainer")
         {
         }
     
@@ -25,7 +25,10 @@ namespace WCFPata
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Utilizador> UtilizadorSet { get; set; }
+        public DbSet<Conta> ContaSet { get; set; }
+        public DbSet<Terapeuta> TerapeutaSet { get; set; }
         public DbSet<Paciente> PacienteSet { get; set; }
+        public DbSet<EpisodioClinico> EpisodioClinicoSet { get; set; }
+        public DbSet<Sintoma> SintomaSet { get; set; }
     }
 }

@@ -12,7 +12,13 @@ namespace WCFPata
     using System;
     using System.Collections.Generic;
     
-    public partial class Administrador : Utilizador
+    public partial class Conta
     {
+        public int Id { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public bool isAdmin { get; set; }
+    
+        public virtual Terapeuta Terapeuta { get; set; }
     }
 }

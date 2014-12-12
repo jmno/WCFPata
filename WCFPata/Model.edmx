@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ContaSet" EntityType="Model.Store.ContaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TerapeutaSet" EntityType="Model.Store.TerapeutaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PacienteSet" EntityType="Model.Store.PacienteSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EpisodioClinicoSet" EntityType="Model.Store.EpisodioClinicoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SintomaSet" EntityType="Model.Store.SintomaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EpisodioClinicoSintoma" EntityType="Model.Store.EpisodioClinicoSintoma" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="TerapeutaConta" Association="Model.Store.TerapeutaConta">
+      <End Role="Terapeuta" EntitySet="TerapeutaSet" />
+      <End Role="Conta" EntitySet="ContaSet" />
+    </AssociationSet>
+    <AssociationSet Name="TerapeutaPaciente" Association="Model.Store.TerapeutaPaciente">
+      <End Role="Terapeuta" EntitySet="TerapeutaSet" />
+      <End Role="Paciente" EntitySet="PacienteSet" />
+    </AssociationSet>
+    <AssociationSet Name="PacienteEpisodioClinico" Association="Model.Store.PacienteEpisodioClinico">
+      <End Role="Paciente" EntitySet="PacienteSet" />
+      <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EpisodioClinicoSintoma_EpisodioClinico" Association="Model.Store.FK_EpisodioClinicoSintoma_EpisodioClinico">
+      <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
+      <End Role="EpisodioClinicoSintoma" EntitySet="EpisodioClinicoSintoma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EpisodioClinicoSintoma_Sintoma" Association="Model.Store.FK_EpisodioClinicoSintoma_Sintoma">
+      <End Role="Sintoma" EntitySet="SintomaSet" />
+      <End Role="EpisodioClinicoSintoma" EntitySet="EpisodioClinicoSintoma" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ContaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="isAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TerapeutaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cc" Type="int" Nullable="false" />
+    <Property Name="telefone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dataNasc" Type="datetime" Nullable="false" />
+    <Property Name="Conta_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PacienteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dataNasc" Type="datetime" Nullable="false" />
+    <Property Name="morada" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="telefone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Terapeuta_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EpisodioClinicoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PacienteId" Type="int" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="diagnostico" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SintomaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EpisodioClinicoSintoma">
+    <Key>
+      <PropertyRef Name="EpisodioClinico_Id" />
+      <PropertyRef Name="Sintoma_Id" />
+    </Key>
+    <Property Name="EpisodioClinico_Id" Type="int" Nullable="false" />
+    <Property Name="Sintoma_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="TerapeutaConta">
+    <End Role="Terapeuta" Type="Model.Store.TerapeutaSet" Multiplicity="*" />
+    <End Role="Conta" Type="Model.Store.ContaSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Terapeuta">
+        <PropertyRef Name="Conta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TerapeutaPaciente">
+    <End Role="Terapeuta" Type="Model.Store.TerapeutaSet" Multiplicity="1" />
+    <End Role="Paciente" Type="Model.Store.PacienteSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terapeuta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="Terapeuta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PacienteEpisodioClinico">
+    <End Role="Paciente" Type="Model.Store.PacienteSet" Multiplicity="1" />
+    <End Role="EpisodioClinico" Type="Model.Store.EpisodioClinicoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EpisodioClinico">
+        <PropertyRef Name="PacienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EpisodioClinicoSintoma_EpisodioClinico">
+    <End Role="EpisodioClinico" Type="Model.Store.EpisodioClinicoSet" Multiplicity="1" />
+    <End Role="EpisodioClinicoSintoma" Type="Model.Store.EpisodioClinicoSintoma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EpisodioClinico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EpisodioClinicoSintoma">
+        <PropertyRef Name="EpisodioClinico_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EpisodioClinicoSintoma_Sintoma">
+    <End Role="EpisodioClinicoSintoma" Type="Model.Store.EpisodioClinicoSintoma" Multiplicity="*" />
+    <End Role="Sintoma" Type="Model.Store.SintomaSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sintoma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EpisodioClinicoSintoma">
+        <PropertyRef Name="Sintoma_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContaSet" EntityType="Model.Conta" />
+          <EntitySet Name="TerapeutaSet" EntityType="Model.Terapeuta" />
+          <AssociationSet Name="TerapeutaConta" Association="Model.TerapeutaConta">
+            <End Role="Terapeuta" EntitySet="TerapeutaSet" />
+            <End Role="Conta" EntitySet="ContaSet" />
+          </AssociationSet>
+          <EntitySet Name="PacienteSet" EntityType="Model.Paciente" />
+          <AssociationSet Name="TerapeutaPaciente" Association="Model.TerapeutaPaciente">
+            <End Role="Terapeuta" EntitySet="TerapeutaSet" />
+            <End Role="Paciente" EntitySet="PacienteSet" />
+          </AssociationSet>
+          <EntitySet Name="EpisodioClinicoSet" EntityType="Model.EpisodioClinico" />
+          <EntitySet Name="SintomaSet" EntityType="Model.Sintoma" />
+          <AssociationSet Name="EpisodioClinicoSintoma" Association="Model.EpisodioClinicoSintoma">
+            <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
+            <End Role="Sintoma" EntitySet="SintomaSet" />
+          </AssociationSet>
+          <AssociationSet Name="EpisodioClinicoPaciente" Association="Model.EpisodioClinicoPaciente">
+            <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
+            <End Role="Paciente" EntitySet="PacienteSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Conta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="password" Type="String" Nullable="false" />
+          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Terapeuta" Relationship="Model.TerapeutaConta" FromRole="Conta" ToRole="Terapeuta" />
+        </EntityType>
+        <EntityType Name="Terapeuta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="nome" Type="String" Nullable="false" />
+          <Property Name="cc" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conta" Relationship="Model.TerapeutaConta" FromRole="Terapeuta" ToRole="Conta" />
+          <NavigationProperty Name="Paciente" Relationship="Model.TerapeutaPaciente" FromRole="Terapeuta" ToRole="Paciente" />
+          <Property Name="telefone" Type="String" Nullable="false" />
+          <Property Name="dataNasc" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <Association Name="TerapeutaConta">
+          <End Type="Model.Terapeuta" Role="Terapeuta" Multiplicity="0..1" />
+          <End Type="Model.Conta" Role="Conta" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Terapeuta" Relationship="Model.TerapeutaPaciente" FromRole="Paciente" ToRole="Terapeuta" />
+          <Property Name="nome" Type="String" Nullable="false" />
+          <Property Name="dataNasc" Type="DateTime" Nullable="false" />
+          <Property Name="morada" Type="String" Nullable="false" />
+          <Property Name="cc" Type="String" Nullable="false" />
+          <Property Name="telefone" Type="String" Nullable="false" />
+          <NavigationProperty Name="EpisodioClinico" Relationship="Model.EpisodioClinicoPaciente" FromRole="Paciente" ToRole="EpisodioClinico" />
+        </EntityType>
+        <Association Name="TerapeutaPaciente">
+          <End Type="Model.Terapeuta" Role="Terapeuta" Multiplicity="1" />
+          <End Type="Model.Paciente" Role="Paciente" Multiplicity="*" />
+        </Association>
+        <EntityType Name="EpisodioClinico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sintoma" Relationship="Model.EpisodioClinicoSintoma" FromRole="EpisodioClinico" ToRole="Sintoma" />
+          <Property Name="data" Type="DateTime" Nullable="false" />
+          <Property Name="diagnostico" Type="String" Nullable="false" />
+          <NavigationProperty Name="Paciente" Relationship="Model.EpisodioClinicoPaciente" FromRole="EpisodioClinico" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Sintoma">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="EpisodioClinico" Relationship="Model.EpisodioClinicoSintoma" FromRole="Sintoma" ToRole="EpisodioClinico" />
+          <Property Name="nome" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="EpisodioClinicoSintoma">
+          <End Type="Model.EpisodioClinico" Role="EpisodioClinico" Multiplicity="*" />
+          <End Type="Model.Sintoma" Role="Sintoma" Multiplicity="*" />
+        </Association>
+        <Association Name="EpisodioClinicoPaciente">
+          <End Type="Model.EpisodioClinico" Role="EpisodioClinico" Multiplicity="*" />
+          <End Type="Model.Paciente" Role="Paciente" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="ContaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Conta)">
+        <MappingFragment StoreEntitySet="ContaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TerapeutaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Terapeuta)">
+        <MappingFragment StoreEntitySet="TerapeutaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="dataNasc" ColumnName="dataNasc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PacienteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Paciente)">
+        <MappingFragment StoreEntitySet="PacienteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="dataNasc" ColumnName="dataNasc" />
+          <ScalarProperty Name="morada" ColumnName="morada" />
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EpisodioClinicoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.EpisodioClinico)">
+        <MappingFragment StoreEntitySet="EpisodioClinicoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SintomaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Sintoma)">
+        <MappingFragment StoreEntitySet="SintomaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TerapeutaConta" TypeName="Model.TerapeutaConta" StoreEntitySet="TerapeutaSet">
+      <EndProperty Name="Conta">
+        <ScalarProperty Name="Id" ColumnName="Conta_Id" />
+      </EndProperty>
+      <EndProperty Name="Terapeuta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TerapeutaPaciente" TypeName="Model.TerapeutaPaciente" StoreEntitySet="PacienteSet">
+      <EndProperty Name="Terapeuta">
+        <ScalarProperty Name="Id" ColumnName="Terapeuta_Id" />
+      </EndProperty>
+      <EndProperty Name="Paciente">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EpisodioClinicoSintoma" TypeName="Model.EpisodioClinicoSintoma" StoreEntitySet="EpisodioClinicoSintoma">
+      <EndProperty Name="EpisodioClinico">
+        <ScalarProperty Name="Id" ColumnName="EpisodioClinico_Id" />
+      </EndProperty>
+      <EndProperty Name="Sintoma">
+        <ScalarProperty Name="Id" ColumnName="Sintoma_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

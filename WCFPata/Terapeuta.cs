@@ -12,14 +12,20 @@ namespace WCFPata
     using System;
     using System.Collections.Generic;
     
-    public partial class Terapeuta : Utilizador
+    public partial class Terapeuta
     {
         public Terapeuta()
         {
             this.Paciente = new HashSet<Paciente>();
         }
     
+        public int Id { get; set; }
+        public string nome { get; set; }
+        public int cc { get; set; }
+        public string telefone { get; set; }
+        public System.DateTime dataNasc { get; set; }
     
+        public virtual Conta Conta { get; set; }
         public virtual ICollection<Paciente> Paciente { get; set; }
     }
 }

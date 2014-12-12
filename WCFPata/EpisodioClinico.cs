@@ -12,21 +12,18 @@ namespace WCFPata
     using System;
     using System.Collections.Generic;
     
-    public partial class Paciente
+    public partial class EpisodioClinico
     {
-        public Paciente()
+        public EpisodioClinico()
         {
-            this.EpisodioClinico = new HashSet<EpisodioClinico>();
+            this.Sintoma = new HashSet<Sintoma>();
         }
     
         public int Id { get; set; }
-        public string nome { get; set; }
-        public System.DateTime dataNasc { get; set; }
-        public string morada { get; set; }
-        public string cc { get; set; }
-        public string telefone { get; set; }
+        public System.DateTime data { get; set; }
+        public string diagnostico { get; set; }
     
-        public virtual Terapeuta Terapeuta { get; set; }
-        public virtual ICollection<EpisodioClinico> EpisodioClinico { get; set; }
+        public virtual ICollection<Sintoma> Sintoma { get; set; }
+        public virtual Paciente Paciente { get; set; }
     }
 }
