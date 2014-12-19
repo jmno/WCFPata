@@ -5,6 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Globalization;
+using System.IO;
+using System.Web.Hosting;
 
 namespace WCFPata
 {
@@ -18,11 +21,13 @@ namespace WCFPata
         HandlerBD handler = new HandlerBD();
         private Dictionary<string, ContaWEB> contas;
         private Dictionary<string, Token> tokens;
+        private static string FILEPATH;
 
         public Service1() {
 
             this.contas = new Dictionary<string, ContaWEB>();
             this.tokens = new Dictionary<string, Token>();
+            FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
         }
         public string GetData(int value)
         {
@@ -185,6 +190,57 @@ namespace WCFPata
 
         }
 
+
+
         //fim authentication
+
+
+
+            //Escrever XML NO APPDATA
+        public bool carregaXml(string token)
+        {
+            
+            checkAuthentication(token, false);
+            bool resultado = false;
+            ContaWEB c = new ContaWEB();
+
+            c = tokens[token].Conta;
+
+            try
+            {
+                OperacoesXML.guardarTeste(c, FILEPATH);
+                resultado = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                // resultado = false;
+            }
+
+
+            return resultado;
+        }
+
+            //Ler dados XML do APPDATA
+        public List<ContaWEB> lerContasXML(string token)
+        {
+            //
+            checkAuthentication(token, false);
+            //bool resultado = false;
+            List<ContaWEB> lista = new List<ContaWEB>();
+            try
+            {
+                lista = OperacoesXML.lerContasFicheiroXml(FILEPATH);
+                //resultado = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                // resultado = false;
+            }
+
+
+            return lista;
+        }
     }
 }

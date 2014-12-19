@@ -63,6 +63,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model.edmx.sql" />
@@ -92,6 +93,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="OperacoesXML.cs" />
     <Compile Include="Paciente.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

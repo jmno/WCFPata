@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Conta>
+  <Username>admin</Username>
+  <Password>admin</Password>
+  <isAdmin>True</isAdmin>
+  <id>1</id>
+</Conta>

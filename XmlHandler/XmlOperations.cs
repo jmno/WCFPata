@@ -15,7 +15,7 @@ namespace XmlHandler
 {
     public class XmlOperations
     {
-        public static void saveXML(Dados dados, String xmlPath)
+        public static void saveXML(Conta dados, String xmlPath)
         {
             
             if (!dados.isEmpty)

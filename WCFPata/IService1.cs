@@ -50,6 +50,18 @@ namespace WCFPata
          * 
          */
         [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "carregaXml?token={token}")]
+        bool carregaXml(string token);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "lerContasXML?token={token}")]
+        List<ContaWEB> lerContasXML(string token);
+
+        [OperationContract]
         string GetData(int value);
 
         [OperationContract]
