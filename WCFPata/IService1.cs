@@ -50,24 +50,18 @@ namespace WCFPata
          * 
          */
         [OperationContract]
-        [WebInvoke(Method = "GET",
+        [WebInvoke(Method = "POST",
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "carregaXml?token={token}")]
-        bool carregaXml(string token);
+        bool carregaXml(string token, DadosWEB dados);
 
         [OperationContract]
         [WebInvoke(Method = "GET",
         ResponseFormat = WebMessageFormat.Json,
-        UriTemplate = "lerContasXML?token={token}")]
-        List<ContaWEB> lerContasXML(string token);
+        UriTemplate = "lerSintomasXML?token={token}")]
+        List<SintomaWEB> lerSintomasXML(string token);
 
-        [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        // TODO: Add your service operations here
+      
     }
 
 
@@ -106,4 +100,41 @@ namespace WCFPata
         public Boolean isAdmin { get; set; }
 
     }
+
+    [DataContract]
+    public class SintomaWEB
+    {
+        [DataMember]
+        public string nome { get; set; }
+       
+    }
+
+    [DataContract]
+    public class DiagnosticoWEB
+    {
+        [DataMember]
+        public string nome { get; set; }
+        [DataMember]
+        public List<SintomaWEB> listaSintomas { get; set; }
+        [DataMember]
+        public string orgao { get; set; }
+        [DataMember]
+        public string tratamento { get; set; }
+
+    }
+
+    [DataContract]
+    public class DadosWEB
+    {
+        
+        [DataMember]
+        public List<SintomaWEB> listaSintomas { get; set; }
+        [DataMember]
+        public List<DiagnosticoWEB> listaDiagnosticos { get; set; }
+        
+
+    }
+
+
+
 }

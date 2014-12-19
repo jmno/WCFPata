@@ -9,24 +9,8 @@ namespace WCFPata
     public class OperacoesXML
     {
 
-        public static void guardarTeste(ContaWEB conta, String xmlPath) 
-        {
-            if (conta != null)
-            {
-
-                XmlTextWriter escritor = new XmlTextWriter(xmlPath, System.Text.Encoding.UTF8);
-                escritor.Formatting = Formatting.Indented;
-                escritor.WriteStartDocument();
-                escritor.WriteStartElement("Conta");
-                escritor.WriteElementString("Username",conta.username);
-                escritor.WriteElementString("Password", conta.password);
-                escritor.WriteElementString("isAdmin", conta.isAdmin.ToString());
-                escritor.WriteElementString("id", conta.id.ToString());
-                escritor.WriteEndElement();
-                escritor.Close();
-            }
-
-        }
+        
+       
 
         public static List<ContaWEB> lerContasFicheiroXml(String path) 
         {
@@ -50,52 +34,48 @@ namespace WCFPata
             return lista;
 
         }
-        //public static void saveXML(ContaWEB conta, String xmlPath)
-        //{
+        public static void guardarXML(DadosWEB dados, String xmlPath)
+        {
 
-        //    if (conta!=null)
-        //    {
+            if (dados != null)
+            {
 
-        //        XmlTextWriter escritor = new XmlTextWriter(xmlPath, System.Text.Encoding.UTF8);
-        //        escritor.Formatting = Formatting.Indented;
-        //        escritor.WriteStartDocument();
-        //        escritor.WriteStartElement("PATA");
-        //        escritor.WriteStartElement("ListaDeSintomas");
+                XmlTextWriter escritor = new XmlTextWriter(xmlPath, System.Text.Encoding.UTF8);
+                escritor.Formatting = Formatting.Indented;
+                escritor.WriteStartDocument();
+                escritor.WriteStartElement("PATA");
+                escritor.WriteStartElement("ListaDeSintomas");
 
-        //        foreach (Sintoma p in dados._listSintomas)
-        //        {
-        //            escritor.WriteStartElement("Sintoma");
-        //            escritor.WriteElementString("nome", p.Nome);
-        //            escritor.WriteEndElement();
-        //        }
-        //        escritor.WriteEndElement();
-        //        escritor.WriteStartElement("DiagnosticosETratamentos");
-        //        foreach (Diagnostico o in dados.ListDiagnosticos)
-        //        {
-        //            escritor.WriteStartElement("DiagnosticoETratamento");
-        //            escritor.WriteElementString("Orgao", o.Orgao);
-        //            escritor.WriteElementString("Diagnostico", o.Nome);
-        //            escritor.WriteElementString("Tratamento", o.Tratamento);
-        //            escritor.WriteStartElement("ListaSintomas");
-        //            foreach (Sintoma s in o.ListSintomas)
-        //            {
-        //                escritor.WriteElementString("sintoma", s.Nome);
-        //            }
-        //            escritor.WriteEndElement();
-        //            escritor.WriteEndElement();
-        //        }
-        //        escritor.WriteEndElement();
-        //        escritor.WriteEndElement();
-        //        escritor.WriteEndDocument();
-        //        escritor.Close();
-        //        System.Windows.Forms.MessageBox.Show("XML Salvo com Sucesso!");
-        //    }
-        //    else
-        //    {
-        //        System.Windows.Forms.MessageBox.Show("Tem de Ler Primeiro os Dados do Excel!");
-
-        //    }
-        //}
+                foreach (SintomaWEB p in dados.listaSintomas)
+                {
+                    escritor.WriteStartElement("Sintoma");
+                    escritor.WriteElementString("nome", p.nome);
+                    escritor.WriteEndElement();
+                }
+                escritor.WriteEndElement();
+                escritor.WriteStartElement("DiagnosticosETratamentos");
+                foreach (DiagnosticoWEB o in dados.listaDiagnosticos)
+                {
+                    escritor.WriteStartElement("DiagnosticoETratamento");
+                    escritor.WriteElementString("Orgao", o.orgao);
+                    escritor.WriteElementString("Diagnostico", o.nome);
+                    escritor.WriteElementString("Tratamento", o.tratamento);
+                    escritor.WriteStartElement("ListaSintomas");
+                    foreach (SintomaWEB s in o.listaSintomas)
+                    {
+                        escritor.WriteElementString("sintoma", s.nome);
+                    }
+                    escritor.WriteEndElement();
+                    escritor.WriteEndElement();
+                }
+                escritor.WriteEndElement();
+                escritor.WriteEndElement();
+                escritor.WriteEndDocument();
+                escritor.Close();
+                
+            }
+            
+        }
 
         public static String xpathExpression(String xmlPath, String xpath)
         {
@@ -111,16 +91,18 @@ namespace WCFPata
             return res;
         }
 
-        public static List<String> listaSintomas(String xmlPath)
+        public static List<SintomaWEB> getListaSintomas(String xmlPath)
         {
-            List<String> lista = new List<String>();
+            List<SintomaWEB> lista = new List<SintomaWEB>();
             String xpath = "//ListaDeSintomas/Sintoma/nome";
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlPath);
             XmlNodeList nodeList = doc.SelectNodes(xpath);
             foreach (XmlNode node in nodeList)
             {
-                lista.Add(node.InnerXml);
+                SintomaWEB s = new SintomaWEB();
+                s.nome = node.InnerText.ToString();
+                lista.Add(s);
 
             }
 

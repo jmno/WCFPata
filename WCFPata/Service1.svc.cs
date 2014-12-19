@@ -197,18 +197,15 @@ namespace WCFPata
 
 
             //Escrever XML NO APPDATA
-        public bool carregaXml(string token)
+        public bool carregaXml(string token, DadosWEB dados)
         {
             
             checkAuthentication(token, false);
             bool resultado = false;
-            ContaWEB c = new ContaWEB();
-
-            c = tokens[token].Conta;
-
+            
             try
             {
-                OperacoesXML.guardarTeste(c, FILEPATH);
+                OperacoesXML.guardarXML(dados, FILEPATH);
                 resultado = true;
             }
             catch (Exception ex)
@@ -222,15 +219,15 @@ namespace WCFPata
         }
 
             //Ler dados XML do APPDATA
-        public List<ContaWEB> lerContasXML(string token)
+        public List<SintomaWEB> lerSintomasXML(string token)
         {
             //
             checkAuthentication(token, false);
             //bool resultado = false;
-            List<ContaWEB> lista = new List<ContaWEB>();
+            List<SintomaWEB> lista = new List<SintomaWEB>();
             try
             {
-                lista = OperacoesXML.lerContasFicheiroXml(FILEPATH);
+                lista = OperacoesXML.getListaSintomas(FILEPATH);
                 //resultado = true;
             }
             catch (Exception ex)
