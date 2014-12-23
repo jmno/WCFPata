@@ -13,7 +13,8 @@ namespace WCFPata
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-        [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+        
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
 
     public class Service1 : IService1
     {
@@ -239,5 +240,28 @@ namespace WCFPata
 
             return lista;
         }
+        public List<PacienteWEB> getAllPacientes(string token)
+        {
+            checkAuthentication(token, false);
+
+            List<PacienteWEB> lista = new List<PacienteWEB>();
+            List<Paciente> listaP = handler.getAllPacientes();
+
+            foreach (Paciente p in listaP) 
+            {
+                PacienteWEB pa = new PacienteWEB();
+                pa.cc = p.cc;
+                pa.dataNasc = p.dataNasc;
+                pa.id = p.Id;
+                pa.morada = p.morada;
+                pa.nome = p.nome;
+                pa.telefone = p.telefone;
+                pa.terapeutaID = p.Terapeuta.Id;
+                lista.Add(pa);
+            }
+
+            return lista;
+        }
+
     }
 }

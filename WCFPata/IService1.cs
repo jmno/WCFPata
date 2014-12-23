@@ -61,30 +61,34 @@ namespace WCFPata
         UriTemplate = "lerSintomasXML?token={token}")]
         List<SintomaWEB> lerSintomasXML(string token);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "getAllPacientes?token={token}")]
+        List<PacienteWEB> getAllPacientes(string token);
+
       
     }
 
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class PacienteWEB
     {
-        bool boolValue = true;
-        string stringValue = "Hello MAN ";
-
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
+        public int id { get; set; }
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public string nome { get; set; }
+        [DataMember]
+        public DateTime dataNasc { get; set; }
+        [DataMember]
+        public string morada { get; set; }
+        [DataMember]
+        public string cc { get; set; }
+        [DataMember]
+        public string telefone { get; set; }
+        [DataMember]
+        public int terapeutaID { get; set; }
+
     }
 
     [DataContract]

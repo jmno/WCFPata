@@ -44,5 +44,10 @@ namespace WCFPata
             return listaContas;
         }
 
+        public List<Paciente> getAllPacientes() 
+        {
+            return modelo.PacienteSet.ToList();
+        }
+
     }
 }
