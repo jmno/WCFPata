@@ -231,7 +231,6 @@ namespace WCFPata
         public List<PacienteWEB> getAllPacientes(string token)
         {
             checkAuthentication(token, false);
-
             List<PacienteWEB> lista = new List<PacienteWEB>();
             List<Paciente> listaP = handler.getAllPacientes();
 
@@ -250,6 +249,32 @@ namespace WCFPata
 
             return lista;
         }
+
+
+        public List<PacienteWEB> getAllPacientesByTerapeuta(string token)
+        {
+            checkAuthentication(token, false);
+
+            int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
+            List<PacienteWEB> lista = new List<PacienteWEB>();
+            List<Paciente> listaP = handler.getAllPacientesByTerapeuta(idConta);
+
+            foreach (Paciente p in listaP) 
+            {
+                PacienteWEB pa = new PacienteWEB();
+                pa.cc = p.cc;
+                pa.dataNasc = p.dataNasc;
+                pa.id = p.Id;
+                pa.morada = p.morada;
+                pa.nome = p.nome;
+                pa.telefone = p.telefone;
+                pa.terapeutaID = p.Terapeuta.Id;
+                lista.Add(pa);
+            }
+
+            return lista;
+        }
+        
 
     }
 }

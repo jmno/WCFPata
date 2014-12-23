@@ -49,5 +49,12 @@ namespace WCFPata
             return modelo.PacienteSet.ToList();
         }
 
+        public List<Paciente> getAllPacientesByTerapeuta(int idConta)
+        {
+            int idTerapeuta = modelo.TerapeutaSet.Where(i => i.Conta.Id == idConta).First().Id;
+            return modelo.PacienteSet.Where(i => i.Terapeuta.Id == idTerapeuta).ToList();
+        }
+
+
     }
 }
