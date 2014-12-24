@@ -56,5 +56,13 @@ namespace WCFPata
         }
 
 
+        public List<EpisodioClinico> getAllEpisodiosByIDPaciente(int idPaciente)
+        {
+           
+            return modelo.EpisodioClinicoSet.Where(i => i.Paciente.Id == idPaciente).ToList();
+        }
+
+
+
     }
 }

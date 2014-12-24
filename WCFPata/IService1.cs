@@ -73,6 +73,12 @@ namespace WCFPata
         UriTemplate = "getAllPacientesByTerapeuta?token={token}")]
         List<PacienteWEB> getAllPacientesByTerapeuta(string token);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "getAllEpisodiosByIDPaciente?token={token}&idPaciente={idPaciente}")]
+        List<EpisodioClinicoWEB> getAllEpisodiosByIDPaciente(string token, int idPaciente);
+
       
     }
 
@@ -85,7 +91,7 @@ namespace WCFPata
         [DataMember]
         public string nome { get; set; }
         [DataMember]
-        public DateTime dataNasc { get; set; }
+        public string dataNasc { get; set; }
         [DataMember]
         public string morada { get; set; }
         [DataMember]
@@ -145,6 +151,23 @@ namespace WCFPata
 
     }
 
+
+    [DataContract]
+    public class EpisodioClinicoWEB
+    {
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public string data { get; set; }
+        [DataMember]
+        public string diagnostico { get; set; }
+        [DataMember]
+        public List<SintomaWEB> listaSintomas { get; set; }
+        [DataMember]
+        public int idPaciente { get; set; }
+    }
+
+   
 
 
 }

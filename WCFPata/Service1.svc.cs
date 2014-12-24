@@ -238,7 +238,7 @@ namespace WCFPata
             {
                 PacienteWEB pa = new PacienteWEB();
                 pa.cc = p.cc;
-                pa.dataNasc = p.dataNasc;
+                pa.dataNasc = p.dataNasc.Day.ToString() + "/" + p.dataNasc.Month.ToString() + "/" + p.dataNasc.Year.ToString();
                 pa.id = p.Id;
                 pa.morada = p.morada;
                 pa.nome = p.nome;
@@ -263,7 +263,7 @@ namespace WCFPata
             {
                 PacienteWEB pa = new PacienteWEB();
                 pa.cc = p.cc;
-                pa.dataNasc = p.dataNasc;
+                pa.dataNasc = p.dataNasc.Day.ToString()+"/"+p.dataNasc.Month.ToString()+"/"+p.dataNasc.Year.ToString();
                 pa.id = p.Id;
                 pa.morada = p.morada;
                 pa.nome = p.nome;
@@ -273,6 +273,36 @@ namespace WCFPata
             }
 
             return lista;
+        }
+
+        public List<EpisodioClinicoWEB> getAllEpisodiosByIDPaciente(string token, int idPaciente) 
+        {
+            checkAuthentication(token, false);
+
+            List<EpisodioClinicoWEB> lista = new List<EpisodioClinicoWEB>();
+            List<EpisodioClinico> listaE = handler.getAllEpisodiosByIDPaciente(idPaciente);
+
+            foreach (EpisodioClinico p in listaE)
+            {
+                EpisodioClinicoWEB pa = new EpisodioClinicoWEB();
+                pa.data = p.data.Day.ToString() + "/" + p.data.Month.ToString() + "/" + p.data.Year.ToString();
+                pa.diagnostico = p.diagnostico;
+                pa.id = p.Id;
+                pa.idPaciente = p.Paciente.Id;
+                List<SintomaWEB> listaSin = new List<SintomaWEB>();
+                foreach (Sintoma s in p.Sintoma.ToList())
+                {
+                    SintomaWEB si = new SintomaWEB();
+                    si.nome = s.nome;
+                    listaSin.Add(si);
+                }
+                pa.listaSintomas = listaSin;
+               
+                lista.Add(pa);
+            }
+
+            return lista;
+
         }
         
 
