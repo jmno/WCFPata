@@ -79,6 +79,18 @@ namespace WCFPata
         UriTemplate = "getAllEpisodiosByIDPaciente?token={token}&idPaciente={idPaciente}")]
         List<EpisodioClinicoWEB> getAllEpisodiosByIDPaciente(string token, int idPaciente);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "addPaciente?token={token}")]
+        bool addPaciente(string token, PacienteWEB paciente);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "editPaciente?token={token}")]
+        bool editPaciente(string token, PacienteWEB paciente);
       
     }
 

@@ -304,6 +304,43 @@ namespace WCFPata
             return lista;
 
         }
+
+        public bool addPaciente(string token, PacienteWEB paciente)
+        {
+            checkAuthentication(token, false);
+            bool resultado = false;
+
+            int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
+            Paciente p = new Paciente();
+            p.cc = paciente.cc;
+            p.dataNasc = Convert.ToDateTime(paciente.dataNasc);
+            p.morada = paciente.morada;
+            p.nome = paciente.nome;
+            p.telefone = paciente.telefone;
+            p.Terapeuta = handler.getTerapeutaByID(idConta);
+            resultado = handler.addPaciente(p);
+
+            return resultado;
+        }
+
+        public bool editPaciente(string token, PacienteWEB paciente)
+        {
+            checkAuthentication(token, false);
+            bool resultado = false;
+
+            int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
+            Paciente p = new Paciente();
+            p.cc = paciente.cc;
+            p.dataNasc = Convert.ToDateTime(paciente.dataNasc);
+            p.morada = paciente.morada;
+            p.nome = paciente.nome;
+            p.telefone = paciente.telefone;
+            p.Terapeuta = handler.getTerapeutaByID(idConta);
+            p.Id = paciente.id;
+            resultado = handler.editPaciente(p);
+
+            return resultado;
+        }
         
 
     }

@@ -62,6 +62,40 @@ namespace WCFPata
             return modelo.EpisodioClinicoSet.Where(i => i.Paciente.Id == idPaciente).ToList();
         }
 
+        public bool addPaciente(Paciente p)
+        {
+
+            try
+            {
+                modelo.PacienteSet.Add(p);
+                modelo.SaveChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
+        public Terapeuta getTerapeutaByID(int idConta)
+        {
+            return modelo.TerapeutaSet.Where(i => i.Conta.Id == idConta).First();
+        }
+
+        public bool editPaciente(Paciente p)
+        {
+
+            try
+            {
+                Paciente paciente = modelo.PacienteSet.Where(i=> i.Id == p.Id).First();
+                paciente.morada = p.morada;
+                paciente.telefone = p.telefone;
+                paciente.nome = p.nome;
+                paciente.cc = p.cc;
+                paciente.dataNasc = p.dataNasc;
+                modelo.SaveChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
 
 
     }
