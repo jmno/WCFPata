@@ -84,7 +84,7 @@ namespace WCFPata
 
             try
             {
-                Paciente paciente = modelo.PacienteSet.Where(i=> i.Id == p.Id).First();
+                Paciente paciente = modelo.PacienteSet.Single(i=> i.Id == p.Id);
                 paciente.morada = p.morada;
                 paciente.telefone = p.telefone;
                 paciente.nome = p.nome;
