@@ -345,7 +345,7 @@ namespace WCFPata
         public DateTime getData(string data) 
         {
             DateTime result = new DateTime();
-            DateTime date;
+            DateTime date = new DateTime();
             if (DateTime.TryParseExact(data, "dd'/'MM'/'yyyy",
                            CultureInfo.InvariantCulture,
                            DateTimeStyles.None,
