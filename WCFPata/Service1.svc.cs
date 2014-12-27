@@ -23,12 +23,13 @@ namespace WCFPata
         private Dictionary<string, ContaWEB> contas;
         private Dictionary<string, Token> tokens;
         private static string FILEPATH;
-
+         
         public Service1() {
 
             this.contas = new Dictionary<string, ContaWEB>();
             this.tokens = new Dictionary<string, Token>();
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
+            System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
         }
         public string GetData(int value)
         {
@@ -309,11 +310,11 @@ namespace WCFPata
         {
             checkAuthentication(token, false);
             bool resultado = false;
-
             int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
             Paciente p = new Paciente();
             p.cc = paciente.cc;
-            DateTime date = DateTime.ParseExact(paciente.dataNasc, "dd/MM/yyyy", null);
+
+            DateTime date = DateTime.Parse(paciente.dataNasc);
             p.dataNasc = date;
             p.morada = paciente.morada;
             p.nome = paciente.nome;
@@ -332,7 +333,7 @@ namespace WCFPata
             int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
             Paciente p = new Paciente();
             p.cc = paciente.cc;
-            DateTime date = DateTime.ParseExact(paciente.dataNasc, "dd/MM/yyyy", null);
+            DateTime date = DateTime.Parse(paciente.dataNasc);
             p.dataNasc = date;
             p.morada = paciente.morada;
             p.nome = paciente.nome;
