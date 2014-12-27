@@ -313,9 +313,7 @@ namespace WCFPata
             int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
             Paciente p = new Paciente();
             p.cc = paciente.cc;
-
-            DateTime date = DateTime.Parse(paciente.dataNasc);
-            p.dataNasc = date;
+            p.dataNasc = getData(paciente.dataNasc.ToString());
             p.morada = paciente.morada;
             p.nome = paciente.nome;
             p.telefone = paciente.telefone;
@@ -333,8 +331,7 @@ namespace WCFPata
             int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
             Paciente p = new Paciente();
             p.cc = paciente.cc;
-            DateTime date = DateTime.Parse(paciente.dataNasc);
-            p.dataNasc = date;
+            p.dataNasc = getData(paciente.dataNasc.ToString());
             p.morada = paciente.morada;
             p.nome = paciente.nome;
             p.telefone = paciente.telefone;
@@ -343,6 +340,21 @@ namespace WCFPata
             resultado = handler.editPaciente(p);
 
             return resultado;
+        }
+
+        public DateTime getData(string data) 
+        {
+            DateTime result = new DateTime();
+            DateTime date;
+            if (DateTime.TryParseExact(data, "dd'/'MM'/'yyyy",
+                           CultureInfo.InvariantCulture,
+                           DateTimeStyles.None,
+                           out date))
+                result = date;
+
+           
+
+            return result;
         }
         
 
