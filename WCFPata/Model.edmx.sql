@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 12/12/2014 11:26:03
+-- Date Created: 12/27/2014 01:39:49
 -- Generated from EDMX file: \\vmware-host\Shared Folders\Documents\Visual Studio 2012\Projects\ProjetoIS\WCFPata\WCFPata\Model.edmx
 -- --------------------------------------------------
 
@@ -23,14 +23,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_TerapeutaPaciente]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PacienteSet] DROP CONSTRAINT [FK_TerapeutaPaciente];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PacienteEpisodioClinico]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EpisodioClinicoSet] DROP CONSTRAINT [FK_PacienteEpisodioClinico];
-GO
 IF OBJECT_ID(N'[dbo].[FK_EpisodioClinicoSintoma_EpisodioClinico]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EpisodioClinicoSintoma] DROP CONSTRAINT [FK_EpisodioClinicoSintoma_EpisodioClinico];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EpisodioClinicoSintoma_Sintoma]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EpisodioClinicoSintoma] DROP CONSTRAINT [FK_EpisodioClinicoSintoma_Sintoma];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EpisodioClinicoPaciente]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EpisodioClinicoSet] DROP CONSTRAINT [FK_EpisodioClinicoPaciente];
 GO
 
 -- --------------------------------------------------
@@ -88,7 +88,7 @@ CREATE TABLE [dbo].[PacienteSet] (
     [morada] nvarchar(max)  NOT NULL,
     [cc] nvarchar(max)  NOT NULL,
     [telefone] nvarchar(max)  NOT NULL,
-    [Terapeuta_Id] int  NOT NULL
+    [Terapeuta_Id] int  NULL
 );
 GO
 

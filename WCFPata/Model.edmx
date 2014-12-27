@@ -63,7 +63,7 @@
     <Property Name="morada" Type="nvarchar(max)" Nullable="false" />
     <Property Name="cc" Type="nvarchar(max)" Nullable="false" />
     <Property Name="telefone" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Terapeuta_Id" Type="int" Nullable="false" />
+    <Property Name="Terapeuta_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="EpisodioClinicoSet">
     <Key>
@@ -102,7 +102,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TerapeutaPaciente">
-    <End Role="Terapeuta" Type="Model.Store.TerapeutaSet" Multiplicity="1" />
+    <End Role="Terapeuta" Type="Model.Store.TerapeutaSet" Multiplicity="0..1" />
     <End Role="Paciente" Type="Model.Store.PacienteSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Terapeuta">
@@ -216,7 +216,7 @@
           <NavigationProperty Name="EpisodioClinico" Relationship="Model.EpisodioClinicoPaciente" FromRole="Paciente" ToRole="EpisodioClinico" />
         </EntityType>
         <Association Name="TerapeutaPaciente">
-          <End Type="Model.Terapeuta" Role="Terapeuta" Multiplicity="1" />
+          <End Type="Model.Terapeuta" Role="Terapeuta" Multiplicity="0..1" />
           <End Type="Model.Paciente" Role="Paciente" Multiplicity="*" />
         </Association>
         <EntityType Name="EpisodioClinico">
@@ -316,6 +316,7 @@
       <EndProperty Name="Paciente">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Terapeuta_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="EpisodioClinicoSintoma" TypeName="Model.EpisodioClinicoSintoma" StoreEntitySet="EpisodioClinicoSintoma">
       <EndProperty Name="EpisodioClinico">
