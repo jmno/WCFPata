@@ -12,16 +12,16 @@ namespace WCFPata
         
        
 
-        public static List<ContaWEB> lerContasFicheiroXml(String path) 
+        public static List<ContaWeb> lerContasFicheiroXml(String path) 
         {
-            List<ContaWEB> lista = new List<ContaWEB>();
+            List<ContaWeb> lista = new List<ContaWeb>();
             String xpath = "//Conta";
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlNodeList nodeList = doc.SelectNodes(xpath);
             foreach (XmlNode node in nodeList)
             {
-                ContaWEB c = new ContaWEB();
+                ContaWeb c = new ContaWeb();
                 c.username = node.ChildNodes[0].InnerText.ToString();
                 c.password = node.ChildNodes[1].InnerText.ToString();
                 c.isAdmin = Boolean.Parse(node.ChildNodes[2].InnerText.ToString());

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace WCFPata
 {
     public class HandlerBD
@@ -44,7 +45,7 @@ namespace WCFPata
             return listaContas;
         }
 
-        public List<Paciente> getAllPacientes() 
+        public List<Paciente> getAllPacientes()
         {
             return modelo.PacienteSet.ToList();
         }
@@ -58,7 +59,7 @@ namespace WCFPata
 
         public List<EpisodioClinico> getAllEpisodiosByIDPaciente(int idPaciente)
         {
-           
+
             return modelo.EpisodioClinicoSet.Where(i => i.Paciente.Id == idPaciente).ToList();
         }
 
@@ -84,7 +85,7 @@ namespace WCFPata
 
             try
             {
-                Paciente paciente = modelo.PacienteSet.Single(i=> i.Id == p.Id);
+                Paciente paciente = modelo.PacienteSet.Single(i => i.Id == p.Id);
                 paciente.morada = p.morada;
                 paciente.telefone = p.telefone;
                 paciente.nome = p.nome;
