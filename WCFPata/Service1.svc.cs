@@ -365,29 +365,29 @@ namespace WCFPata
         {
 
             checkAuthentication(token, false);
-            bool resultado = false;
 
             Conta c = new Conta();
             c.username = conta.username;
             c.password = conta.password;
             c.isAdmin = conta.isAdmin;
             int idConta=handler.addConta(c);
-
-
-
+                        
             return idConta;
         }
 
         public bool addTerapeuta(string token,TerapeutaWEB terapeuta)
         {
+            bool resultado = false;
+            checkAuthentication(token, false);
             Terapeuta t = new Terapeuta();
             t.Conta = handler.getContaByID(terapeuta.contaID);
             t.nome = terapeuta.nome;
             t.cc = terapeuta.cc;
             t.dataNasc = getData(terapeuta.dataNasc);
             t.telefone = terapeuta.telefone;
-            
-            return false;
+          resultado= handler.addTerapeuta(t);
+
+            return resultado;
         }
 
 
