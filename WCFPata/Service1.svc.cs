@@ -254,6 +254,7 @@ namespace WCFPata
 
         public List<PacienteWEB> getAllPacientesByTerapeuta(string token)
         {
+            //---------????-------------------------
             checkAuthentication(token, false);
 
             int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
