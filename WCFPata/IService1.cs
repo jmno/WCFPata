@@ -116,7 +116,7 @@ namespace WCFPata
     }
 
     [DataContract]
-    public class ContaWeb
+    public class ContaWEB
     {
         [DataMember]
         public int id { get; set; }

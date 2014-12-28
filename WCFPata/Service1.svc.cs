@@ -20,13 +20,13 @@ namespace WCFPata
     {
 
         HandlerBD handler = new HandlerBD();
-        private Dictionary<string, ContaWeb> contas;
+        private Dictionary<string, ContaWEB> contas;
         private Dictionary<string, Token> tokens;
         private static string FILEPATH;
          
         public Service1() {
 
-            this.contas = new Dictionary<string, ContaWeb>();
+            this.contas = new Dictionary<string, ContaWEB>();
             this.tokens = new Dictionary<string, Token>();
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
             
@@ -44,11 +44,11 @@ namespace WCFPata
             private DateTime dataLogin;
             private DateTime dataExpirar;
             private int HORAS;
-            private ContaWeb conta;
+            private ContaWEB conta;
 
-            public Token(ContaWeb conta) : this(conta, DateTime.Now) { }
+            public Token(ContaWEB conta) : this(conta, DateTime.Now) { }
 
-            public Token(ContaWeb conta, DateTime dataLogin)
+            public Token(ContaWEB conta, DateTime dataLogin)
             {
                 HORAS = 10;
                 this.value = Guid.NewGuid().ToString();
@@ -59,7 +59,7 @@ namespace WCFPata
 
             public string Value { get { return value; } }
             public DateTime DataExpirar { get { return dataExpirar; } }
-            public ContaWeb Conta { get { return conta; } }
+            public ContaWEB Conta { get { return conta; } }
             public string Username { get { return conta.username; } }
             //  public void UpdateTimeout() { UpdateTimeout(240000); }
             // public void UpdateTimeout(long timeout) { this.timeout = Environment.TickCount + timeout; }
@@ -89,12 +89,12 @@ namespace WCFPata
 
         private void lercontasBD()
         {
-            List<ContaWeb> listaContasWeb = new List<ContaWeb>();
+            List<ContaWEB> listaContasWeb = new List<ContaWEB>();
             List<Conta> listaConta = handler.getContas();
 
             foreach (Conta c in listaConta)
             {
-                ContaWeb con = new ContaWeb();
+                ContaWEB con = new ContaWEB();
                 con.username = c.username;
                 con.password = c.password;
                 con.isAdmin = c.isAdmin;
@@ -107,9 +107,9 @@ namespace WCFPata
 
         }
 
-        private bool verificaConta(ContaWeb con)
+        private bool verificaConta(ContaWEB con)
         {
-            foreach (KeyValuePair<String, ContaWeb> c in contas)
+            foreach (KeyValuePair<String, ContaWEB> c in contas)
             {
                 if (c.Value.username.Equals(con.username))
                     return true;
@@ -360,7 +360,7 @@ namespace WCFPata
             return result;
         }
 
-        public int guardarUtilizador(string token,ContaWeb conta)
+        public int guardarUtilizador(string token,ContaWEB conta)
         {
 
             checkAuthentication(token, false);
