@@ -88,7 +88,7 @@ namespace WCFPata
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "editPaciente?token={token}")]
         bool editPaciente(string token, PacienteWEB paciente);
-      
+
     }
 
 
@@ -129,11 +129,26 @@ namespace WCFPata
     }
 
     [DataContract]
+    public class AccountWEB
+    {
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public string username { get; set; }
+        [DataMember]
+        public string password { get; set; }
+        [DataMember]
+        public Boolean isAdmin { get; set; }
+
+
+    }
+
+    [DataContract]
     public class SintomaWEB
     {
         [DataMember]
         public string nome { get; set; }
-       
+
     }
 
     [DataContract]
@@ -153,12 +168,12 @@ namespace WCFPata
     [DataContract]
     public class DadosWEB
     {
-        
+
         [DataMember]
         public List<SintomaWEB> listaSintomas { get; set; }
         [DataMember]
         public List<DiagnosticoWEB> listaDiagnosticos { get; set; }
-        
+
 
     }
 
@@ -178,7 +193,7 @@ namespace WCFPata
         public int idPaciente { get; set; }
     }
 
-   
+
 
 
 }
