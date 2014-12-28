@@ -124,24 +124,8 @@ namespace WCFPata
         [DataMember]
         public Boolean isAdmin { get; set; }
 
-        public ContaWEB() { }
-
     }
 
-    [DataContract]
-    public class AccountWEB
-    {
-        [DataMember]
-        public int id { get; set; }
-        [DataMember]
-        public string username { get; set; }
-        [DataMember]
-        public string password { get; set; }
-        [DataMember]
-        public Boolean isAdmin { get; set; }
-
-
-    }
 
     [DataContract]
     public class SintomaWEB
@@ -191,6 +175,13 @@ namespace WCFPata
         public List<SintomaWEB> listaSintomas { get; set; }
         [DataMember]
         public int idPaciente { get; set; }
+    }
+
+    [DataContract]
+    public class e
+    {
+        [DataMember]
+        public int id { get; set; }
     }
 
 
