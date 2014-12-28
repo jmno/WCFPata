@@ -93,7 +93,7 @@ namespace WCFPata
         [WebInvoke(Method = "POST",
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "addConta?token={token}")]
-        bool addConta(string token, ContaWEB conta);
+        int addConta(string token, ContaWEB conta);
 
         [OperationContract]
         [WebInvoke(Method = "POST",

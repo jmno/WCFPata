@@ -361,7 +361,7 @@ namespace WCFPata
             return result;
         }
 
-        public bool addConta(string token, ContaWEB conta)
+        public int addConta(string token, ContaWEB conta)
         {
 
             checkAuthentication(token, false);
@@ -371,10 +371,11 @@ namespace WCFPata
             c.username = conta.username;
             c.password = conta.password;
             c.isAdmin = conta.isAdmin;
+            int idConta=handler.addConta(c);
 
 
 
-            return resultado;
+            return idConta;
         }
 
         public bool addTerapeuta(string token,TerapeutaWEB terapeuta)

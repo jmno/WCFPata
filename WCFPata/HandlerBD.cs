@@ -80,6 +80,8 @@ namespace WCFPata
             return modelo.TerapeutaSet.Where(i => i.Conta.Id == idConta).First();
         }
 
+
+
         public bool editPaciente(Paciente p)
         {
 
@@ -96,6 +98,24 @@ namespace WCFPata
             }
             catch { return false; }
         }
+
+        public int addConta(Conta conta)
+        {
+            int idConta = -1;
+            try
+            {
+                modelo.ContaSet.Add(conta);
+                modelo.SaveChanges();
+
+                Conta c = modelo.ContaSet.Where(x => x.Id == conta.Id).First();
+                idConta = c.Id;
+
+                return idConta;
+            }
+            catch { return idConta; }
+        }
+
+
 
 
 
