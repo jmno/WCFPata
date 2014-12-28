@@ -99,7 +99,7 @@ namespace WCFPata
         [WebInvoke(Method = "POST",
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "addTerapeuta?token={token}")]
-        bool addTerapeuta(string token, TerapeutaWEB terapeuta);
+        string addTerapeuta(string token, TerapeutaWEB terapeuta);
 
     }
 

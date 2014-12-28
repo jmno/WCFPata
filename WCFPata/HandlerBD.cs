@@ -123,20 +123,20 @@ namespace WCFPata
             return modelo.ContaSet.Where(i => i.Id == idConta).First();
         }
 
-        public bool addTerapeuta(Terapeuta t)
+        public string addTerapeuta(Terapeuta t)
         {
 
             try
             {
                 modelo.TerapeutaSet.Add(t);
                 modelo.SaveChanges();
-                return true;
+                return "ok";
             }
-            catch
+            catch(Exception e)
             {
 
 
-                return false;
+                return "Excecao"+e.StackTrace;
             }
         }
 

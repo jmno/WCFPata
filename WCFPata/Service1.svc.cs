@@ -375,9 +375,9 @@ namespace WCFPata
             return idConta;
         }
 
-        public bool addTerapeuta(string token,TerapeutaWEB terapeuta)
+        public string addTerapeuta(string token,TerapeutaWEB terapeuta)
         {
-            bool resultado = false;
+            string resultado = "";
             checkAuthentication(token, false);
             Terapeuta t = new Terapeuta();
             t.Conta = handler.getContaByID(terapeuta.contaID);
@@ -385,7 +385,7 @@ namespace WCFPata
             t.cc = terapeuta.cc;
             t.dataNasc = getData(terapeuta.dataNasc);
             t.telefone = terapeuta.telefone;
-          resultado= handler.addTerapeuta(t);
+            resultado= handler.addTerapeuta(t);
 
             return resultado;
         }
