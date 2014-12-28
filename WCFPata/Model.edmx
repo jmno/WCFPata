@@ -48,7 +48,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="cc" Type="int" Nullable="false" />
+    <Property Name="cc" Type="nvarchar(max)" Nullable="false" />
     <Property Name="telefone" Type="nvarchar(max)" Nullable="false" />
     <Property Name="dataNasc" Type="datetime" Nullable="false" />
     <Property Name="Conta_Id" Type="int" Nullable="false" />
@@ -192,7 +192,7 @@
           </Key>
           <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <Property Name="nome" Type="String" Nullable="false" />
-          <Property Name="cc" Type="Int32" Nullable="false" />
+          <Property Name="cc" Type="String" Nullable="false" />
           <NavigationProperty Name="Conta" Relationship="Model.TerapeutaConta" FromRole="Terapeuta" ToRole="Conta" />
           <NavigationProperty Name="Paciente" Relationship="Model.TerapeutaPaciente" FromRole="Terapeuta" ToRole="Paciente" />
           <Property Name="telefone" Type="String" Nullable="false" />

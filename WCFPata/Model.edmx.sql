@@ -1,9 +1,9 @@
 
 -- --------------------------------------------------
--- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
+-- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/27/2014 01:39:49
--- Generated from EDMX file: \\vmware-host\Shared Folders\Documents\Visual Studio 2012\Projects\ProjetoIS\WCFPata\WCFPata\Model.edmx
+-- Date Created: 12/28/2014 21:58:37
+-- Generated from EDMX file: C:\Users\nelson\Desktop\IS_3o_Ano_1S\IS\ProjetoInterS\WCFPata\WCFPata\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -73,7 +73,7 @@ GO
 CREATE TABLE [dbo].[TerapeutaSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [nome] nvarchar(max)  NOT NULL,
-    [cc] int  NOT NULL,
+    [cc] nvarchar(max)  NOT NULL,
     [telefone] nvarchar(max)  NOT NULL,
     [dataNasc] datetime  NOT NULL,
     [Conta_Id] int  NOT NULL
@@ -152,7 +152,7 @@ GO
 -- Creating primary key on [EpisodioClinico_Id], [Sintoma_Id] in table 'EpisodioClinicoSintoma'
 ALTER TABLE [dbo].[EpisodioClinicoSintoma]
 ADD CONSTRAINT [PK_EpisodioClinicoSintoma]
-    PRIMARY KEY NONCLUSTERED ([EpisodioClinico_Id], [Sintoma_Id] ASC);
+    PRIMARY KEY CLUSTERED ([EpisodioClinico_Id], [Sintoma_Id] ASC);
 GO
 
 -- --------------------------------------------------

@@ -134,7 +134,7 @@ namespace WCFPata
         [DataMember]
         public string dataNasc { get; set; }
         [DataMember]
-        public string morada { get; set; }
+        public string telefone { get; set; }
         [DataMember]
         public string cc { get; set; }
         [DataMember]

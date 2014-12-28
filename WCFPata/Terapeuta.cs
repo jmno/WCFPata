@@ -21,7 +21,7 @@ namespace WCFPata
     
         public int Id { get; set; }
         public string nome { get; set; }
-        public int cc { get; set; }
+        public string cc { get; set; }
         public string telefone { get; set; }
         public System.DateTime dataNasc { get; set; }
     

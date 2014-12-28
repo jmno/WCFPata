@@ -381,8 +381,12 @@ namespace WCFPata
         public bool addTerapeuta(string token,TerapeutaWEB terapeuta)
         {
             Terapeuta t = new Terapeuta();
+            t.Conta = handler.getContaByID(terapeuta.contaID);
+            t.nome = terapeuta.nome;
+            t.cc = terapeuta.cc;
+            t.dataNasc = getData(terapeuta.dataNasc);
+            t.telefone = terapeuta.telefone;
             
-
             return false;
         }
 

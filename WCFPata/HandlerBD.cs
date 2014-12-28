@@ -115,7 +115,22 @@ namespace WCFPata
             catch { return idConta; }
         }
 
+        public Conta getContaByID(int idConta)
+        {
+            return modelo.ContaSet.Where(i => i.Id == idConta).First();
+        }
 
+        public bool addTerapeuta(Terapeuta t)
+        {
+
+            try
+            {
+                modelo.TerapeutaSet.Add(t);
+                modelo.SaveChanges();
+                return true;
+            }
+            catch { return false; }
+        }
 
 
 
