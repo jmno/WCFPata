@@ -137,6 +137,9 @@ namespace WCFPata
         public string morada { get; set; }
         [DataMember]
         public string cc { get; set; }
+        [DataMember]
+        public int contaID { get; set; }
+
 
 
     }
