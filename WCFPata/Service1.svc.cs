@@ -360,16 +360,16 @@ namespace WCFPata
             return result;
         }
 
-        public int guardarUtilizador(string token,ContaWEB conta)
+        public bool addConta(string token,ContaWEB conta)
         {
 
             checkAuthentication(token, false);
-
-            
-
+            bool resultado = false;
 
 
-            return -1;
+
+
+            return resultado;
         }
         
 

@@ -89,6 +89,9 @@ namespace WCFPata
         UriTemplate = "editPaciente?token={token}")]
         bool editPaciente(string token, PacienteWEB paciente);
 
+        [OperationContract]
+        bool addConta(string token, ContaWEB conta);
+
     }
 
 
