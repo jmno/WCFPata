@@ -112,7 +112,10 @@ namespace WCFPata
 
                 return idConta;
             }
-            catch { return idConta; }
+            catch
+            {
+                return idConta;
+            }
         }
 
         public Conta getContaByID(int idConta)
@@ -129,7 +132,12 @@ namespace WCFPata
                 modelo.SaveChanges();
                 return true;
             }
-            catch { return false; }
+            catch
+            {
+
+
+                return false;
+            }
         }
 
 
