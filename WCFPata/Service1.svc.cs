@@ -377,7 +377,7 @@ namespace WCFPata
             return resultado;
         }
 
-        public bool addTerapeuta(TerapeutaWEB terapeuta)
+        public bool addTerapeuta(string token,TerapeutaWEB terapeuta)
         {
             Terapeuta t = new Terapeuta();
             
