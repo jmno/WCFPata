@@ -95,6 +95,12 @@ namespace WCFPata
         UriTemplate = "addConta?token={token}")]
         bool addConta(string token, ContaWEB conta);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "addTerapeuta?token={token}")]
+        bool addTerapeuta(string token, TerapeutaWEB terapeuta);
+
     }
 
 
@@ -115,6 +121,23 @@ namespace WCFPata
         public string telefone { get; set; }
         [DataMember]
         public int terapeutaID { get; set; }
+
+    }
+
+    [DataContract]
+    public class TerapeutaWEB
+    {
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public string nome { get; set; }
+        [DataMember]
+        public string dataNasc { get; set; }
+        [DataMember]
+        public string morada { get; set; }
+        [DataMember]
+        public string cc { get; set; }
+
 
     }
 
@@ -183,12 +206,7 @@ namespace WCFPata
         public int idPaciente { get; set; }
     }
 
-    [DataContract]
-    public class e
-    {
-        [DataMember]
-        public int id { get; set; }
-    }
+
 
 
 

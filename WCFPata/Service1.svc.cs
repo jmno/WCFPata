@@ -13,7 +13,7 @@ namespace WCFPata
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-        
+
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
 
     public class Service1 : IService1
@@ -23,13 +23,14 @@ namespace WCFPata
         private Dictionary<string, ContaWEB> contas;
         private Dictionary<string, Token> tokens;
         private static string FILEPATH;
-         
-        public Service1() {
+
+        public Service1()
+        {
 
             this.contas = new Dictionary<string, ContaWEB>();
             this.tokens = new Dictionary<string, Token>();
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
-            
+
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
         }
         public string GetData(int value)
@@ -37,7 +38,7 @@ namespace WCFPata
             return string.Format("You entered: {0}", value);
         }
 
-       
+
         private class Token
         {
             private string value;
@@ -187,13 +188,13 @@ namespace WCFPata
 
 
 
-            //Escrever XML NO APPDATA
+        //Escrever XML NO APPDATA
         public bool carregaXml(string token, DadosWEB dados)
         {
-            
+
             checkAuthentication(token, false);
             bool resultado = false;
-            
+
             try
             {
                 OperacoesXML.guardarXML(dados, FILEPATH);
@@ -209,7 +210,7 @@ namespace WCFPata
             return resultado;
         }
 
-            //Ler dados XML do APPDATA
+        //Ler dados XML do APPDATA
         public List<SintomaWEB> lerSintomasXML(string token)
         {
             //
@@ -236,7 +237,7 @@ namespace WCFPata
             List<PacienteWEB> lista = new List<PacienteWEB>();
             List<Paciente> listaP = handler.getAllPacientes();
 
-            foreach (Paciente p in listaP) 
+            foreach (Paciente p in listaP)
             {
                 PacienteWEB pa = new PacienteWEB();
                 pa.cc = p.cc;
@@ -262,11 +263,11 @@ namespace WCFPata
             List<PacienteWEB> lista = new List<PacienteWEB>();
             List<Paciente> listaP = handler.getAllPacientesByTerapeuta(idConta);
 
-            foreach (Paciente p in listaP) 
+            foreach (Paciente p in listaP)
             {
                 PacienteWEB pa = new PacienteWEB();
                 pa.cc = p.cc;
-                pa.dataNasc = p.dataNasc.Day.ToString()+"/"+p.dataNasc.Month.ToString()+"/"+p.dataNasc.Year.ToString();
+                pa.dataNasc = p.dataNasc.Day.ToString() + "/" + p.dataNasc.Month.ToString() + "/" + p.dataNasc.Year.ToString();
                 pa.id = p.Id;
                 pa.morada = p.morada;
                 pa.nome = p.nome;
@@ -278,7 +279,7 @@ namespace WCFPata
             return lista;
         }
 
-        public List<EpisodioClinicoWEB> getAllEpisodiosByIDPaciente(string token, int idPaciente) 
+        public List<EpisodioClinicoWEB> getAllEpisodiosByIDPaciente(string token, int idPaciente)
         {
             checkAuthentication(token, false);
 
@@ -300,10 +301,10 @@ namespace WCFPata
                     listaSin.Add(si);
                 }
                 pa.listaSintomas = listaSin;
-               
+
                 lista.Add(pa);
             }
-            
+
 
             return lista;
 
@@ -345,7 +346,7 @@ namespace WCFPata
             return resultado;
         }
 
-        public DateTime getData(string data) 
+        public DateTime getData(string data)
         {
             DateTime result = new DateTime();
             DateTime date = new DateTime();
@@ -355,23 +356,35 @@ namespace WCFPata
                            out date))
                 result = date;
 
-           
+
 
             return result;
         }
 
-        public bool addConta(string token,ContaWEB conta)
+        public bool addConta(string token, ContaWEB conta)
         {
 
             checkAuthentication(token, false);
             bool resultado = false;
 
+            Conta c = new Conta();
+            c.username = conta.username;
+            c.password = conta.password;
+            c.isAdmin = conta.isAdmin;
 
 
 
             return resultado;
         }
-        
+
+        public bool addTerapeuta(TerapeutaWEB terapeuta)
+        {
+            Terapeuta t = new Terapeuta();
+            
+
+            return false;
+        }
+
 
     }
 }
