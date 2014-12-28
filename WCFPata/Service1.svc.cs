@@ -29,6 +29,7 @@ namespace WCFPata
             this.contas = new Dictionary<string, ContaWEB>();
             this.tokens = new Dictionary<string, Token>();
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
+            
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
         }
         public string GetData(int value)
