@@ -12,9 +12,6 @@ namespace WCFPata
     [ServiceContract]
     public interface IService1
     {
-
-
-
         /*
          * AUTHENTICATION
          * */
@@ -126,6 +123,8 @@ namespace WCFPata
         public string password { get; set; }
         [DataMember]
         public Boolean isAdmin { get; set; }
+
+        public ContaWEB() { }
 
     }
 
