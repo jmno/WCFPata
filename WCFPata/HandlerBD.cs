@@ -134,9 +134,7 @@ namespace WCFPata
             }
             catch(Exception e)
             {
-
-
-                return "Excecao"+e.StackTrace;
+                return "Excecao "+e.StackTrace+"\n"+e;
             }
         }
 
