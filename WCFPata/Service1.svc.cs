@@ -312,13 +312,13 @@ namespace WCFPata
 
         }
 
-        public List<SistemaPericialWEB> getListaSistemaPericial(string token, List<SintomaWEB> lista) 
+        public List<SistemaPericialWEB> getListaSistemaPericial(string token, List<SintomaWEB> lista)
         {
             checkAuthentication(token, false);
 
             List<SistemaPericialWEB> listaFinal = new List<SistemaPericialWEB>();
 
-            listaFinal = OperacoesXML.getListaSistemaPericial(lista,FILEPATH);
+            listaFinal = OperacoesXML.getListaSistemaPericial(lista, FILEPATH);
             return listaFinal;
 
         }
@@ -380,21 +380,22 @@ namespace WCFPata
         {
             bool resultado = false;
             checkAuthentication(token, false);
-            
+
             Conta c = new Conta();
             c.username = conta.username;
             c.password = conta.password;
             c.isAdmin = conta.isAdmin;
             try { handler.addConta(c); resultado = true; }
 
-            catch (Exception e) { 
+            catch (Exception e)
+            {
                 Console.WriteLine(e.ToString());
 
             }
             return resultado;
         }
 
-        public string addTerapeuta(string token,TerapeutaWEB terapeuta)
+        public string addTerapeuta(string token, TerapeutaWEB terapeuta)
         {
             string resultado = "";
             checkAuthentication(token, false);
@@ -404,11 +405,33 @@ namespace WCFPata
             t.cc = terapeuta.cc;
             t.dataNasc = getData(terapeuta.dataNasc);
             t.telefone = terapeuta.telefone;
-            resultado= handler.addTerapeuta(t);
+            resultado = handler.addTerapeuta(t);
+
+            return resultado;
+        }
+        public bool addEpisodioClinico(string token, EpisodioClinicoWEB episodio)
+        {
+            checkAuthentication(token, false);
+            bool resultado = false;
+            EpisodioClinico e = new EpisodioClinico();
+            e.data = getData(episodio.data);
+            e.diagnostico = episodio.diagnostico;
+            e.Paciente.Id = episodio.idPaciente;
+            List<Sintoma> lista = new List<Sintoma>();
+            foreach(SintomaWEB s in episodio.listaSintomas)
+            {
+                Sintoma sin = new Sintoma();
+                sin.nome = s.nome;
+                lista.Add(sin);
+            }
+            e.Sintoma = lista;
+            resultado = handler.addEpisodio(e);
 
             return resultado;
         }
 
 
     }
+
+
 }

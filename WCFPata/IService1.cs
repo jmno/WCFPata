@@ -107,6 +107,12 @@ namespace WCFPata
         UriTemplate = "addTerapeuta?token={token}")]
         string addTerapeuta(string token, TerapeutaWEB terapeuta);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "addEpisodioClinico?token={token}")]
+        bool addEpisodioClinico(string token, EpisodioClinicoWEB episodio);
+
     }
 
 

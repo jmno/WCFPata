@@ -128,6 +128,18 @@ namespace WCFPata
             }
         }
 
+        public bool addEpisodio(EpisodioClinico e)
+        {
+
+            try
+            {
+                modelo.EpisodioClinicoSet.Add(e);
+                modelo.SaveChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
 
 
     }
