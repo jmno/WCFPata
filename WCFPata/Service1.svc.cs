@@ -8,7 +8,6 @@ using System.Text;
 using System.Globalization;
 using System.IO;
 using System.Web.Hosting;
-using System.Web;
 
 namespace WCFPata
 {
@@ -24,15 +23,14 @@ namespace WCFPata
         private Dictionary<string, ContaWEB> contas;
         private Dictionary<string, Token> tokens;
         private static string FILEPATH;
-        private static string FILEPATHSCHEMA;
 
         public Service1()
         {
 
             this.contas = new Dictionary<string, ContaWEB>();
             this.tokens = new Dictionary<string, Token>();
-            FILEPATH = HttpContext.Current.ApplicationInstance.Server.MapPath("XML/teste.xml");
-            FILEPATHSCHEMA = HttpContext.Current.ApplicationInstance.Server.MapPath("XML/schema.xsd");
+            FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
+
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
         }
         public string GetData(int value)
