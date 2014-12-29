@@ -25,6 +25,7 @@ namespace WCFPata
         public string morada { get; set; }
         public string cc { get; set; }
         public string telefone { get; set; }
+        public string sexo { get; set; }
     
         public virtual Terapeuta Terapeuta { get; set; }
         public virtual ICollection<EpisodioClinico> EpisodioClinico { get; set; }

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/28/2014 21:58:37
+-- Date Created: 12/29/2014 00:55:10
 -- Generated from EDMX file: C:\Users\nelson\Desktop\IS_3o_Ano_1S\IS\ProjetoInterS\WCFPata\WCFPata\Model.edmx
 -- --------------------------------------------------
 
@@ -88,6 +88,7 @@ CREATE TABLE [dbo].[PacienteSet] (
     [morada] nvarchar(max)  NOT NULL,
     [cc] nvarchar(max)  NOT NULL,
     [telefone] nvarchar(max)  NOT NULL,
+    [sexo] nvarchar(1)  NOT NULL,
     [Terapeuta_Id] int  NULL
 );
 GO

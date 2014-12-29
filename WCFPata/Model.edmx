@@ -63,6 +63,7 @@
     <Property Name="morada" Type="nvarchar(max)" Nullable="false" />
     <Property Name="cc" Type="nvarchar(max)" Nullable="false" />
     <Property Name="telefone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sexo" Type="nvarchar" Nullable="false" MaxLength="1" />
     <Property Name="Terapeuta_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="EpisodioClinicoSet">
@@ -214,6 +215,7 @@
           <Property Name="cc" Type="String" Nullable="false" />
           <Property Name="telefone" Type="String" Nullable="false" />
           <NavigationProperty Name="EpisodioClinico" Relationship="Model.EpisodioClinicoPaciente" FromRole="Paciente" ToRole="EpisodioClinico" />
+          <Property Name="sexo" Type="String" Nullable="false" MaxLength="1" />
         </EntityType>
         <Association Name="TerapeutaPaciente">
           <End Type="Model.Terapeuta" Role="Terapeuta" Multiplicity="0..1" />
@@ -281,6 +283,7 @@
           <ScalarProperty Name="morada" ColumnName="morada" />
           <ScalarProperty Name="cc" ColumnName="cc" />
           <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
