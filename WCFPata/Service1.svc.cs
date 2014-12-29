@@ -312,6 +312,17 @@ namespace WCFPata
 
         }
 
+        public List<SistemaPericialWEB> getListaSistemaPericial(string token, List<SintomaWEB> lista) 
+        {
+            checkAuthentication(token, false);
+
+            List<SistemaPericialWEB> listaFinal = new List<SistemaPericialWEB>();
+
+            listaFinal = OperacoesXML.getListaSistemaPericial(lista,FILEPATH);
+            return listaFinal;
+
+        }
+
         public bool addPaciente(string token, PacienteWEB paciente)
         {
             checkAuthentication(token, false);

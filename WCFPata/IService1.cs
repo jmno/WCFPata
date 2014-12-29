@@ -79,6 +79,12 @@ namespace WCFPata
         [OperationContract]
         [WebInvoke(Method = "POST",
         ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "getListaSistemaPericial?token={token}")]
+        List<SistemaPericialWEB> getListaSistemaPericial(string token, List<SintomaWEB> lista);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "addPaciente?token={token}")]
         bool addPaciente(string token, PacienteWEB paciente);
 
@@ -180,6 +186,18 @@ namespace WCFPata
         public string orgao { get; set; }
         [DataMember]
         public string tratamento { get; set; }
+
+    }
+
+    [DataContract]
+    public class SistemaPericialWEB
+    {
+        [DataMember]
+        public string diagnostico { get; set; }
+        [DataMember]
+        public string tratamento { get; set; }
+        [DataMember]
+        public decimal score { get; set; }
 
     }
 

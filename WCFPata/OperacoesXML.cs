@@ -111,7 +111,79 @@ namespace WCFPata
         }
 
 
+        public static List<SistemaPericialWEB> getListaSistemaPericial(List<SintomaWEB> lista, String xmlPath) 
+        {
+            List<SistemaPericialWEB> listaFinal = new List<SistemaPericialWEB>();
 
+
+            String xpath = "";
+            List<DiagnosticoWEB> listaDiagnosticos = new List<DiagnosticoWEB>();
+            List<SintomaWEB> listaSintomas;
+            List<Int32> bedjoras = new List<Int32>();
+            DiagnosticoWEB diagAux;
+
+            foreach (SintomaWEB s in lista)
+            {
+                xpath = "//ListaSintomas/sintoma[text()=\"" + s.nome + "\"]/../..";
+                XmlDocument doc = new XmlDocument();
+                doc.Load(xmlPath);
+                XmlNodeList nodeList = doc.SelectNodes(xpath);
+                foreach (XmlNode node in nodeList)
+                {
+                    listaSintomas = new List<SintomaWEB>();
+                    foreach (XmlNode x in node.ChildNodes[3].ChildNodes)
+                    {
+                        SintomaWEB sin = new SintomaWEB();
+                        sin.nome = x.InnerText;
+                        listaSintomas.Add(sin);
+                    }
+                    diagAux = new DiagnosticoWEB();
+                    diagAux.listaSintomas = listaSintomas;
+                    diagAux.orgao = node.ChildNodes[0].InnerText;
+                    diagAux.nome = node.ChildNodes[1].InnerText;
+                    diagAux.tratamento = node.ChildNodes[2].InnerText;
+
+
+                    //TESTE
+
+
+                    if (exists(listaDiagnosticos, diagAux))
+                    {
+                        int indice = getIndice(listaDiagnosticos, diagAux);
+                        bedjoras[indice] += 1;
+                    }
+
+                    else
+                    {
+                        listaDiagnosticos.Add(diagAux);
+                        bedjoras.Add(1);
+                    }
+                }
+
+
+            }
+
+            foreach (DiagnosticoWEB d in listaDiagnosticos)
+            {
+                int aux = listaDiagnosticos.IndexOf(d);
+                int count = bedjoras[aux];
+                int auxcontagem = d.listaSintomas.Count();
+                decimal bla = count / Convert.ToDecimal(auxcontagem);
+                decimal resultado = Math.Round(bla * 100, 1);
+                SistemaPericialWEB sis = new SistemaPericialWEB();
+                sis.diagnostico = d.nome + " - " + d.orgao;
+                sis.tratamento = d.tratamento;
+                sis.score = resultado;
+                listaFinal.Add(sis);
+
+            }
+
+            listaFinal.Sort(new ComparacaoResultados());
+
+             
+
+            return listaFinal;
+        }
 
         //public static List<string> procuraSintomas(List<string> lista, String xmlPath)
         //{
@@ -173,50 +245,45 @@ namespace WCFPata
         //    return listaFinal;
         //}
 
-        //public static int getIndice(List<Diagnostico> lista, Diagnostico d)
-        //{
-        //    if (lista.Count > 0)
-        //    {
-        //        foreach (Diagnostico diagnostico in lista)
-        //        {
-        //            if (diagnostico.Nome.Equals(d.Nome) && diagnostico.Orgao.Equals(d.Orgao))
-        //            {
-        //                return lista.IndexOf(diagnostico);
-        //            }
-        //        }
-        //    }
-        //    return -1;
-        //}
-
-        //public static Boolean exists(List<Diagnostico> lista, Diagnostico d)
-        //{
-        //    if (lista.Count > 0)
-        //    {
-        //        foreach (Diagnostico diagnostico in lista)
-        //        {
-        //            if (diagnostico.Nome.Equals(d.Nome) && diagnostico.Orgao.Equals(d.Orgao))
-        //            {
-        //                return true;
-        //            }
-
-        //        }
-        //    }
-        //    return false;
-
-        //}
-
-        public class ComparacaoResultados : IComparer<string>
+        public static int getIndice(List<DiagnosticoWEB> lista, DiagnosticoWEB d)
         {
-            public int Compare(String x, String y)
+            if (lista.Count > 0)
             {
-                String[] linhas;
+                foreach (DiagnosticoWEB diagnostico in lista)
+                {
+                    if (diagnostico.nome.Equals(d.nome) && diagnostico.orgao.Equals(d.orgao))
+                    {
+                        return lista.IndexOf(diagnostico);
+                    }
+                }
+            }
+            return -1;
+        }
 
-                linhas = Convert.ToString(x).Split('|');
-                String[] linhas2;
-                linhas2 = Convert.ToString(y).Split('|');
+        public static Boolean exists(List<DiagnosticoWEB> lista, DiagnosticoWEB d)
+        {
+            if (lista.Count > 0)
+            {
+                foreach (DiagnosticoWEB diagnostico in lista)
+                {
+                    if (diagnostico.nome.Equals(d.nome) && diagnostico.orgao.Equals(d.orgao))
+                    {
+                        return true;
+                    }
 
-                decimal x1 = Convert.ToDecimal(linhas[0]);
-                decimal y2 = Convert.ToDecimal(linhas2[0]);
+                }
+            }
+            return false;
+
+        }
+
+        public class ComparacaoResultados : IComparer<SistemaPericialWEB>
+        {
+            public int Compare(SistemaPericialWEB x, SistemaPericialWEB y)
+            {
+               
+                decimal x1 = x.score;
+                decimal y2 = y.score;
                 //return x.CompareTo(y2);
 
 
