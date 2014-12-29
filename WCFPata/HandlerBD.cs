@@ -99,27 +99,16 @@ namespace WCFPata
             catch { return false; }
         }
 
-        public int addConta(Conta conta)
+        public void addConta(Conta conta)
         {
-            int idConta = -1;
-            try
-            {
-                modelo.ContaSet.Add(conta);
+           
+             modelo.ContaSet.Add(conta);
                 modelo.SaveChanges();
-
-                Conta c = modelo.ContaSet.Where(x => x.Id == conta.Id).First();
-                idConta = c.Id;
-
-                return idConta;
-            }
-            catch
-            {
-                return idConta;
-            }
         }
 
         public Conta getContaByID(int idConta)
         {
+           
             return modelo.ContaSet.Where(i => i.Id == idConta).First();
         }
 

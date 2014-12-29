@@ -361,18 +361,22 @@ namespace WCFPata
             return result;
         }
 
-        public int addConta(string token, ContaWEB conta)
+        public bool addConta(string token, ContaWEB conta)
         {
-
+            bool resultado = false;
             checkAuthentication(token, false);
-
+            
             Conta c = new Conta();
             c.username = conta.username;
             c.password = conta.password;
             c.isAdmin = conta.isAdmin;
-            int idConta=handler.addConta(c);
-                        
-            return idConta;
+            try { handler.addConta(c); resultado = true; }
+
+            catch (Exception e) { 
+                Console.WriteLine(e.ToString());
+
+            }
+            return resultado;
         }
 
         public string addTerapeuta(string token,TerapeutaWEB terapeuta)
