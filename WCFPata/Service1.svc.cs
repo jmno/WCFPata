@@ -416,7 +416,7 @@ namespace WCFPata
             EpisodioClinico e = new EpisodioClinico();
             e.data = getData(episodio.data);
             e.diagnostico = episodio.diagnostico;
-            e.Paciente.Id = episodio.idPaciente;
+            e.Paciente = handler.getPacienteByID(episodio.idPaciente);
             List<Sintoma> lista = new List<Sintoma>();
             foreach(SintomaWEB s in episodio.listaSintomas)
             {

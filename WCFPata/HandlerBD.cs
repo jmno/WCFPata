@@ -112,6 +112,11 @@ namespace WCFPata
            
             return modelo.ContaSet.Where(i => i.Id == idConta).First();
         }
+        public Paciente getPacienteByID(int idPaciente)
+        {
+
+            return modelo.PacienteSet.Where(i => i.Id == idPaciente).First();
+        }
 
         public string addTerapeuta(Terapeuta t)
         {
