@@ -247,6 +247,7 @@ namespace WCFPata
                 pa.nome = p.nome;
                 pa.telefone = p.telefone;
                 pa.terapeutaID = p.Terapeuta.Id;
+                pa.sexo = p.sexo;
                 lista.Add(pa);
             }
 
@@ -273,6 +274,7 @@ namespace WCFPata
                 pa.nome = p.nome;
                 pa.telefone = p.telefone;
                 pa.terapeutaID = p.Terapeuta.Id;
+                pa.sexo = p.sexo;
                 lista.Add(pa);
             }
 
@@ -321,6 +323,7 @@ namespace WCFPata
             p.morada = paciente.morada;
             p.nome = paciente.nome;
             p.telefone = paciente.telefone;
+            p.sexo = paciente.sexo;
             p.Terapeuta = handler.getTerapeutaByID(idConta);
             resultado = handler.addPaciente(p);
 
@@ -341,6 +344,7 @@ namespace WCFPata
             p.telefone = paciente.telefone;
             p.Terapeuta = handler.getTerapeutaByID(idConta);
             p.Id = paciente.id;
+            p.sexo = paciente.sexo;
             resultado = handler.editPaciente(p);
 
             return resultado;

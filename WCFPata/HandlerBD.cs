@@ -92,6 +92,7 @@ namespace WCFPata
                 paciente.telefone = p.telefone;
                 paciente.nome = p.nome;
                 paciente.cc = p.cc;
+                paciente.sexo = p.sexo;
                 paciente.dataNasc = p.dataNasc;
                 modelo.SaveChanges();
                 return true;

@@ -121,6 +121,8 @@ namespace WCFPata
         public string telefone { get; set; }
         [DataMember]
         public int terapeutaID { get; set; }
+        [DataMember]
+        public string sexo { get; set; }
 
     }
 
