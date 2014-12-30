@@ -112,6 +112,39 @@ namespace WCFPata
             catch { return false; }
         }
 
+        public bool editTerapeuta(Terapeuta t)
+         {
+
+            try
+            {
+                Terapeuta terapeuta = modelo.TerapeutaSet.Single(i => i.Id == t.Id);
+                terapeuta.Conta.username = t.Conta.username;
+                terapeuta.Conta.password = t.Conta.password;
+                terapeuta.nome = t.nome;
+                terapeuta.cc = t.cc;
+                terapeuta.dataNasc = t.dataNasc;
+                terapeuta.telefone = t.telefone;
+                modelo.SaveChanges();
+
+                return true;
+            }
+            catch { return false; }
+        }
+
+        public bool editConta(Conta c)
+        {
+            try
+            {
+                Conta conta = modelo.ContaSet.Single(i => i.Id == c.Id);
+                conta.username = c.username;
+                conta.password = c.password;
+                modelo.SaveChanges();
+
+                return true;
+            }
+            catch { return false; }
+        }
+
         public void addConta(Conta conta)
         {
            
@@ -172,5 +205,7 @@ namespace WCFPata
 
 
 
+
+       
     }
 }

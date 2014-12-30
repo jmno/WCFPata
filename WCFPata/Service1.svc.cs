@@ -419,6 +419,40 @@ namespace WCFPata
             return resultado;
         }
 
+        public bool editTerapeuta(string token, TerapeutaWEB terapeuta,ContaWEB conta){
+            checkAuthentication(token, false);
+            bool resultado = false;
+
+            Terapeuta t = new Terapeuta();
+
+            t.nome = terapeuta.nome;
+            t.Conta.username = conta.username;
+            t.Conta.password = conta.password;
+            t.cc = terapeuta.cc;
+            t.dataNasc = getData(terapeuta.dataNasc);
+            t.telefone = terapeuta.telefone;
+            
+            resultado = handler.editTerapeuta(t);
+
+            return resultado;
+        }
+
+        public bool editConta(string token, ContaWEB conta)
+        {
+            checkAuthentication(token, false);
+            bool resultado = false;
+
+            Conta c = new Conta();
+
+            c.username = conta.username;
+            c.password = conta.password;
+
+            handler.editConta(c);
+
+
+            return resultado;
+        }
+
         public DateTime getData(string data)
         {
             DateTime result = new DateTime();
