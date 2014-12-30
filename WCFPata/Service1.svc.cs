@@ -160,7 +160,6 @@ namespace WCFPata
             Token tokenObject;
             if (String.IsNullOrEmpty(token))
             {
-                Trace.TraceInformation("checkAuthentication");
                 throw new ArgumentException("Error: invalid token value.");
                
 
