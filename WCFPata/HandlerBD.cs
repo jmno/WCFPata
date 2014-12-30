@@ -145,6 +145,19 @@ namespace WCFPata
             catch { return false; }
         }
 
+        public bool  removeTerapeutaFromPaciente(int idPaciente)
+        {
+            try
+            {
+                Paciente p = modelo.PacienteSet.Where(i=> i.Id == idPaciente).First();
+                modelo.Entry(p).Reference(c => c.Terapeuta).CurrentValue = null;
+                modelo.SaveChanges();
+
+                return true;
+            }
+            catch { return false; }
+        }
+
 
 
     }

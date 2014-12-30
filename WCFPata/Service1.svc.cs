@@ -246,9 +246,20 @@ namespace WCFPata
                 pa.morada = p.morada;
                 pa.nome = p.nome;
                 pa.telefone = p.telefone;
-                pa.terapeutaID = p.Terapeuta.Id;
                 pa.sexo = p.sexo;
+
+                try
+                {
+
+                    pa.terapeutaID = p.Terapeuta.Id;
+                }
+                catch (Exception e)
+                {
+                    lista.Add(pa);
+                    continue;
+                }
                 lista.Add(pa);
+
             }
 
             return lista;
@@ -428,6 +439,17 @@ namespace WCFPata
             resultado = handler.addEpisodio(e);
 
             return resultado;
+        }
+
+        public bool removeTerapeutaFromPaciente(string token, int idPaciente)
+        {
+            checkAuthentication(token, false);
+            bool resultado = false;
+
+            resultado = handler.removeTerapeutaFromPaciente(idPaciente);
+
+            return resultado;
+
         }
 
 
