@@ -338,7 +338,16 @@ namespace WCFPata
 
             return lista;
         }
+        public String getNomeTerapeuta(string token)
+        {
 
+            checkAuthentication(token, false);
+
+            int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
+            Terapeuta t = handler.getTerapeutaByID(idConta);
+
+            return t.nome;
+        }
         public List<EpisodioClinicoWEB> getAllEpisodiosByIDPaciente(string token, int idPaciente)
         {
             checkAuthentication(token, false);

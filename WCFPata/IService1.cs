@@ -82,6 +82,13 @@ namespace WCFPata
         UriTemplate = "getAllPacientesByTerapeuta?token={token}")]
         List<PacienteWEB> getAllPacientesByTerapeuta(string token);
 
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "getNomeTerapeuta?token={token}")]
+        String getNomeTerapeuta(string token);
+
         [OperationContract]
         [WebInvoke(Method = "GET",
         ResponseFormat = WebMessageFormat.Json,
