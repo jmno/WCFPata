@@ -278,6 +278,7 @@ namespace WCFPata
                 ContaWEB c = new ContaWEB();
 
                 c.id = conta.Id;
+                c.username = conta.username;
                 c.password = conta.password;
                 c.isAdmin = conta.isAdmin;
                 listaContasWEB.Add(c);
