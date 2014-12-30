@@ -8,6 +8,7 @@ using System.Text;
 using System.Globalization;
 using System.IO;
 using System.Web.Hosting;
+using System.Diagnostics;
 
 namespace WCFPata
 {
@@ -159,7 +160,10 @@ namespace WCFPata
             Token tokenObject;
             if (String.IsNullOrEmpty(token))
             {
+                Trace.TraceInformation("checkAuthentication");
                 throw new ArgumentException("Error: invalid token value.");
+               
+
             }
             try
             {
