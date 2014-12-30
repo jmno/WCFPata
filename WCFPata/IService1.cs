@@ -67,6 +67,18 @@ namespace WCFPata
         [OperationContract]
         [WebInvoke(Method = "GET",
         ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "getAllContas?token={token}")]
+        List<ContaWEB> getAllContas(string token);
+
+        [OperationContract]
+        [WebInvoke(Method = "Get",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "getAllTerapeutas?token={token}")]
+        List<TerapeutaWEB> getAllTerapeutas(string token);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "getAllPacientesByTerapeuta?token={token}")]
         List<PacienteWEB> getAllPacientesByTerapeuta(string token);
 
@@ -118,6 +130,8 @@ namespace WCFPata
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "removeTerapeutaFromPaciente?token={token}&idPaciente={idPaciente}")]
         bool removeTerapeutaFromPaciente(string token, int idPaciente);
+
+
 
     }
 

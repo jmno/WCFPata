@@ -50,6 +50,16 @@ namespace WCFPata
             return modelo.PacienteSet.ToList();
         }
 
+        public List<Conta> getAllContas()
+        {
+            return modelo.ContaSet.Where(x=>x.isAdmin==true).ToList();
+        }
+
+        public List<Terapeuta> getAllTerapeutas()
+        {           
+            return modelo.TerapeutaSet.ToList();
+        }
+
         public List<Paciente> getAllPacientesByTerapeuta(int idConta)
         {
             int idTerapeuta = modelo.TerapeutaSet.Where(i => i.Conta.Id == idConta).First().Id;
@@ -79,6 +89,8 @@ namespace WCFPata
         {
             return modelo.TerapeutaSet.Where(i => i.Conta.Id == idConta).First();
         }
+
+
 
 
 

@@ -266,9 +266,55 @@ namespace WCFPata
         }
 
 
+        public List<ContaWEB> getAllContas(string token)
+        {
+            checkAuthentication(token, false);
+
+            List<ContaWEB> listaContasWEB = new List<ContaWEB>();
+            List<Conta> listaContas = handler.getAllContas();
+
+            foreach (Conta conta in listaContas)
+            {
+                ContaWEB c = new ContaWEB();
+
+                c.id = conta.Id;
+                c.password = conta.password;
+                c.isAdmin = conta.isAdmin;
+                listaContasWEB.Add(c);
+            }
+
+            return listaContasWEB;
+        }
+
+        public List<TerapeutaWEB> getAllTerapeutas(string token)
+        {
+            checkAuthentication(token, false);
+
+            List<TerapeutaWEB> listaTerapeutaWEB = new List<TerapeutaWEB>();
+            List<Terapeuta> listaTerapeutas = handler.getAllTerapeutas();
+
+            foreach (Terapeuta terapeuta in listaTerapeutas)
+            {
+                TerapeutaWEB t = new TerapeutaWEB();
+
+                t.id = terapeuta.Id;
+                t.nome = terapeuta.nome;
+                t.dataNasc = terapeuta.dataNasc.ToString();
+                t.cc = terapeuta.cc;
+                t.telefone = terapeuta.telefone;
+                t.contaID = terapeuta.Conta.Id;
+
+                listaTerapeutaWEB.Add(t);
+            }
+
+            return listaTerapeutaWEB;
+        }
+
+
+
         public List<PacienteWEB> getAllPacientesByTerapeuta(string token)
         {
-            //---------????-------------------------
+
             checkAuthentication(token, false);
 
             int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
@@ -429,7 +475,7 @@ namespace WCFPata
             e.diagnostico = episodio.diagnostico;
             e.Paciente = handler.getPacienteByID(episodio.idPaciente);
             List<Sintoma> lista = new List<Sintoma>();
-            foreach(SintomaWEB s in episodio.listaSintomas)
+            foreach (SintomaWEB s in episodio.listaSintomas)
             {
                 Sintoma sin = new Sintoma();
                 sin.nome = s.nome;
