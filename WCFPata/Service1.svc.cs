@@ -342,11 +342,14 @@ namespace WCFPata
         {
 
             checkAuthentication(token, false);
-
+            String resultado = "Apenas para Terapeutas";
             int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
+            Boolean admin = Convert.ToBoolean(tokens[token].Conta.isAdmin);
+            if (!admin) { 
             Terapeuta t = handler.getTerapeutaByID(idConta);
-
-            return t.nome;
+            resultado = t.nome;
+            }
+            return resultado;
         }
         public List<EpisodioClinicoWEB> getAllEpisodiosByIDPaciente(string token, int idPaciente)
         {
