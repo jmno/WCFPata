@@ -460,10 +460,11 @@ namespace WCFPata
             bool resultado = false;
 
             Conta c = new Conta();
-
+            c.Id = conta.id;
             c.username = conta.username;
             c.password = conta.password;
-
+            c.isAdmin = conta.isAdmin;
+        
             handler.editConta(c);
 
 
