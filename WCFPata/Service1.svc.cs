@@ -465,7 +465,7 @@ namespace WCFPata
             c.password = conta.password;
             c.isAdmin = conta.isAdmin;
         
-            handler.editConta(c);
+           resultado= handler.editConta(c);
 
 
             return resultado;
