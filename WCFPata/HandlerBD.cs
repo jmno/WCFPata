@@ -52,11 +52,11 @@ namespace WCFPata
 
         public List<Conta> getAllContas()
         {
-            return modelo.ContaSet.Where(x=>x.isAdmin==true).ToList();
+            return modelo.ContaSet.Where(x => x.isAdmin == true).ToList();
         }
 
         public List<Terapeuta> getAllTerapeutas()
-        {           
+        {
             return modelo.TerapeutaSet.ToList();
         }
 
@@ -113,7 +113,7 @@ namespace WCFPata
         }
 
         public bool editTerapeuta(Terapeuta t)
-         {
+        {
 
             try
             {
@@ -147,14 +147,14 @@ namespace WCFPata
 
         public void addConta(Conta conta)
         {
-           
-             modelo.ContaSet.Add(conta);
-                modelo.SaveChanges();
+
+            modelo.ContaSet.Add(conta);
+            modelo.SaveChanges();
         }
 
         public Conta getContaByID(int idConta)
         {
-           
+
             return modelo.ContaSet.Where(i => i.Id == idConta).First();
         }
         public Paciente getPacienteByID(int idPaciente)
@@ -172,9 +172,9 @@ namespace WCFPata
                 modelo.SaveChanges();
                 return "ok";
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                return "Excecao "+e.StackTrace+"\n"+e;
+                return "Excecao " + e.StackTrace + "\n" + e;
             }
         }
 
@@ -190,11 +190,11 @@ namespace WCFPata
             catch { return false; }
         }
 
-        public bool  removeTerapeutaFromPaciente(int idPaciente)
+        public bool removeTerapeutaFromPaciente(int idPaciente)
         {
             try
             {
-                Paciente p = modelo.PacienteSet.Where(i=> i.Id == idPaciente).First();
+                Paciente p = modelo.PacienteSet.Where(i => i.Id == idPaciente).First();
                 modelo.Entry(p).Reference(c => c.Terapeuta).CurrentValue = null;
                 modelo.SaveChanges();
 
@@ -203,9 +203,24 @@ namespace WCFPata
             catch { return false; }
         }
 
+        public bool removeConta(int idConta)
+        {
+
+            try
+            {
+                Conta c = modelo.ContaSet.Where(x => x.Id == idConta).First();
+
+                modelo.ContaSet.Remove(c);
+                modelo.SaveChanges();
+                return true;
+            }
+            catch { return false; }
+
+        }
 
 
 
-       
+
+
     }
 }

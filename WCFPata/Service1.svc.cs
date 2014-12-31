@@ -548,6 +548,15 @@ namespace WCFPata
 
         }
 
+        public bool removeConta(string token, int idConta) {
+            checkAuthentication(token, false);
+            bool resultado = false;
+
+            resultado = handler.removeConta(idConta);
+
+            return resultado;
+        }
+
 
         public class LogEvent : WebRequestErrorEvent
         {
