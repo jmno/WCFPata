@@ -348,9 +348,10 @@ namespace WCFPata
             String resultado = "Apenas para Terapeutas";
             int idConta = Convert.ToInt32(tokens[token].Conta.id.ToString());
             Boolean admin = Convert.ToBoolean(tokens[token].Conta.isAdmin);
-            if (!admin) { 
-            Terapeuta t = handler.getTerapeutaByID(idConta);
-            resultado = t.nome;
+            if (!admin)
+            {
+                Terapeuta t = handler.getTerapeutaByID(idConta);
+                resultado = t.nome;
             }
             return resultado;
         }
@@ -434,7 +435,8 @@ namespace WCFPata
             return resultado;
         }
 
-        public bool editTerapeuta(string token, TerapeutaWEB terapeuta,ContaWEB conta){
+        public bool editTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta)
+        {
             checkAuthentication(token, false);
             bool resultado = false;
 
@@ -446,7 +448,7 @@ namespace WCFPata
             t.cc = terapeuta.cc;
             t.dataNasc = getData(terapeuta.dataNasc);
             t.telefone = terapeuta.telefone;
-            
+
             resultado = handler.editTerapeuta(t);
 
             return resultado;
@@ -548,12 +550,35 @@ namespace WCFPata
 
         }
 
-        public bool removeConta(string token, int idConta) {
+        public String removeConta(string token, int idConta)
+        {
+
             checkAuthentication(token, false);
-            bool resultado = false;
+            String resultado = "Não é possível apagar a sua própria conta!";
+            int id = Convert.ToInt32(tokens[token].Conta.id.ToString());
+            bool admin = Convert.ToBoolean(tokens[token].Conta.isAdmin);
 
-            resultado = handler.removeConta(idConta);
+            if (id != idConta && admin)
+            {
+                Conta c = handler.getContaByID(idConta);
+                if (c.isAdmin)
+                {
+                    bool res = handler.removeConta(idConta);
+                    if (res)
+                    {
+                        resultado = "Administrador removido com sucesso";
+                    }
+                    else
+                    {
+                        resultado = "Não foi possível remover a conta";
+                    }
+                }
+                else
+                {
+                    resultado = "A conta que está a tentar remover não é de administrador!";
+                }
 
+            }
             return resultado;
         }
 

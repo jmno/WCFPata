@@ -154,7 +154,7 @@ namespace WCFPata
         [WebInvoke(Method = "POST",
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "removeConta?token={token}&idConta={idConta}")]
-        bool removeConta(string token, int idConta);
+        string removeConta(string token, int idConta);
 
 
 
