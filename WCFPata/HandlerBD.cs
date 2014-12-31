@@ -135,7 +135,7 @@ namespace WCFPata
         {
             try
             {
-                Conta conta = modelo.ContaSet.Single(i => i.Id == c.Id);
+                Conta conta = modelo.ContaSet.Where(x => x.Id == c.Id).First();
                 conta.username = c.username;
                 conta.password = c.password;
                 modelo.SaveChanges();
