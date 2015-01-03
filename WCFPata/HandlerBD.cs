@@ -145,11 +145,22 @@ namespace WCFPata
             catch { return false; }
         }
 
-        public void addConta(Conta conta)
+        public int addConta(Conta conta)
         {
+            int id = -1;
+            try
+            {
+               modelo.ContaSet.Add(conta);
+                modelo.SaveChanges();
 
-            modelo.ContaSet.Add(conta);
-            modelo.SaveChanges();
+                id=conta.Id;
+                return id;
+            }
+            catch
+            {
+                return id;
+            }
+
         }
 
         public Conta getContaByID(int idConta)
@@ -163,18 +174,18 @@ namespace WCFPata
             return modelo.PacienteSet.Where(i => i.Id == idPaciente).First();
         }
 
-        public string addTerapeuta(Terapeuta t)
+        public bool addTerapeuta(Terapeuta t)
         {
 
             try
             {
                 modelo.TerapeutaSet.Add(t);
                 modelo.SaveChanges();
-                return "ok";
+                return true;
             }
-            catch (Exception e)
+            catch
             {
-                return "Excecao " + e.StackTrace + "\n" + e;
+                return false;
             }
         }
 

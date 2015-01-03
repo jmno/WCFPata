@@ -134,9 +134,10 @@ namespace WCFPata
 
         [OperationContract]
         [WebInvoke(Method = "POST",
+             BodyStyle = WebMessageBodyStyle.Wrapped,
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "addTerapeuta?token={token}")]
-        string addTerapeuta(string token, TerapeutaWEB terapeuta);
+        bool addTerapeuta(string token, TerapeutaWEB terapeuta,ContaWEB conta);
 
         [OperationContract]
         [WebInvoke(Method = "POST",

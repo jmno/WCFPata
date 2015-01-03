@@ -464,8 +464,8 @@ namespace WCFPata
             c.username = conta.username;
             c.password = conta.password;
             c.isAdmin = conta.isAdmin;
-        
-           resultado= handler.editConta(c);
+
+            resultado = handler.editConta(c);
 
 
             return resultado;
@@ -490,32 +490,48 @@ namespace WCFPata
         {
             bool resultado = false;
             checkAuthentication(token, false);
-
+            int res = -1;
             Conta c = new Conta();
             c.username = conta.username;
             c.password = conta.password;
             c.isAdmin = conta.isAdmin;
-            try { handler.addConta(c); resultado = true; }
-
-            catch (Exception e)
+            try
             {
-                Console.WriteLine(e.ToString());
+                res = handler.addConta(c);
+                if (res != -1)
+                    resultado = true;
+            }
+
+            catch
+            {
+                resultado = false;
 
             }
             return resultado;
         }
 
-        public string addTerapeuta(string token, TerapeutaWEB terapeuta)
+        public bool addTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta)
         {
-            string resultado = "";
+            bool resultado = false;
+            int idConta = -1;
             checkAuthentication(token, false);
-            Terapeuta t = new Terapeuta();
-            t.Conta = handler.getContaByID(terapeuta.contaID);
-            t.nome = terapeuta.nome;
-            t.cc = terapeuta.cc;
-            t.dataNasc = getData(terapeuta.dataNasc);
-            t.telefone = terapeuta.telefone;
-            resultado = handler.addTerapeuta(t);
+
+            Conta c = new Conta();
+            c.username = conta.username;
+            c.password = conta.password;
+            c.isAdmin = conta.isAdmin;
+            idConta = handler.addConta(c);
+
+            if (idConta != -1)
+            {
+                Terapeuta t = new Terapeuta();
+                t.Conta = handler.getContaByID(idConta);
+                t.nome = terapeuta.nome;
+                t.cc = terapeuta.cc;
+                t.dataNasc = getData(terapeuta.dataNasc);
+                t.telefone = terapeuta.telefone;
+                resultado = handler.addTerapeuta(t);
+            }
 
             return resultado;
         }
