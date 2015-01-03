@@ -525,7 +525,7 @@ namespace WCFPata
             if (idConta != -1)
             {
                 Terapeuta t = new Terapeuta();
-                t.Conta.Id = idConta;
+                t.Conta = handler.getContaByID(idConta);
                 t.nome = terapeuta.nome;
                 t.cc = terapeuta.cc;
                 t.dataNasc = getData(terapeuta.dataNasc);
