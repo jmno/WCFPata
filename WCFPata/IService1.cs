@@ -115,7 +115,7 @@ namespace WCFPata
         bool editPaciente(string token, PacienteWEB paciente);
 
         [OperationContract]
-        [WebInvoke(Method = "POST", 
+        [WebInvoke(Method = "POST",
          BodyStyle = WebMessageBodyStyle.Wrapped,
         ResponseFormat = WebMessageFormat.Json)]
         bool editTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta);
@@ -134,10 +134,10 @@ namespace WCFPata
 
         [OperationContract]
         [WebInvoke(Method = "POST",
-             BodyStyle = WebMessageBodyStyle.Wrapped,
+        BodyStyle = WebMessageBodyStyle.Wrapped,
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "addTerapeuta?token={token}")]
-        bool addTerapeuta(string token, TerapeutaWEB terapeuta,ContaWEB conta);
+        bool addTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
