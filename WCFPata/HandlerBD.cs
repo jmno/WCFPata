@@ -234,13 +234,14 @@ namespace WCFPata
 
         }
 
-        public bool removeTerapeuta(Terapeuta t,Conta c)
+        public bool removeTerapeuta(int idContaTerapeuta, int idTerapeuta)
         {
 
             try
             {
-                if (removeConta(c.Id))
+                if (removeConta(idContaTerapeuta))
                 {
+                    Terapeuta t = modelo.TerapeutaSet.Where(x=>x.Id==idTerapeuta).First();
                     modelo.TerapeutaSet.Remove(t);
                     modelo.SaveChanges();
                     return true;

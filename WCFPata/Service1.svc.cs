@@ -36,7 +36,7 @@ namespace WCFPata
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
             Paciente p = new Paciente();
             p.dataNasc = DateTime.Now;
-            p.nome = "joaquim"+DateTime.Now.ToString();
+            p.nome = "joaquim" + DateTime.Now.ToString();
             p.cc = "1234";
             p.morada = "menfoeifn";
             p.sexo = "H";
@@ -536,13 +536,13 @@ namespace WCFPata
             return resultado;
         }
 
-        public bool removeTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta)
+        public bool removeTerapeuta(string token, int idContaTerapeuta, int idTerapeuta)
         {
             bool resultado = false;
             try
             {
                 checkAuthentication(token, false);
-
+                handler.removeTerapeuta(idContaTerapeuta, idTerapeuta);
                 
             }catch{
                 throw new FaultException("Erro Token");

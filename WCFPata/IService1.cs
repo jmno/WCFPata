@@ -142,8 +142,9 @@ namespace WCFPata
         [OperationContract]
         [WebInvoke(Method = "POST",
          BodyStyle = WebMessageBodyStyle.Wrapped,
-        ResponseFormat = WebMessageFormat.Json)]
-        bool removeTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta);
+        ResponseFormat = WebMessageFormat.Json,
+         UriTemplate = "removeTerapeuta?token={token}&idContaTerapeuta={idContaTerapeuta}&idTerapeuta={idTerapeuta}")]
+        bool removeTerapeuta(string token, int idContaTerapeuta, int idTerapeuta);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
