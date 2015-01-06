@@ -139,11 +139,11 @@ namespace WCFPata
         UriTemplate = "editConta?token={token}")]
         bool editConta(string token, ContaWEB conta);
 
-        //[OperationContract]
-        //[WebInvoke(Method = "POST",
-        // BodyStyle = WebMessageBodyStyle.Wrapped,
-        //ResponseFormat = WebMessageFormat.Json)]
-        //bool removeTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta);
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+         BodyStyle = WebMessageBodyStyle.Wrapped,
+        ResponseFormat = WebMessageFormat.Json)]
+        bool removeTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta);
 
         [OperationContract]
         [WebInvoke(Method = "POST",

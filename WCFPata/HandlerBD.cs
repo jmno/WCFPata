@@ -234,6 +234,27 @@ namespace WCFPata
 
         }
 
+        public bool removeTerapeuta(Terapeuta t,Conta c)
+        {
+
+            try
+            {
+                if (removeConta(c.Id))
+                {
+                    modelo.TerapeutaSet.Remove(t);
+                    modelo.SaveChanges();
+                    return true;
+
+                }
+                else
+                    return false;
+
+               
+            }
+            catch { return false; }
+
+        }
+
 
 
 

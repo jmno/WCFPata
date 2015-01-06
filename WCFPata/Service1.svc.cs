@@ -547,7 +547,7 @@ namespace WCFPata
                 throw new FaultException("Erro Token");
             }
 
-           
+            return resultado;
 
 
 
