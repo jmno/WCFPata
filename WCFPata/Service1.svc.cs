@@ -223,8 +223,13 @@ namespace WCFPata
         //Escrever XML NO APPDATA
         public bool carregaXml(string token, DadosWEB dados)
         {
-
-            checkAuthentication(token, false);
+            try
+            {
+                checkAuthentication(token, false);
+            }
+            catch {
+                throw new FaultException("Erro Token");
+            }
             bool resultado = false;
 
             try
