@@ -324,7 +324,7 @@ namespace WCFPata
 
                 t.id = terapeuta.Id;
                 t.nome = terapeuta.nome;
-                t.dataNasc = terapeuta.dataNasc.ToString();
+                t.dataNasc = terapeuta.dataNasc.Day.ToString() + "/" + terapeuta.dataNasc.Month.ToString() + "/" + terapeuta.dataNasc.Year.ToString();
                 t.cc = terapeuta.cc;
                 t.telefone = terapeuta.telefone;
                 t.contaID = terapeuta.Conta.Id;
