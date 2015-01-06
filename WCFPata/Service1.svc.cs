@@ -36,10 +36,11 @@ namespace WCFPata
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
             Paciente p = new Paciente();
             p.dataNasc = DateTime.Now;
-            p.nome = " ";
+            p.nome = "joaquim"+DateTime.Now.ToString();
             p.cc = "1234";
             p.morada = "menfoeifn";
             p.sexo = "H";
+            p.telefone = "5555";
             p.Terapeuta = handler.getTerapeutaByID(2);
             handler.addPaciente(p);
 
