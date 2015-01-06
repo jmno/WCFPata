@@ -295,7 +295,7 @@ namespace WCFPata
             checkAuthentication(token, false);
 
             List<ContaWEB> listaContasWEB = new List<ContaWEB>();
-            List<Conta> listaContas = handler.getAllContas();
+            List<Conta> listaContas = handler.getAllContasTerapeutas();
 
             foreach (Conta conta in listaContas)
             {
