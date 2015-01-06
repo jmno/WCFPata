@@ -53,7 +53,7 @@ namespace WCFPata
 
             public Token(ContaWEB conta, DateTime dataLogin)
             {
-                HORAS = 10;
+                HORAS = 1;
                 this.value = Guid.NewGuid().ToString();
                 this.dataLogin = dataLogin;
                 this.dataExpirar = dataLogin.AddHours(HORAS);
@@ -97,7 +97,7 @@ namespace WCFPata
 
         public string logIn(String username, String password)
         {
-            cleanUpTokens();
+            cleanUpTokens(username);
             lercontasBD();
 
             if (!String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(password) && password.Equals(contas[username].password))
@@ -146,7 +146,6 @@ namespace WCFPata
         public void logOut(string token)
         {
             tokens.Remove(token);
-            cleanUpTokens();
 
         }
 
@@ -169,14 +168,21 @@ namespace WCFPata
             return res;
         }
 
-        private void cleanUpTokens()
+        private void cleanUpTokens(string username)
         {
-            foreach (Token tokenObject in tokens.Values)
+            string token = getToken(username);
+           if(!token.Equals("NADA"))
+            tokens.Remove(token);
+        }
+
+        private String getToken(string username) {
+            string final = "NADA";
+            foreach (KeyValuePair<String, Token> t in tokens)
             {
-
-                tokens.Remove(tokenObject.Username);
-
+                if (t.Value.Username.Equals(username))
+                    final = t.Value.Value;
             }
+            return final;
         }
 
         private Token checkAuthentication(string token, bool mustBeAdmin)
