@@ -12,6 +12,13 @@ namespace WCFPata
     [ServiceContract]
     public interface IService1
     {
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "getTokens")]
+        List<TokenWeb> getTokens();
+
         /*
          * AUTHENTICATION
          * */
@@ -132,6 +139,12 @@ namespace WCFPata
         UriTemplate = "editConta?token={token}")]
         bool editConta(string token, ContaWEB conta);
 
+        //[OperationContract]
+        //[WebInvoke(Method = "POST",
+        // BodyStyle = WebMessageBodyStyle.Wrapped,
+        //ResponseFormat = WebMessageFormat.Json)]
+        //bool removeTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta);
+
         [OperationContract]
         [WebInvoke(Method = "POST",
         ResponseFormat = WebMessageFormat.Json,
@@ -166,7 +179,23 @@ namespace WCFPata
 
 
     }
+    [DataContract]
+    public class TokenWeb
+    {
+        [DataMember]
+        public string value { get; set; }
 
+        [DataMember]
+        public DateTime dataLogin { get; set; }
+        [DataMember]
+        public DateTime dataExpirar { get; set; }
+        [DataMember]
+        public int horas { get; set; }
+        [DataMember]
+        public ContaWEB conta { get; set; }
+        [DataMember]
+        public Boolean isTimedOutExpired { get; set; }
+    }
 
     [DataContract]
     public class PacienteWEB
@@ -286,7 +315,6 @@ namespace WCFPata
         [DataMember]
         public int idPaciente { get; set; }
     }
-
 
 
 

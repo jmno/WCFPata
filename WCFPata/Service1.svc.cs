@@ -62,12 +62,35 @@ namespace WCFPata
 
             public string Value { get { return value; } }
             public DateTime DataExpirar { get { return dataExpirar; } }
+            public DateTime DataLogin { get { return dataLogin; } }
+            public int Horas { get { return HORAS; } }
+
             public ContaWEB Conta { get { return conta; } }
             public string Username { get { return conta.username; } }
+
+            
             //  public void UpdateTimeout() { UpdateTimeout(240000); }
             // public void UpdateTimeout(long timeout) { this.timeout = Environment.TickCount + timeout; }
             public Boolean isTimeOutExpired() { return dataExpirar < DateTime.Now; }
 
+        }
+
+        public List<TokenWeb> getTokens() {
+            List<TokenWeb> listaTokensWeb = new List<TokenWeb>();
+            foreach (KeyValuePair<String,Token> token in tokens)
+            {
+                TokenWeb tokenWeb = new TokenWeb();
+                tokenWeb.conta = token.Value.Conta;
+                tokenWeb.dataExpirar = token.Value.DataExpirar;
+                tokenWeb.dataLogin = token.Value.DataLogin;
+                tokenWeb.horas = token.Value.Horas;
+                tokenWeb.value = token.Value.Value;
+
+                tokenWeb.isTimedOutExpired = token.Value.isTimeOutExpired();
+                listaTokensWeb.Add(tokenWeb);
+            }
+
+            return listaTokensWeb;
         }
 
         //authentication
@@ -491,6 +514,12 @@ namespace WCFPata
 
             return resultado;
         }
+
+        //public bool removeTerapeuta(string token, TerapeutaWEB terapeuta, ContaWEB conta) { 
+        
+        
+        
+        //}
 
         public DateTime getData(string data)
         {
