@@ -71,6 +71,12 @@ namespace WCFPata
         List<ContaWEB> getAllContas(string token);
 
         [OperationContract]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "getAllContasTerapeutas?token={token}")]
+        List<ContaWEB> getAllContasTerapeutas(string token);
+
+        [OperationContract]
         [WebInvoke(Method = "Get",
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "getAllTerapeutas?token={token}")]

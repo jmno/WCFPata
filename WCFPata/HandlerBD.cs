@@ -55,6 +55,11 @@ namespace WCFPata
             return modelo.ContaSet.Where(x => x.isAdmin == true).ToList();
         }
 
+        public List<Conta> getAllContasTerapeutas()
+        {
+            return modelo.ContaSet.Where(x => x.isAdmin == false).ToList();
+        }
+
         public List<Terapeuta> getAllTerapeutas()
         {
             return modelo.TerapeutaSet.ToList();

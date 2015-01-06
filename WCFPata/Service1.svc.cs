@@ -290,6 +290,27 @@ namespace WCFPata
             return listaContasWEB;
         }
 
+        public List<ContaWEB> getAllContasTerapeutas(string token)
+        {
+            checkAuthentication(token, false);
+
+            List<ContaWEB> listaContasWEB = new List<ContaWEB>();
+            List<Conta> listaContas = handler.getAllContas();
+
+            foreach (Conta conta in listaContas)
+            {
+                ContaWEB c = new ContaWEB();
+
+                c.id = conta.Id;
+                c.username = conta.username;
+                c.password = conta.password;
+                c.isAdmin = conta.isAdmin;
+                listaContasWEB.Add(c);
+            }
+
+            return listaContasWEB;
+        }
+
         public List<TerapeutaWEB> getAllTerapeutas(string token)
         {
             checkAuthentication(token, false);
