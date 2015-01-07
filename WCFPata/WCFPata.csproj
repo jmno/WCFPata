@@ -75,6 +75,9 @@
     <Compile Include="Conta.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DadosLogin.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="EpisodioClinico.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -108,9 +111,6 @@
     </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sintoma.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Terapeuta.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

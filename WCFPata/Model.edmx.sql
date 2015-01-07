@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/29/2014 00:55:10
+-- Date Created: 01/07/2015 21:50:27
 -- Generated from EDMX file: C:\Users\nelson\Desktop\IS_3o_Ano_1S\IS\ProjetoInterS\WCFPata\WCFPata\Model.edmx
 -- --------------------------------------------------
 
@@ -23,12 +23,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_TerapeutaPaciente]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PacienteSet] DROP CONSTRAINT [FK_TerapeutaPaciente];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EpisodioClinicoSintoma_EpisodioClinico]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EpisodioClinicoSintoma] DROP CONSTRAINT [FK_EpisodioClinicoSintoma_EpisodioClinico];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EpisodioClinicoSintoma_Sintoma]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EpisodioClinicoSintoma] DROP CONSTRAINT [FK_EpisodioClinicoSintoma_Sintoma];
-GO
 IF OBJECT_ID(N'[dbo].[FK_EpisodioClinicoPaciente]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EpisodioClinicoSet] DROP CONSTRAINT [FK_EpisodioClinicoPaciente];
 GO
@@ -48,12 +42,6 @@ IF OBJECT_ID(N'[dbo].[PacienteSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[EpisodioClinicoSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[EpisodioClinicoSet];
-GO
-IF OBJECT_ID(N'[dbo].[SintomaSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SintomaSet];
-GO
-IF OBJECT_ID(N'[dbo].[EpisodioClinicoSintoma]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EpisodioClinicoSintoma];
 GO
 
 -- --------------------------------------------------
@@ -102,17 +90,13 @@ CREATE TABLE [dbo].[EpisodioClinicoSet] (
 );
 GO
 
--- Creating table 'SintomaSet'
-CREATE TABLE [dbo].[SintomaSet] (
+-- Creating table 'DadosLoginSet'
+CREATE TABLE [dbo].[DadosLoginSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [nome] nvarchar(max)  NOT NULL
-);
-GO
-
--- Creating table 'EpisodioClinicoSintoma'
-CREATE TABLE [dbo].[EpisodioClinicoSintoma] (
-    [EpisodioClinico_Id] int  NOT NULL,
-    [Sintoma_Id] int  NOT NULL
+    [Property1] nvarchar(max)  NOT NULL,
+    [dataLogin] datetime  NOT NULL,
+    [dataExpirar] datetime  NOT NULL,
+    [idConta] int  NOT NULL
 );
 GO
 
@@ -144,16 +128,10 @@ ADD CONSTRAINT [PK_EpisodioClinicoSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'SintomaSet'
-ALTER TABLE [dbo].[SintomaSet]
-ADD CONSTRAINT [PK_SintomaSet]
+-- Creating primary key on [Id] in table 'DadosLoginSet'
+ALTER TABLE [dbo].[DadosLoginSet]
+ADD CONSTRAINT [PK_DadosLoginSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [EpisodioClinico_Id], [Sintoma_Id] in table 'EpisodioClinicoSintoma'
-ALTER TABLE [dbo].[EpisodioClinicoSintoma]
-ADD CONSTRAINT [PK_EpisodioClinicoSintoma]
-    PRIMARY KEY CLUSTERED ([EpisodioClinico_Id], [Sintoma_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -186,29 +164,6 @@ ADD CONSTRAINT [FK_TerapeutaPaciente]
 CREATE INDEX [IX_FK_TerapeutaPaciente]
 ON [dbo].[PacienteSet]
     ([Terapeuta_Id]);
-GO
-
--- Creating foreign key on [EpisodioClinico_Id] in table 'EpisodioClinicoSintoma'
-ALTER TABLE [dbo].[EpisodioClinicoSintoma]
-ADD CONSTRAINT [FK_EpisodioClinicoSintoma_EpisodioClinico]
-    FOREIGN KEY ([EpisodioClinico_Id])
-    REFERENCES [dbo].[EpisodioClinicoSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Sintoma_Id] in table 'EpisodioClinicoSintoma'
-ALTER TABLE [dbo].[EpisodioClinicoSintoma]
-ADD CONSTRAINT [FK_EpisodioClinicoSintoma_Sintoma]
-    FOREIGN KEY ([Sintoma_Id])
-    REFERENCES [dbo].[SintomaSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EpisodioClinicoSintoma_Sintoma'
-CREATE INDEX [IX_FK_EpisodioClinicoSintoma_Sintoma]
-ON [dbo].[EpisodioClinicoSintoma]
-    ([Sintoma_Id]);
 GO
 
 -- Creating foreign key on [Paciente_Id] in table 'EpisodioClinicoSet'

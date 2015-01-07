@@ -106,6 +106,7 @@ namespace WCFPata
             bool res = false;
             try
             {
+                
                 List<EpisodioClinico> episodios = modelo.EpisodioClinicoSet.Where(x => x.Paciente.Id == idPaciente).ToList();
                 if (episodios.Count > 0)
                 {
@@ -332,6 +333,23 @@ namespace WCFPata
             }
             catch { return false; }
 
+        }
+
+        public List<DadosLogin> getListaDadosLogin() {
+
+            return modelo.DadosLoginSet.ToList();
+        }
+
+        public void removerDadosLogin(int idConta) {
+
+           DadosLogin l= modelo.DadosLoginSet.Where(x => x.idConta == idConta).First();
+           modelo.DadosLoginSet.Remove(l);
+           modelo.SaveChanges();
+        }
+
+        public void addDadoLogin(DadosLogin d) {
+            modelo.DadosLoginSet.Add(d);
+            modelo.SaveChanges();
         }
 
 

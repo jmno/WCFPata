@@ -14,16 +14,10 @@ namespace WCFPata
     
     public partial class EpisodioClinico
     {
-        public EpisodioClinico()
-        {
-            this.Sintoma = new HashSet<Sintoma>();
-        }
-    
         public int Id { get; set; }
         public System.DateTime data { get; set; }
         public string diagnostico { get; set; }
     
-        public virtual ICollection<Sintoma> Sintoma { get; set; }
         public virtual Paciente Paciente { get; set; }
     }
 }

@@ -10,8 +10,7 @@
     <EntitySet Name="TerapeutaSet" EntityType="Model.Store.TerapeutaSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PacienteSet" EntityType="Model.Store.PacienteSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EpisodioClinicoSet" EntityType="Model.Store.EpisodioClinicoSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SintomaSet" EntityType="Model.Store.SintomaSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EpisodioClinicoSintoma" EntityType="Model.Store.EpisodioClinicoSintoma" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DadosLoginSet" EntityType="Model.Store.DadosLoginSet" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="TerapeutaConta" Association="Model.Store.TerapeutaConta">
       <End Role="Terapeuta" EntitySet="TerapeutaSet" />
       <End Role="Conta" EntitySet="ContaSet" />
@@ -19,14 +18,6 @@
     <AssociationSet Name="TerapeutaPaciente" Association="Model.Store.TerapeutaPaciente">
       <End Role="Terapeuta" EntitySet="TerapeutaSet" />
       <End Role="Paciente" EntitySet="PacienteSet" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EpisodioClinicoSintoma_EpisodioClinico" Association="Model.Store.FK_EpisodioClinicoSintoma_EpisodioClinico">
-      <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
-      <End Role="EpisodioClinicoSintoma" EntitySet="EpisodioClinicoSintoma" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EpisodioClinicoSintoma_Sintoma" Association="Model.Store.FK_EpisodioClinicoSintoma_Sintoma">
-      <End Role="Sintoma" EntitySet="SintomaSet" />
-      <End Role="EpisodioClinicoSintoma" EntitySet="EpisodioClinicoSintoma" />
     </AssociationSet>
     <AssociationSet Name="EpisodioClinicoPaciente" Association="Model.Store.EpisodioClinicoPaciente">
       <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
@@ -75,20 +66,15 @@
     <Property Name="diagnostico" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Paciente_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="SintomaSet">
+  <EntityType Name="DadosLoginSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nome" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="EpisodioClinicoSintoma">
-    <Key>
-      <PropertyRef Name="EpisodioClinico_Id" />
-      <PropertyRef Name="Sintoma_Id" />
-    </Key>
-    <Property Name="EpisodioClinico_Id" Type="int" Nullable="false" />
-    <Property Name="Sintoma_Id" Type="int" Nullable="false" />
+    <Property Name="Property1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dataLogin" Type="datetime" Nullable="false" />
+    <Property Name="dataExpirar" Type="datetime" Nullable="false" />
+    <Property Name="idConta" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="TerapeutaConta">
     <End Role="Terapeuta" Type="Model.Store.TerapeutaSet" Multiplicity="*" />
@@ -126,30 +112,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EpisodioClinicoSintoma_EpisodioClinico">
-    <End Role="EpisodioClinico" Type="Model.Store.EpisodioClinicoSet" Multiplicity="1" />
-    <End Role="EpisodioClinicoSintoma" Type="Model.Store.EpisodioClinicoSintoma" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EpisodioClinico">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EpisodioClinicoSintoma">
-        <PropertyRef Name="EpisodioClinico_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EpisodioClinicoSintoma_Sintoma">
-    <End Role="EpisodioClinicoSintoma" Type="Model.Store.EpisodioClinicoSintoma" Multiplicity="*" />
-    <End Role="Sintoma" Type="Model.Store.SintomaSet" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Sintoma">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EpisodioClinicoSintoma">
-        <PropertyRef Name="Sintoma_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -167,15 +129,11 @@
             <End Role="Paciente" EntitySet="PacienteSet" />
           </AssociationSet>
           <EntitySet Name="EpisodioClinicoSet" EntityType="Model.EpisodioClinico" />
-          <EntitySet Name="SintomaSet" EntityType="Model.Sintoma" />
-          <AssociationSet Name="EpisodioClinicoSintoma" Association="Model.EpisodioClinicoSintoma">
-            <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
-            <End Role="Sintoma" EntitySet="SintomaSet" />
-          </AssociationSet>
           <AssociationSet Name="EpisodioClinicoPaciente" Association="Model.EpisodioClinicoPaciente">
             <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
             <End Role="Paciente" EntitySet="PacienteSet" />
           </AssociationSet>
+          <EntitySet Name="DadosLoginSet" EntityType="Model.DadosLogin" />
         </EntityContainer>
         <EntityType Name="Conta">
           <Key>
@@ -226,27 +184,24 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Sintoma" Relationship="Model.EpisodioClinicoSintoma" FromRole="EpisodioClinico" ToRole="Sintoma" />
           <Property Name="data" Type="DateTime" Nullable="false" />
           <Property Name="diagnostico" Type="String" Nullable="false" />
           <NavigationProperty Name="Paciente" Relationship="Model.EpisodioClinicoPaciente" FromRole="EpisodioClinico" ToRole="Paciente" />
         </EntityType>
-        <EntityType Name="Sintoma">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="EpisodioClinico" Relationship="Model.EpisodioClinicoSintoma" FromRole="Sintoma" ToRole="EpisodioClinico" />
-          <Property Name="nome" Type="String" Nullable="false" />
-        </EntityType>
-        <Association Name="EpisodioClinicoSintoma">
-          <End Type="Model.EpisodioClinico" Role="EpisodioClinico" Multiplicity="*" />
-          <End Type="Model.Sintoma" Role="Sintoma" Multiplicity="*" />
-        </Association>
         <Association Name="EpisodioClinicoPaciente">
           <End Type="Model.EpisodioClinico" Role="EpisodioClinico" Multiplicity="*" />
           <End Type="Model.Paciente" Role="Paciente" Multiplicity="1" />
         </Association>
+        <EntityType Name="DadosLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Property1" Type="String" Nullable="false" />
+          <Property Name="dataLogin" Type="DateTime" Nullable="false" />
+          <Property Name="dataExpirar" Type="DateTime" Nullable="false" />
+          <Property Name="idConta" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -296,11 +251,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SintomaSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Model.Sintoma)">
-        <MappingFragment StoreEntitySet="SintomaSet">
+    <EntitySetMapping Name="DadosLoginSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.DadosLogin)">
+        <MappingFragment StoreEntitySet="DadosLoginSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="Property1" ColumnName="Property1" />
+          <ScalarProperty Name="dataLogin" ColumnName="dataLogin" />
+          <ScalarProperty Name="dataExpirar" ColumnName="dataExpirar" />
+          <ScalarProperty Name="idConta" ColumnName="idConta" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -320,14 +278,6 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
       <Condition ColumnName="Terapeuta_Id" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="EpisodioClinicoSintoma" TypeName="Model.EpisodioClinicoSintoma" StoreEntitySet="EpisodioClinicoSintoma">
-      <EndProperty Name="EpisodioClinico">
-        <ScalarProperty Name="Id" ColumnName="EpisodioClinico_Id" />
-      </EndProperty>
-      <EndProperty Name="Sintoma">
-        <ScalarProperty Name="Id" ColumnName="Sintoma_Id" />
-      </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EpisodioClinicoPaciente" TypeName="Model.EpisodioClinicoPaciente" StoreEntitySet="EpisodioClinicoSet">
       <EndProperty Name="Paciente">
