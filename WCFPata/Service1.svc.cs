@@ -79,9 +79,8 @@ namespace WCFPata
                 this.dataLogin = dataLogin;
             }
 
-
-
-            public string Value { get { return value; } set; }
+      
+            public string Value { get { return value; } set { this.value = value; } }
             public DateTime DataExpirar { get { return dataExpirar; } }
             public DateTime DataLogin { get { return dataLogin; } }
             public int Horas { get { return HORAS; } }
