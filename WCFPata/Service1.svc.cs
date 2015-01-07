@@ -484,15 +484,25 @@ namespace WCFPata
         {
             checkAuthentication(token, false);
             bool resultado = false;
-          
             Paciente p = new Paciente();
+            if (paciente.terapeutaID == 0)
+            {
+                handler.removeTerapeutaFromPaciente(paciente.id);
+
+            }
+            else
+            {
+                p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
+            }
+          
+           
             p.cc = paciente.cc;
             p.dataNasc = getData(paciente.dataNasc.ToString());
             p.morada = paciente.morada;
             p.nome = paciente.nome;
             p.telefone = paciente.telefone;
             p.sexo = paciente.sexo;
-            p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
+           
             resultado = handler.addPaciente(p);
 
             return resultado;
@@ -522,15 +532,22 @@ namespace WCFPata
         {
             checkAuthentication(token, false);
             bool resultado = false;
-
-           
             Paciente p = new Paciente();
+            if (paciente.terapeutaID == 0)
+            {
+                 handler.removeTerapeutaFromPaciente(paciente.id);
+          
+            }
+            else {
+                p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);           
+            }
+      
             p.cc = paciente.cc;
             p.dataNasc = getData(paciente.dataNasc.ToString());
             p.morada = paciente.morada;
             p.nome = paciente.nome;
             p.telefone = paciente.telefone;
-            p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
+
             p.Id = paciente.id;
             p.sexo = paciente.sexo;
             resultado = handler.editPaciente(p);
