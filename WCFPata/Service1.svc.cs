@@ -492,13 +492,6 @@ namespace WCFPata
             {
                 p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
             }
-            else {
-                p.Terapeuta.Id = paciente.terapeutaID;
-            
-            }
-
-
-
 
             p.cc = paciente.cc;
             p.dataNasc = getData(paciente.dataNasc.ToString());
