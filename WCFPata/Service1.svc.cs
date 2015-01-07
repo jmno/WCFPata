@@ -547,7 +547,7 @@ namespace WCFPata
 
             p.Id = paciente.id;
             p.sexo = paciente.sexo;
-            resultado = handler.editPaciente(p);
+            resultado = handler.editPacienteClienteAdmin(p);
 
             return resultado;
         }

@@ -122,6 +122,26 @@ namespace WCFPata
             catch { return false; }
         }
 
+        public bool editPacienteClienteAdmin(Paciente p)
+        {
+
+            try
+            {
+                Paciente paciente = modelo.PacienteSet.Single(i => i.Id == p.Id);
+                paciente.morada = p.morada;
+                paciente.telefone = p.telefone;
+                paciente.nome = p.nome;
+                paciente.cc = p.cc;
+                paciente.sexo = p.sexo;
+                paciente.dataNasc = p.dataNasc;
+                paciente.Terapeuta = paciente.Terapeuta;
+                modelo.SaveChanges();
+
+                return true;
+            }
+            catch { return false; }
+        }
+
         public bool editTerapeuta(Terapeuta t,Conta c)
         {
 
@@ -143,6 +163,8 @@ namespace WCFPata
             }
             catch { return false; }
         }
+
+
 
         public bool editConta(Conta c)
         {
