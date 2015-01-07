@@ -513,7 +513,7 @@ namespace WCFPata
             t.cc = terapeuta.cc;
             t.dataNasc = getData(terapeuta.dataNasc);
             t.telefone = terapeuta.telefone;
-
+            
             resultado = handler.editTerapeuta(t);
 
             return resultado;
