@@ -485,15 +485,12 @@ namespace WCFPata
             checkAuthentication(token, false);
             bool resultado = false;
             Paciente p = new Paciente();
-            if (paciente.terapeutaID == 0)
-            {
-                handler.removeTerapeutaFromPaciente(paciente.id);
-
-            }
-            else
+            if (paciente.terapeutaID != 0)
             {
                 p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
+
             }
+           
           
            
             p.cc = paciente.cc;
