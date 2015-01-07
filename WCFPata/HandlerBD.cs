@@ -133,6 +133,7 @@ namespace WCFPata
                 terapeuta.telefone = t.telefone;
                 modelo.SaveChanges();
                 Terapeuta t1 = modelo.TerapeutaSet.Where(i => i.Id == terapeuta.Id).First();
+                //batastas
 
                 return true;
             }
