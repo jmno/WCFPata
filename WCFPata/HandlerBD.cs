@@ -236,24 +236,24 @@ namespace WCFPata
 
         public bool removeTerapeuta(int idContaTerapeuta, int idTerapeuta)
         {
-
+            bool result=false;
             try
             {
-                if (removeConta(idContaTerapeuta))
-                {
+             
+              
                     Terapeuta t = modelo.TerapeutaSet.Where(x=>x.Id==idTerapeuta).First();
                     modelo.TerapeutaSet.Remove(t);
                     modelo.SaveChanges();
-                    return true;
+                    removeConta(idContaTerapeuta);
+                    result = true;
+              
+             
 
-                }
-                else
-                    return false;
-
+                
                
             }
-            catch { return false; }
-
+            catch { result = false; }
+            return result;
         }
 
 
