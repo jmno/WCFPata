@@ -78,16 +78,17 @@ namespace WCFPata
             public ContaWEB Conta { get { return conta; } }
             public string Username { get { return conta.username; } }
 
-            
+
             //  public void UpdateTimeout() { UpdateTimeout(240000); }
             // public void UpdateTimeout(long timeout) { this.timeout = Environment.TickCount + timeout; }
             public Boolean isTimeOutExpired() { return dataExpirar < DateTime.Now; }
 
         }
 
-        public List<TokenWeb> getTokens() {
+        public List<TokenWeb> getTokens()
+        {
             List<TokenWeb> listaTokensWeb = new List<TokenWeb>();
-            foreach (KeyValuePair<String,Token> token in tokens)
+            foreach (KeyValuePair<String, Token> token in tokens)
             {
                 TokenWeb tokenWeb = new TokenWeb();
                 tokenWeb.conta = token.Value.Conta;
@@ -181,11 +182,12 @@ namespace WCFPata
         private void cleanUpTokens(string username)
         {
             string token = getToken(username);
-           if(!token.Equals("NADA"))
-            tokens.Remove(token);
+            if (!token.Equals("NADA"))
+                tokens.Remove(token);
         }
 
-        private String getToken(string username) {
+        private String getToken(string username)
+        {
             string final = "NADA";
             foreach (KeyValuePair<String, Token> t in tokens)
             {
@@ -237,7 +239,8 @@ namespace WCFPata
             {
                 checkAuthentication(token, false);
             }
-            catch {
+            catch
+            {
                 throw new FaultException("Erro Token");
             }
             bool resultado = false;
@@ -488,21 +491,23 @@ namespace WCFPata
             if (paciente.terapeutaID != 0)
             {
                 p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
-
             }
             else {
-                p.Terapeuta = null;
+                p.Terapeuta.Id = paciente.terapeutaID;
+            
             }
-           
-          
-           
+
+
+
+
             p.cc = paciente.cc;
             p.dataNasc = getData(paciente.dataNasc.ToString());
             p.morada = paciente.morada;
             p.nome = paciente.nome;
             p.telefone = paciente.telefone;
             p.sexo = paciente.sexo;
-           
+            
+
             resultado = handler.addPaciente(p);
 
             return resultado;
@@ -535,13 +540,14 @@ namespace WCFPata
             Paciente p = new Paciente();
             if (paciente.terapeutaID == 0)
             {
-                 handler.removeTerapeutaFromPaciente(paciente.id);
-          
+                handler.removeTerapeutaFromPaciente(paciente.id);
+
             }
-            else {
-                p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);           
+            else
+            {
+                p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
             }
-      
+
             p.cc = paciente.cc;
             p.dataNasc = getData(paciente.dataNasc.ToString());
             p.morada = paciente.morada;
@@ -562,7 +568,7 @@ namespace WCFPata
 
             Conta contaBd = new Conta();
             contaBd.Id = conta.id;
-            contaBd.isAdmin=conta.isAdmin;
+            contaBd.isAdmin = conta.isAdmin;
             contaBd.username = conta.username;
             contaBd.password = conta.password;
 
@@ -572,8 +578,8 @@ namespace WCFPata
             t.cc = terapeuta.cc;
             t.dataNasc = getData(terapeuta.dataNasc);
             t.telefone = terapeuta.telefone;
-            
-            resultado = handler.editTerapeuta(t,contaBd);
+
+            resultado = handler.editTerapeuta(t, contaBd);
 
             return resultado;
         }
@@ -598,14 +604,13 @@ namespace WCFPata
         public bool removeTerapeuta(string token, int idContaTerapeuta, int idTerapeuta)
         {
             bool resultado = false;
-            //try
-            //{
-                checkAuthentication(token, false);
-               resultado= handler.removeTerapeuta(idContaTerapeuta, idTerapeuta);
-                
-            //}catch{
-            //    throw new FaultException("Erro Token");
-            //}
+
+
+
+            checkAuthentication(token, false);
+            resultado = handler.removeTerapeuta(idContaTerapeuta, idTerapeuta);
+
+
 
             return resultado;
 
@@ -709,12 +714,16 @@ namespace WCFPata
 
         }
 
-        public bool removePaciente(string token, int idPaciente) {
+        public bool removePaciente(string token, int idPaciente)
+        {
             bool resultado = false;
             checkAuthentication(token, false);
 
-            resultado = handler.removePaciente(idPaciente);
-
+            bool resRemAllEp = handler.removeAllEpisodiosFromPaciente(idPaciente);
+            if (resRemAllEp)
+            {
+                resultado = handler.removePaciente(idPaciente);
+            }
 
             return resultado;
 

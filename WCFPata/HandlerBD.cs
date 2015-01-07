@@ -101,6 +101,27 @@ namespace WCFPata
             return modelo.TerapeutaSet.Where(i => i.Id == idTerapeuta).First();
         }
 
+        public bool removeAllEpisodiosFromPaciente(int idPaciente)
+        {
+            bool res = false;
+            try
+            {
+                List<EpisodioClinico> episodios = modelo.EpisodioClinicoSet.Where(x => x.Paciente.Id == idPaciente).ToList();
+                if (episodios.Count > 0)
+                {
+                    foreach (EpisodioClinico e in episodios)
+                    {
+                        modelo.EpisodioClinicoSet.Remove(e);
+                    }
+                    modelo.SaveChanges();
+                    res= true;
+
+                }
+                return res;
+            }
+            catch { return false; }
+        }
+
 
 
 
@@ -142,7 +163,7 @@ namespace WCFPata
             catch { return false; }
         }
 
-        public bool editTerapeuta(Terapeuta t,Conta c)
+        public bool editTerapeuta(Terapeuta t, Conta c)
         {
 
             try
@@ -157,7 +178,7 @@ namespace WCFPata
                 terapeuta.dataNasc = t.dataNasc;
                 terapeuta.telefone = t.telefone;
                 modelo.SaveChanges();
-               
+
 
                 return true;
             }
@@ -185,10 +206,10 @@ namespace WCFPata
             int id = -1;
             try
             {
-               modelo.ContaSet.Add(conta);
+                modelo.ContaSet.Add(conta);
                 modelo.SaveChanges();
 
-                id=conta.Id;
+                id = conta.Id;
                 return id;
             }
             catch
@@ -255,7 +276,7 @@ namespace WCFPata
             try
             {
 
-            
+
 
                 Conta c = modelo.ContaSet.Where(x => x.Id == idConta).First();
 
@@ -269,8 +290,8 @@ namespace WCFPata
 
         public bool removeTerapeuta(int idContaTerapeuta, int idTerapeuta)
         {
-            bool result=false;
-            
+            bool result = false;
+
             try
             {
                 List<Paciente> listaPacientes = getAllPacientesByTerapeuta(idContaTerapeuta).ToList();
@@ -282,17 +303,17 @@ namespace WCFPata
                         removeTerapeutaFromPaciente(p.Id);
                     }
                 }
-              
-                    Terapeuta t = modelo.TerapeutaSet.Where(x=>x.Id==idTerapeuta).First();
-                    modelo.TerapeutaSet.Remove(t);
-                    modelo.SaveChanges();
-                    removeConta(idContaTerapeuta);
-                    result = true;
-              
-             
 
-                
-               
+                Terapeuta t = modelo.TerapeutaSet.Where(x => x.Id == idTerapeuta).First();
+                modelo.TerapeutaSet.Remove(t);
+                modelo.SaveChanges();
+                removeConta(idContaTerapeuta);
+                result = true;
+
+
+
+
+
             }
             catch { result = false; }
             return result;
