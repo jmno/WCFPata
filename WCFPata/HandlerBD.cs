@@ -117,19 +117,25 @@ namespace WCFPata
             catch { return false; }
         }
 
-        public bool editTerapeuta(Terapeuta t)
+        public bool editTerapeuta(Terapeuta t,Conta c)
         {
 
             try
             {
+
+                Conta conta = getContaByID(c.Id);
+                conta.username = c.username;
+                conta.password = c.password;
+
+                modelo.SaveChanges();
+
                 Terapeuta terapeuta = modelo.TerapeutaSet.Where(i => i.Id == t.Id).First();
-                terapeuta.Conta.username = t.Conta.username;
-                terapeuta.Conta.password = t.Conta.password;
                 terapeuta.nome = t.nome;
                 terapeuta.cc = t.cc;
                 terapeuta.dataNasc = t.dataNasc;
                 terapeuta.telefone = t.telefone;
                 modelo.SaveChanges();
+                Terapeuta t1 = modelo.TerapeutaSet.Where(i => i.Id == terapeuta.Id).First();
 
                 return true;
             }

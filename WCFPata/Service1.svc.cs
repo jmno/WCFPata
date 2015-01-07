@@ -505,16 +505,20 @@ namespace WCFPata
             checkAuthentication(token, false);
             bool resultado = false;
 
-            Terapeuta t = new Terapeuta();
+            Conta contaBd = new Conta();
+            contaBd.Id = conta.id;
+            contaBd.isAdmin=conta.isAdmin;
+            contaBd.username = conta.username;
+            contaBd.password = conta.password;
 
+            Terapeuta t = new Terapeuta();
+            t.Id = terapeuta.id;
             t.nome = terapeuta.nome;
-            t.Conta.username = conta.username;
-            t.Conta.password = conta.password;
             t.cc = terapeuta.cc;
             t.dataNasc = getData(terapeuta.dataNasc);
             t.telefone = terapeuta.telefone;
             
-            resultado = handler.editTerapeuta(t);
+            resultado = handler.editTerapeuta(t,contaBd);
 
             return resultado;
         }
