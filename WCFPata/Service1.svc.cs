@@ -195,6 +195,7 @@ namespace WCFPata
             }
             catch (Exception) {
                 throw new ArgumentException("ERROR: getting dados login");
+
             }
 
         }
