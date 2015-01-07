@@ -137,6 +137,9 @@
       <LastGenOutput>Model.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <None Include="App_Data\teste.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
