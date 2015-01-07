@@ -122,7 +122,7 @@ namespace WCFPata
 
             try
             {
-                Terapeuta terapeuta = modelo.TerapeutaSet.Single(i => i.Id == t.Id);
+                Terapeuta terapeuta = modelo.TerapeutaSet.Where(i => i.Id == t.Id).First();
                 terapeuta.Conta.username = t.Conta.username;
                 terapeuta.Conta.password = t.Conta.password;
                 terapeuta.nome = t.nome;
