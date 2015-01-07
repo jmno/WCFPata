@@ -490,6 +490,9 @@ namespace WCFPata
                 p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
 
             }
+            else {
+                p.Terapeuta = null;
+            }
            
           
            
