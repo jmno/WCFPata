@@ -1,7 +1,1550 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Conta>
-  <Username>admin</Username>
-  <Password>admin</Password>
-  <isAdmin>True</isAdmin>
-  <id>1</id>
-</Conta>
+<PATA>
+  <ListaDeSintomas>
+    <Sintoma>
+      <nome>Abdómen dilatado</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Acufenos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Acufenos som das cigarras</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Acufenos som do mar</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Afonia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Aftas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Agitação</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Amenorreia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Amnésia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Anorexia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ansiedade</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Anús ardente</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Apatia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ascise</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Astenia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Astenia psiquica</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ausência de sede</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ausência revestimento</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Boca amarga</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Boca seca</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Bochechas vermelhas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Borborismo intestinal</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Caimbras mãos e pés</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Calor na palma das mãos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Calor na planta dos pés</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Cefaleias</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Cefaleias momentâneas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Contraturas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Convulsões</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Corpo frio</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Corpo pesado</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Defecação irregular</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Delirio verbal</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Depressão</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Diarreia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Diarreia líquida</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Diarreia pastosa</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dificuldade de elocução</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dilatação abdominal</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Diminuição da acuidade visual</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dismenorreia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dispneia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dispneia com mucosidade</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Disúria</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor abdominal</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor bacinete</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor braço</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor cardiaca</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor costas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor coxas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor estomacal</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor garganta</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor genital</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor intermitente</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor irrática</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor lombar</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor maxilar inferior</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor no ventre</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor ombro</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor tóraxica</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dor uretra</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dores nos flancos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Dormência do escroto</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Edema de godet</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Edema membros inferiores</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ejaculação precoce</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Emagrecimento</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Enfartamento</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Enurese</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Epistaxe</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Equimose</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Erupções</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Escarro sanguinolento</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Escarros espumosos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Espasmos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Espasmos tendinomusculares</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Espermatoreia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Esquizofrenia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Esterilidade feminina</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Estomatites</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Evacuação pastosa não moldadas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Expectoração difícil</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Fadiga</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Falta de apetite</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Febre</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Febre intermitente</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Febre vespertina</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Fezes purulentas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Fezes sanguinolentas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Flancos inchados</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Fome sem apetite</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Frio</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Garganta seca</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Gengivites</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Gotas após micção</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Hálito fétido</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Hematemese</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Hematúria</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Hemoptise</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Hipertermia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Histerismo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Impotência</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Inflamação bucal</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Insónia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Irritação</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Joelhos fracos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Lábios pálidos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Lábios violáceos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Leucorreia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Leucorreia clara</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Lingua dentada</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Lingua grossa</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Lingua pálida</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Lingua púrpura</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Lingua seca</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Lingua vermelha</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Marcha insegura</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Massa muscular agitada</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Medo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Medo do frio</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Membros cansados</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Membros frios</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Membros hedematosos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Membros pesados</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Menorragia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Menstruação irregular</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Metrorragia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Micção frequente</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Movimentos peristalticos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Mucosidades amarelas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Mucosidades brancas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Mucosidades com sangue</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Mucosidades espessas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Mucosidades fluidas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Nariz seco</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Naúseas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Nervosismo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Nó na garganta</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Nuca rígida</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Obstipação</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Obstrução nasal</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ofuscação</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Olhar fixo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Olho sem brilho</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Olhos amarelos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Olhos revulsos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Olhos secos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Olhos vermelhos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Oligomenoreia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Oligúria</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Oligúria escura</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Opistotónos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Opressão</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Opressão toráxica</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Palpitação cardiaca</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Paralisia atrófica</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Parastesias dos membros</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Peito inchado</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pele amarela</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Perda de apetite</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Perda de consciência</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Perda de equilíbrio</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Perda de força membros inferiores</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pesadelos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Petéquias</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pieira</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pirose</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Polipneia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pouca energia</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pouca saliva</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Preocupação</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Procura de calor no escroto</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Procura do calor</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Prolapsos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Prurido</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso áspero</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso corda</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso deslizante</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso escorregadio</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso fino</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso Fraco</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso lento</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso mole</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso profundo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso rápido</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso superficial</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso tenso</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Pulso vazio</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Regugitação líquido branco</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Repugnação alimentar</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Respiração curta</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Revestimento amarelo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Revestimento branco</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Revestimento espesso</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Revestimento fino</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Revestimento gorduroso</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Rinoreia clara</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Risco de aborto</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Rosto amarelo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Rosto cinzento</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Rosto inchado</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Rosto macilento</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Rosto pálido</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Rosto vermelho</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Sede</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Sibalos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Sonhos abundantes</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Surdez</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Suspiração frequente</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Temor do frio</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Temor do vento</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Tenesmo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Tiques</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Torcicolo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Tosse</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Tosse asmática</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Tosse expectorante</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Tosse seca</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Transpiração</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Transpiração abundante</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Transpiração expontânea</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Transpiração noturna</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Tremuras</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Trismo</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Unhas moles</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Unhas pálidas</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Urina clara</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Urina escura</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ventre dilatado</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ventre dolorido</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Ventre inchado</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Vertigens</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Vómitos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Vómitos ácidos</nome>
+    </Sintoma>
+    <Sintoma>
+      <nome>Voz fraca</nome>
+    </Sintoma>
+  </ListaDeSintomas>
+  <DiagnosticosETratamentos>
+    <DiagnosticoETratamento>
+      <Orgao>Coração</Orgao>
+      <Diagnostico>Vazio do Yang</Diagnostico>
+      <Tratamento>5mc;7c;18v;3f;6f;4vc;20vg;36e</Tratamento>
+      <ListaSintomas>
+        <sintoma>Dor abdominal</sintoma>
+        <sintoma>Borborismo intestinal</sintoma>
+        <sintoma>Diarreia pastosa</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso profundo</sintoma>
+        <sintoma>Pulso lento</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Coração</Orgao>
+      <Diagnostico>Vazio do Qi</Diagnostico>
+      <Tratamento>15v;14vc;17vc;9c</Tratamento>
+      <ListaSintomas>
+        <sintoma>Torcicolo</sintoma>
+        <sintoma>Dor maxilar inferior</sintoma>
+        <sintoma>Dor ombro</sintoma>
+        <sintoma>Dor braço</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Coração</Orgao>
+      <Diagnostico>Vazio do Sangue (Xue)</Diagnostico>
+      <Tratamento>9c;5mc;9rt;15v;6rt;3c</Tratamento>
+      <ListaSintomas>
+        <sintoma>Dor garganta</sintoma>
+        <sintoma>Surdez</sintoma>
+        <sintoma>Olhos amarelos</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Coração</Orgao>
+      <Diagnostico>Vazio do Yin</Diagnostico>
+      <Tratamento>9c;5mc;9rt;15v;6rt;3c</Tratamento>
+      <ListaSintomas>
+        <sintoma>Naúseas</sintoma>
+        <sintoma>Repugnação alimentar</sintoma>
+        <sintoma>Vómitos</sintoma>
+        <sintoma>Corpo pesado</sintoma>
+        <sintoma>Membros pesados</sintoma>
+        <sintoma>Diarreia</sintoma>
+        <sintoma>Rosto amarelo</sintoma>
+        <sintoma>Prurido</sintoma>
+        <sintoma>Pele amarela</sintoma>
+        <sintoma>Olhos amarelos</sintoma>
+        <sintoma>Febre intermitente</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Pulso mole</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Coração</Orgao>
+      <Diagnostico>Fogo</Diagnostico>
+      <Tratamento>4ig;8mc;7c;15v;14vg;3r;2id</Tratamento>
+      <ListaSintomas>
+        <sintoma>Ausência de sede</sintoma>
+        <sintoma>Regugitação líquido branco</sintoma>
+        <sintoma>Vómitos</sintoma>
+        <sintoma>Borborismo intestinal</sintoma>
+        <sintoma>Dor abdominal</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso corda</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Coração</Orgao>
+      <Diagnostico>Mucosidades</Diagnostico>
+      <Tratamento>20vg;15vg;4ig;40e;8tr</Tratamento>
+      <ListaSintomas>
+        <sintoma>Pirose</sintoma>
+        <sintoma>Sede</sintoma>
+        <sintoma>Vómitos</sintoma>
+        <sintoma>Hálito fétido</sintoma>
+        <sintoma>Estomatites</sintoma>
+        <sintoma>Gengivites</sintoma>
+        <sintoma>Obstipação</sintoma>
+        <sintoma>Dor estomacal</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Pulso deslizante</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Coração</Orgao>
+      <Diagnostico>Estase do Sangue</Diagnostico>
+      <Tratamento>14v;15v;14vc;17vc;6mc;5c;17v;4p;10rt</Tratamento>
+      <ListaSintomas>
+        <sintoma>Ventre dilatado</sintoma>
+        <sintoma>Ventre dolorido</sintoma>
+        <sintoma>Repugnação alimentar</sintoma>
+        <sintoma>Erupções</sintoma>
+        <sintoma>Vómitos ácidos</sintoma>
+        <sintoma>Evacuação pastosa não moldadas</sintoma>
+        <sintoma>Revestimento espesso</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Baço</Orgao>
+      <Diagnostico>Vazio do Yang</Diagnostico>
+      <Tratamento>20v;21v;36e;41e;12vc;13f;2rt;3rt;6rt;9rt</Tratamento>
+      <ListaSintomas>
+        <sintoma>Boca seca</sintoma>
+        <sintoma>Fome sem apetite</sintoma>
+        <sintoma>Agitação</sintoma>
+        <sintoma>Ansiedade</sintoma>
+        <sintoma>Sibalos</sintoma>
+        <sintoma>Oligúria</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Ausência revestimento</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Baço</Orgao>
+      <Diagnostico>Vazio do Qi</Diagnostico>
+      <Tratamento>20v;21v;21e;36e;6rt;9rt;4vc;13f</Tratamento>
+      <ListaSintomas>
+        <sintoma>Dor abdominal</sintoma>
+        <sintoma>Diarreia</sintoma>
+        <sintoma>Fezes purulentas</sintoma>
+        <sintoma>Fezes sanguinolentas</sintoma>
+        <sintoma>Contraturas</sintoma>
+        <sintoma>Tenesmo</sintoma>
+        <sintoma>Anús ardente</sintoma>
+        <sintoma>Boca seca</sintoma>
+        <sintoma>Ausência de sede</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Pulso deslizante</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Baço</Orgao>
+      <Diagnostico>Qi desmoronado</Diagnostico>
+      <Tratamento>4vc;8vc;6vc;12vc;1vg;20vg;21e;36e;20v;23v;43v</Tratamento>
+      <ListaSintomas>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Perda de equilíbrio</sintoma>
+        <sintoma>Cefaleias</sintoma>
+        <sintoma>Tremuras</sintoma>
+        <sintoma>Movimentos peristalticos</sintoma>
+        <sintoma>Marcha insegura</sintoma>
+        <sintoma>Dificuldade de elocução</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Pulso corda</sintoma>
+        <sintoma>Pulso fino</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Baço</Orgao>
+      <Diagnostico>Não segura sangue</Diagnostico>
+      <Tratamento>17v;20v;6rt;10rt;36e;1f</Tratamento>
+      <ListaSintomas>
+        <sintoma>Hipertermia</sintoma>
+        <sintoma>Agitação</sintoma>
+        <sintoma>Sede</sintoma>
+        <sintoma>Convulsões</sintoma>
+        <sintoma>Nuca rígida</sintoma>
+        <sintoma>Olhos revulsos</sintoma>
+        <sintoma>Opistotónos</sintoma>
+        <sintoma>Perda de consciência</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Petéquias</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Pulso corda</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Baço</Orgao>
+      <Diagnostico>Humidade frio</Diagnostico>
+      <Tratamento>21e;25e;36e;6rt;9rt;20v;23v;4vc;6vc;12vc</Tratamento>
+      <ListaSintomas>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Rosto macilento</sintoma>
+        <sintoma>Rosto amarelo</sintoma>
+        <sintoma>Diminuição da acuidade visual</sintoma>
+        <sintoma>Caimbras mãos e pés</sintoma>
+        <sintoma>Massa muscular agitada</sintoma>
+        <sintoma>Trismo</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Pulso corda</sintoma>
+        <sintoma>Pulso fino</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Baço</Orgao>
+      <Diagnostico>Humidade calor</Diagnostico>
+      <Tratamento>20v;21v;51v;36e;39e;10vc;12vc;34vb;38vb;6mc;9rt;8f</Tratamento>
+      <ListaSintomas>
+        <sintoma>Dor no ventre</sintoma>
+        <sintoma>Dor genital</sintoma>
+        <sintoma>Ventre inchado</sintoma>
+        <sintoma>Procura de calor no escroto</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso profundo</sintoma>
+        <sintoma>Pulso corda</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Pulmão</Orgao>
+      <Diagnostico>Vazio do Yin</Diagnostico>
+      <Tratamento>6p;9p;10p;3rn;43v;13v;23v;6rt</Tratamento>
+      <ListaSintomas>
+        <sintoma>Fadiga</sintoma>
+        <sintoma>Anorexia</sintoma>
+        <sintoma>Naúseas</sintoma>
+        <sintoma>Vómitos</sintoma>
+        <sintoma>Boca amarga</sintoma>
+        <sintoma>Dilatação abdominal</sintoma>
+        <sintoma>Defecação irregular</sintoma>
+        <sintoma>Oligúria escura</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Pulso corda</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Pulmão</Orgao>
+      <Diagnostico>Vazio do Qi</Diagnostico>
+      <Tratamento>13v;1p;7p;9p;6vc;17vc;4gi;18gi;36e</Tratamento>
+      <ListaSintomas>
+        <sintoma>Agitação</sintoma>
+        <sintoma>Ansiedade</sintoma>
+        <sintoma>Rosto vermelho</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Delirio verbal</sintoma>
+        <sintoma>Disúria</sintoma>
+        <sintoma>Hematúria</sintoma>
+        <sintoma>Dor uretra</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Pulso deslizante</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Pulmão</Orgao>
+      <Diagnostico>Frio perverso</Diagnostico>
+      <Tratamento>14vg;15ig;13v;45v;60v;12vc;17vc;22vc;20vb;5p;7p;9p;4gi;11gi;20gi</Tratamento>
+      <ListaSintomas>
+        <sintoma>Dor bacinete</sintoma>
+        <sintoma>Dor irrática</sintoma>
+        <sintoma>Abdómen dilatado</sintoma>
+        <sintoma>Borborismo intestinal</sintoma>
+        <sintoma>Dormência do escroto</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso profundo</sintoma>
+        <sintoma>Pulso tenso</sintoma>
+        <sintoma>Pulso corda</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Pulmão</Orgao>
+      <Diagnostico>Calor perverso</Diagnostico>
+      <Tratamento>13vg;12vg;20vb;4gi;11gi;5tr;13v;45v;22vc;40e;5p;7p;11p;18ig</Tratamento>
+      <ListaSintomas>
+        <sintoma>Dor costas</sintoma>
+        <sintoma>Dor coxas</sintoma>
+        <sintoma>Perda de força membros inferiores</sintoma>
+        <sintoma>Paralisia atrófica</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Pulmão</Orgao>
+      <Diagnostico>Secura perversa</Diagnostico>
+      <Tratamento>6p;9p;10p;12v;13v;23v;3rn;7rn</Tratamento>
+      <ListaSintomas>
+        <sintoma>Inflamação bucal</sintoma>
+        <sintoma>Lingua seca</sintoma>
+        <sintoma>Dor garganta</sintoma>
+        <sintoma>Dor cardiaca</sintoma>
+        <sintoma>Calor na planta dos pés</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Pulmão</Orgao>
+      <Diagnostico>Humidade mucosidades</Diagnostico>
+      <Tratamento>17vc;22vc;13v;20v;9rt;6mc;3p;5p;7p;9p;40e</Tratamento>
+      <ListaSintomas>
+        <sintoma>Depressão</sintoma>
+        <sintoma>Irritação</sintoma>
+        <sintoma>Suspiração frequente</sintoma>
+        <sintoma>Opressão toráxica</sintoma>
+        <sintoma>Peito inchado</sintoma>
+        <sintoma>Flancos inchados</sintoma>
+        <sintoma>Ventre inchado</sintoma>
+        <sintoma>Dismenorreia</sintoma>
+        <sintoma>Menstruação irregular</sintoma>
+        <sintoma>Nó na garganta</sintoma>
+        <sintoma>Revestimento fino</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso corda</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Rim</Orgao>
+      <Diagnostico>Deficiência do Yang</Diagnostico>
+      <Tratamento>4vc;6vc;23v;7rn;9rn;4vg;14vg;39vb</Tratamento>
+      <ListaSintomas>
+        <sintoma>Cefaleias</sintoma>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Acufenos som do mar</sintoma>
+        <sintoma>Surdez</sintoma>
+        <sintoma>Olhos vermelhos</sintoma>
+        <sintoma>Rosto vermelho</sintoma>
+        <sintoma>Boca amarga</sintoma>
+        <sintoma>Garganta seca</sintoma>
+        <sintoma>Dores nos flancos</sintoma>
+        <sintoma>Nervosismo</sintoma>
+        <sintoma>Histerismo</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Pesadelos</sintoma>
+        <sintoma>Epistaxe</sintoma>
+        <sintoma>Hemoptise</sintoma>
+        <sintoma>Escarro sanguinolento</sintoma>
+        <sintoma>Obstipação</sintoma>
+        <sintoma>Urina escura</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Pulso corda</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Rim</Orgao>
+      <Diagnostico>Vazio do Yang</Diagnostico>
+      <Tratamento>20v;23v;9vc;8vc;4vc;3vc;2vc;28e;9rt;5rn;7rn</Tratamento>
+      <ListaSintomas>
+        <sintoma>Rosto macilento</sintoma>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Pesadelos</sintoma>
+        <sintoma>Acufenos som das cigarras</sintoma>
+        <sintoma>Olhos secos</sintoma>
+        <sintoma>Olho sem brilho</sintoma>
+        <sintoma>Parastesias dos membros</sintoma>
+        <sintoma>Espasmos tendinomusculares</sintoma>
+        <sintoma>Unhas moles</sintoma>
+        <sintoma>Unhas pálidas</sintoma>
+        <sintoma>Amenorreia</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Pulso fino</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Rim</Orgao>
+      <Diagnostico>Qi sem solidez</Diagnostico>
+      <Tratamento>4vc;6vc;5rn;3rn;7rn;23v;28v;52v;4vg</Tratamento>
+      <ListaSintomas>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Acufenos</sintoma>
+        <sintoma>Cefaleias momentâneas</sintoma>
+        <sintoma>Rosto inchado</sintoma>
+        <sintoma>Rosto vermelho</sintoma>
+        <sintoma>Olhos vermelhos</sintoma>
+        <sintoma>Irritação</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Pesadelos</sintoma>
+        <sintoma>Amnésia</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Palpitação cardiaca</sintoma>
+        <sintoma>Pulso corda</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Rim</Orgao>
+      <Diagnostico>Vazio Yin</Diagnostico>
+      <Tratamento>17v;23v;52v;1rn;2rn;3rn;6rn;7rn;1rt;6rt;8rt;1f;8f;6vc;6mc;11gi</Tratamento>
+      <ListaSintomas>
+        <sintoma>Tremuras</sintoma>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Tiques</sintoma>
+        <sintoma>Espasmos</sintoma>
+        <sintoma>Convulsões</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Rim</Orgao>
+      <Diagnostico>Vento Humidade Frio Perverso</Diagnostico>
+      <Tratamento>34vb;23v;4vg;12v;9rt;14vg</Tratamento>
+      <ListaSintomas>
+        <sintoma>Tosse seca</sintoma>
+        <sintoma>Mucosidades espessas</sintoma>
+        <sintoma>Mucosidades com sangue</sintoma>
+        <sintoma>Respiração curta</sintoma>
+        <sintoma>Boca seca</sintoma>
+        <sintoma>Afonia</sintoma>
+        <sintoma>Febre vespertina</sintoma>
+        <sintoma>Transpiração noturna</sintoma>
+        <sintoma>Bochechas vermelhas</sintoma>
+        <sintoma>Calor na palma das mãos</sintoma>
+        <sintoma>Calor na planta dos pés</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Rim</Orgao>
+      <Diagnostico>Calor perverso</Diagnostico>
+      <Tratamento>3rn;10rt;9rn;62v</Tratamento>
+      <ListaSintomas>
+        <sintoma>Apatia</sintoma>
+        <sintoma>Pouca energia</sintoma>
+        <sintoma>Tosse asmática</sintoma>
+        <sintoma>Dispneia</sintoma>
+        <sintoma>Transpiração expontânea</sintoma>
+        <sintoma>Voz fraca</sintoma>
+        <sintoma>Temor do frio</sintoma>
+        <sintoma>Rosto pálido</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Pulso vazio</sintoma>
+        <sintoma>Pulso fraco</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Estagnação do QI</Diagnostico>
+      <Tratamento>17v;18v;19v;51v;2f;3f;14f;20vb;34vb;18e;34e;36e;6mc;6rt;5c;10vc</Tratamento>
+      <ListaSintomas>
+        <sintoma>Tosse</sintoma>
+        <sintoma>Polipneia</sintoma>
+        <sintoma>Mucosidades fluidas</sintoma>
+        <sintoma>Mucosidades brancas</sintoma>
+        <sintoma>Obstrução nasal</sintoma>
+        <sintoma>Rinoreia clara</sintoma>
+        <sintoma>Ausência de sede</sintoma>
+        <sintoma>Cefaleias</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso tenso</sintoma>
+        <sintoma>Pulso superficial</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Fogo</Diagnostico>
+      <Tratamento>20vg;23vg;2vb;20vb;34vb;43vb;2f;3f;4gi;3tr;5tr;17tr;6mc;7c;36e</Tratamento>
+      <ListaSintomas>
+        <sintoma>Tosse asmática</sintoma>
+        <sintoma>Pieira</sintoma>
+        <sintoma>Mucosidades amarelas</sintoma>
+        <sintoma>Dor garganta</sintoma>
+        <sintoma>Sede</sintoma>
+        <sintoma>Obstipação</sintoma>
+        <sintoma>Oligúria</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+        <sintoma>Pulso superficial</sintoma>
+        <sintoma>Febre</sintoma>
+        <sintoma>Temor do vento</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Insuficiência de sangue</Diagnostico>
+      <Tratamento>6rt;9rt;10rt;36e;17v;18v;20v;21v;13f;9vg,1hm</Tratamento>
+      <ListaSintomas>
+        <sintoma>Tosse seca</sintoma>
+        <sintoma>Mucosidades espessas</sintoma>
+        <sintoma>Expectoração difícil</sintoma>
+        <sintoma>Escarros espumosos</sintoma>
+        <sintoma>Nariz seco</sintoma>
+        <sintoma>Garganta seca</sintoma>
+        <sintoma>Dor tóraxica</sintoma>
+        <sintoma>Afonia</sintoma>
+        <sintoma>Lingua seca</sintoma>
+        <sintoma>Revestimento fino</sintoma>
+        <sintoma>Pulso fino</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Subida do Yang</Diagnostico>
+      <Tratamento>18v;23v;3rn;6rt;10rt;20vb;34vb;38vb;2f;3f;29vg</Tratamento>
+      <ListaSintomas>
+        <sintoma>Tosse expectorante</sintoma>
+        <sintoma>Opressão toráxica</sintoma>
+        <sintoma>Dispneia com mucosidade</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Revestimento gorduroso</sintoma>
+        <sintoma>Pulso corda</sintoma>
+        <sintoma>Pulso deslizante</sintoma>
+        <sintoma>Pulso mole</sintoma>
+        <sintoma>Pulso lento</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Vento Interno</Diagnostico>
+      <Tratamento>3f;8f;10rt;6rt;3rn;34vb</Tratamento>
+      <ListaSintomas>
+        <sintoma>Rosto pálido</sintoma>
+        <sintoma>Corpo frio</sintoma>
+        <sintoma>Membros frios</sintoma>
+        <sintoma>Astenia psiquica</sintoma>
+        <sintoma>Dor lombar</sintoma>
+        <sintoma>Impotência</sintoma>
+        <sintoma>Esterilidade feminina</sintoma>
+        <sintoma>Pulso profundo</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Yang torna-se em Vento</Diagnostico>
+      <Tratamento>15vg;16vg;4gi;11gi;3f;6rt;8f</Tratamento>
+      <ListaSintomas>
+        <sintoma>Medo do frio</sintoma>
+        <sintoma>Procura do calor</sintoma>
+        <sintoma>Corpo frio</sintoma>
+        <sintoma>Membros frios</sintoma>
+        <sintoma>Oligúria</sintoma>
+        <sintoma>Edema membros inferiores</sintoma>
+        <sintoma>Edema de godet</sintoma>
+        <sintoma>Ascise</sintoma>
+        <sintoma>Palpitação cardiaca</sintoma>
+        <sintoma>Dispneia</sintoma>
+        <sintoma>Tosse asmática</sintoma>
+        <sintoma>Pieira</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Lingua grossa</sintoma>
+        <sintoma>Lingua dentada</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso profundo</sintoma>
+        <sintoma>Pulso corda</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Fogo torna-se Vento</Diagnostico>
+      <Tratamento>14vg;20vg;26vg;8mc;36e;6rt;6c;7ig;8ig;38vb;3f;11gi;4gi;24vc</Tratamento>
+      <ListaSintomas>
+        <sintoma>Astenia psiquica</sintoma>
+        <sintoma>Joelhos fracos</sintoma>
+        <sintoma>Dor lombar</sintoma>
+        <sintoma>Micção frequente</sintoma>
+        <sintoma>Urina clara</sintoma>
+        <sintoma>Gotas após micção</sintoma>
+        <sintoma>Enurese</sintoma>
+        <sintoma>Espermatoreia</sintoma>
+        <sintoma>Ejaculação precoce</sintoma>
+        <sintoma>Leucorreia clara</sintoma>
+        <sintoma>Risco de aborto</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Pulso profundo</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Vazio de sangue torna-se Vento</Diagnostico>
+      <Tratamento>26vg;23v;3rn;10rt;36e;3f;17v;43v;38vb;6mc;1hm</Tratamento>
+      <ListaSintomas>
+        <sintoma>Ofuscação</sintoma>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Acufenos</sintoma>
+        <sintoma>Amnésia</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Joelhos fracos</sintoma>
+        <sintoma>Dor lombar</sintoma>
+        <sintoma>Emagrecimento</sintoma>
+        <sintoma>Garganta seca</sintoma>
+        <sintoma>Boca seca</sintoma>
+        <sintoma>Calor na planta dos pés</sintoma>
+        <sintoma>Calor na palma das mãos</sintoma>
+        <sintoma>Febre vespertina</sintoma>
+        <sintoma>Transpiração noturna</sintoma>
+        <sintoma>Rosto vermelho</sintoma>
+        <sintoma>Espermatoreia</sintoma>
+        <sintoma>Oligomenoreia</sintoma>
+        <sintoma>Amenorreia</sintoma>
+        <sintoma>Metrorragia</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Frio perverso</Diagnostico>
+      <Tratamento>2vc;4vc;6rt;9rt;1f;3f;14f;9e;23v</Tratamento>
+      <ListaSintomas>
+        <sintoma>Palpitação cardiaca</sintoma>
+        <sintoma>Dispneia</sintoma>
+        <sintoma>Transpiração expontânea</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso Fraco</sintoma>
+        <sintoma>Frio</sintoma>
+        <sintoma>Rosto cinzento</sintoma>
+        <sintoma>Opressão toráxica</sintoma>
+        <sintoma>Lingua grossa</sintoma>
+        <sintoma>Lingua púrpura</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Fígado</Orgao>
+      <Diagnostico>Calor Humidade Perverso</Diagnostico>
+      <Tratamento>3vc;6vc;29e;1rt;6rt;9rt;10rn;12rn;26vb;5f;8f;9f;10f;3f</Tratamento>
+      <ListaSintomas>
+        <sintoma>Palpitação cardiaca</sintoma>
+        <sintoma>Dispneia</sintoma>
+        <sintoma>Transpiração expontânea</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso Fraco</sintoma>
+        <sintoma>Rosto pálido</sintoma>
+        <sintoma>Fadiga</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Intestino Delgado</Orgao>
+      <Diagnostico>Plenitude Calor</Diagnostico>
+      <Tratamento>2ig;3c;40v;7ig</Tratamento>
+      <ListaSintomas>
+        <sintoma>Palpitação cardiaca</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Sonhos abundantes</sintoma>
+        <sintoma>Amnésia</sintoma>
+        <sintoma>Medo</sintoma>
+        <sintoma>Rosto macilento</sintoma>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Lábios pálidos</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso fraco</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Intestino Delgado</Orgao>
+      <Diagnostico>Plenitude Frio</Diagnostico>
+      <Tratamento>4rn;6rt;1f;23v;6vc;29e</Tratamento>
+      <ListaSintomas>
+        <sintoma>Palpitação cardiaca</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Sonhos abundantes</sintoma>
+        <sintoma>Amnésia</sintoma>
+        <sintoma>Medo</sintoma>
+        <sintoma>Transpiração noturna</sintoma>
+        <sintoma>Boca seca</sintoma>
+        <sintoma>Calor na palma das mãos</sintoma>
+        <sintoma>Calor na planta dos pés</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Pouca saliva</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Intestino Delgado</Orgao>
+      <Diagnostico>Vazio Frio</Diagnostico>
+      <Tratamento>7rn;23v;6vc;36e;3ig</Tratamento>
+      <ListaSintomas>
+        <sintoma>Agitação</sintoma>
+        <sintoma>Ansiedade</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Sonhos abundantes</sintoma>
+        <sintoma>Aftas</sintoma>
+        <sintoma>Oligúria</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+        <sintoma>Rosto vermelho</sintoma>
+        <sintoma>Obstipação</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Intestino Delgado</Orgao>
+      <Diagnostico>Vento Humidade Frio Perverso</Diagnostico>
+      <Tratamento>18gi;20vb;9rt</Tratamento>
+      <ListaSintomas>
+        <sintoma>Boca seca</sintoma>
+        <sintoma>Opressão toráxica</sintoma>
+        <sintoma>Insónia</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Revestimento gorduroso</sintoma>
+        <sintoma>Pulso corda</sintoma>
+        <sintoma>Pulso profundo</sintoma>
+        <sintoma>Pulso escorregadio</sintoma>
+        <sintoma>Olhar fixo</sintoma>
+        <sintoma>Preocupação</sintoma>
+        <sintoma>Irritação</sintoma>
+        <sintoma>Histerismo</sintoma>
+        <sintoma>Esquizofrenia</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Intestino Delgado</Orgao>
+      <Diagnostico>Calor perverso</Diagnostico>
+      <Tratamento>2ig;7c;5c;7ig</Tratamento>
+      <ListaSintomas>
+        <sintoma>Rosto macilento</sintoma>
+        <sintoma>Frio</sintoma>
+        <sintoma>Palpitação cardiaca</sintoma>
+        <sintoma>Dor intermitente</sintoma>
+        <sintoma>Transpiração abundante</sintoma>
+        <sintoma>Opressão toráxica</sintoma>
+        <sintoma>Lingua púrpura</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso áspero</sintoma>
+        <sintoma>Lábios violáceos</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Estômago</Orgao>
+      <Diagnostico>Humidade calor</Diagnostico>
+      <Tratamento>20v;21v;51v;36e;39e;12vc;10vc;34vb;38vb;6mc;9rt;8f</Tratamento>
+      <ListaSintomas>
+        <sintoma>Perda de apetite</sintoma>
+        <sintoma>Ventre dilatado</sintoma>
+        <sintoma>Dor abdominal</sintoma>
+        <sintoma>Ausência de sede</sintoma>
+        <sintoma>Membros frios</sintoma>
+        <sintoma>Diarreia líquida</sintoma>
+        <sintoma>Membros hedematosos</sintoma>
+        <sintoma>Oligúria</sintoma>
+        <sintoma>Leucorreia</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso profundo</sintoma>
+        <sintoma>Pulso fraco</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Estômago</Orgao>
+      <Diagnostico>Frio</Diagnostico>
+      <Tratamento>6mc;4vc;12vc;36e;20v;21v;3f;4rt</Tratamento>
+      <ListaSintomas>
+        <sintoma>Perda de apetite</sintoma>
+        <sintoma>Ventre dilatado</sintoma>
+        <sintoma>Diarreia</sintoma>
+        <sintoma>Rosto macilento</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso lento</sintoma>
+        <sintoma>Pulso fraco</sintoma>
+        <sintoma>Membros cansados</sintoma>
+        <sintoma>Emagrecimento</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Estômago</Orgao>
+      <Diagnostico>Fogo</Diagnostico>
+      <Tratamento>6mc;4rt;11vc;12vc;25e;36e;44e</Tratamento>
+      <ListaSintomas>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Ofuscação</sintoma>
+        <sintoma>Voz fraca</sintoma>
+        <sintoma>Respiração curta</sintoma>
+        <sintoma>Astenia</sintoma>
+        <sintoma>Transpiração expontânea</sintoma>
+        <sintoma>Falta de apetite</sintoma>
+        <sintoma>Prolapsos</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso lento</sintoma>
+        <sintoma>Pulso mole</sintoma>
+        <sintoma>Pulso fino</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Estômago</Orgao>
+      <Diagnostico>Estagnação de alimento</Diagnostico>
+      <Tratamento>10vc;12vc;22vc;6mc;4rt;21e;36e;21rn;2f;3f;14f</Tratamento>
+      <ListaSintomas>
+        <sintoma>Hematúria</sintoma>
+        <sintoma>Hematemese</sintoma>
+        <sintoma>Equimose</sintoma>
+        <sintoma>Menorragia</sintoma>
+        <sintoma>Metrorragia</sintoma>
+        <sintoma>Vertigens</sintoma>
+        <sintoma>Astenia</sintoma>
+        <sintoma>Rosto macilento</sintoma>
+        <sintoma>Lingua pálida</sintoma>
+        <sintoma>Pulso fino</sintoma>
+        <sintoma>Pulso fraco</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Estômago</Orgao>
+      <Diagnostico>Insuficiência do Yin</Diagnostico>
+      <Tratamento>6mc;12vc;20v;21v;6rt;44e</Tratamento>
+      <ListaSintomas>
+        <sintoma>Dilatação abdominal</sintoma>
+        <sintoma>Opressão</sintoma>
+        <sintoma>Falta de apetite</sintoma>
+        <sintoma>Naúseas</sintoma>
+        <sintoma>Ausência de sede</sintoma>
+        <sintoma>Dor abdominal</sintoma>
+        <sintoma>Cefaleias</sintoma>
+        <sintoma>Corpo pesado</sintoma>
+        <sintoma>Oligúria</sintoma>
+        <sintoma>Rosto amarelo</sintoma>
+        <sintoma>Lingua grossa</sintoma>
+        <sintoma>Revestimento branco</sintoma>
+        <sintoma>Pulso mole</sintoma>
+        <sintoma>Pulso lento</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+    <DiagnosticoETratamento>
+      <Orgao>Intestino grosso</Orgao>
+      <Diagnostico>Humidade calor</Diagnostico>
+      <Tratamento>12vc;25e;37e;6vc;11gi;9rt;25v</Tratamento>
+      <ListaSintomas>
+        <sintoma>Naúseas</sintoma>
+        <sintoma>Vómitos</sintoma>
+        <sintoma>Diarreia</sintoma>
+        <sintoma>Enfartamento</sintoma>
+        <sintoma>Rosto amarelo</sintoma>
+        <sintoma>Pele amarela</sintoma>
+        <sintoma>Olhos amarelos</sintoma>
+        <sintoma>Prurido</sintoma>
+        <sintoma>Febre intermitente</sintoma>
+        <sintoma>Transpiração</sintoma>
+        <sintoma>Revestimento amarelo</sintoma>
+        <sintoma>Revestimento gorduroso</sintoma>
+        <sintoma>Lingua vermelha</sintoma>
+        <sintoma>Pulso mole</sintoma>
+        <sintoma>Pulso rápido</sintoma>
+      </ListaSintomas>
+    </DiagnosticoETratamento>
+  </DiagnosticosETratamentos>
+</PATA>
