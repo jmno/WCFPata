@@ -126,9 +126,6 @@ namespace WCFPata
                 Conta conta = getContaByID(c.Id);
                 conta.username = c.username;
                 conta.password = c.password;
-
-                modelo.SaveChanges();
-
                 Terapeuta terapeuta = modelo.TerapeutaSet.Where(i => i.Id == t.Id).First();
                 terapeuta.nome = t.nome;
                 terapeuta.cc = t.cc;
