@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Xml;
+using System.Xml.Schema;
 
 namespace WCFPata
 {
@@ -34,7 +36,7 @@ namespace WCFPata
             return lista;
 
         }
-        public static void guardarXML(DadosWEB dados, String xmlPath)
+        public static void guardarXML(DadosWEB dados, String xmlPath,String xsdPath)
         {
 
             if (dados != null)
@@ -72,6 +74,16 @@ namespace WCFPata
                 escritor.WriteEndElement();
                 escritor.WriteEndDocument();
                 escritor.Close();
+
+                try
+                {
+                    verificaXSD(xsdPath, xmlPath);
+                }
+                catch(Exception ex) {
+
+                    throw new FaultException(ex.Message);
+                }
+
                 
             }
             
@@ -299,46 +311,46 @@ namespace WCFPata
 
 
 
-        //public static bool verificaXSD(string xsdPath, string xmlPath)
-        //{
-        //    Boolean _isValid = false;
+        public static bool verificaXSD(string xsdPath, string xmlPath)
+        {
+            Boolean _isValid = false;
 
 
-        //    try
-        //    {
-        //        XmlReaderSettings settings = new XmlReaderSettings();
-        //        settings.Schemas.Add(null, xsdPath);
-        //        settings.ValidationType = ValidationType.Schema;
+            try
+            {
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.Schemas.Add(null, xsdPath);
+                settings.ValidationType = ValidationType.Schema;
 
-        //        XmlReader reader = XmlReader.Create(xmlPath, settings);
-        //        XmlDocument document = new XmlDocument();
-        //        document.Load(reader);
+                XmlReader reader = XmlReader.Create(xmlPath, settings);
+                XmlDocument document = new XmlDocument();
+                document.Load(reader);
 
-        //        ValidationEventHandler eventHandler = new ValidationEventHandler(ValidationEventHandler);
+                ValidationEventHandler eventHandler = new ValidationEventHandler(ValidationEventHandler);
 
-        //        _isValid = true;
-        //        document.Validate(eventHandler);
+                _isValid = true;
+                document.Validate(eventHandler);
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _isValid = false;
+            }
+            catch (Exception ex)
+            {
+                _isValid = false;
 
-        //    }
+            }
 
-        //    return _isValid;
-        //}
-        //private static void ValidationEventHandler(object sender, ValidationEventArgs e)
-        //{
-        //    switch (e.Severity)
-        //    {
-        //        case XmlSeverityType.Error:
-        //            System.Windows.Forms.MessageBox.Show("Error: " + e.Message + Environment.NewLine);
-        //            break;
-        //        case XmlSeverityType.Warning:
-        //            System.Windows.Forms.MessageBox.Show("Warning: " + e.Message + Environment.NewLine);
-        //            break;
-        //    }
-        //}
+            return _isValid;
+        }
+        private static void ValidationEventHandler(object sender, ValidationEventArgs e)
+        {
+            switch (e.Severity)
+            {
+                case XmlSeverityType.Error:
+                     throw new FaultException("Error: " + e.Message);
+                    break;
+                case XmlSeverityType.Warning:
+                      throw new FaultException("Warning: " + e.Message);
+                    break;
+            }
+        }
     }
 }

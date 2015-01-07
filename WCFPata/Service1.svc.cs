@@ -25,6 +25,7 @@ namespace WCFPata
         private Dictionary<string, ContaWEB> contas;
         private Dictionary<string, Token> tokens;
         private static string FILEPATH;
+        private static string FILEPATHXSD;
 
         public Service1()
         {
@@ -32,6 +33,7 @@ namespace WCFPata
             this.contas = new Dictionary<string, ContaWEB>();
             this.tokens = new Dictionary<string, Token>();
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
+            FILEPATHXSD = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xsd");
             verificarDadosLogin();
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
             //Paciente p = new Paciente();
@@ -316,12 +318,12 @@ namespace WCFPata
 
             try
             {
-                OperacoesXML.guardarXML(dados, FILEPATH);
+                OperacoesXML.guardarXML(dados, FILEPATH,FILEPATHXSD);
                 resultado = true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                throw new FaultException(ex.Message);
                 // resultado = false;
             }
 
