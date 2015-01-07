@@ -245,9 +245,11 @@ namespace WCFPata
             string token = getToken(username);
             if (!token.Equals("NADA"))
             {
-                tokens.Remove(token);
                 Token t = tokens[token];
                 handler.removerDadosLogin(t.Conta.id);
+                tokens.Remove(token);
+                
+               
 
             }
             
