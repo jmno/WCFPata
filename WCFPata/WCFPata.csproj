@@ -69,7 +69,7 @@
     <Content Include="Model.edmx.sql" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
-    <Content Include="XML\teste.xml" />
+    <Content Include="App_Data\teste.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conta.cs">
@@ -116,7 +116,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="XML\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
