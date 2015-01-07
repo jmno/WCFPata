@@ -134,7 +134,7 @@ namespace WCFPata
                 paciente.cc = p.cc;
                 paciente.sexo = p.sexo;
                 paciente.dataNasc = p.dataNasc;
-                paciente.Terapeuta = paciente.Terapeuta;
+                paciente.Terapeuta = p.Terapeuta;
                 modelo.SaveChanges();
 
                 return true;
