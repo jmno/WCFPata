@@ -96,6 +96,11 @@ namespace WCFPata
         }
 
 
+        public Terapeuta getTerapeutaByHisID(int idTerapeuta)
+        {
+            return modelo.TerapeutaSet.Where(i => i.Id == idTerapeuta).First();
+        }
+
 
 
 
@@ -132,8 +137,7 @@ namespace WCFPata
                 terapeuta.dataNasc = t.dataNasc;
                 terapeuta.telefone = t.telefone;
                 modelo.SaveChanges();
-                Terapeuta t1 = modelo.TerapeutaSet.Where(i => i.Id == terapeuta.Id).First();
-                //batastas
+               
 
                 return true;
             }
@@ -270,6 +274,21 @@ namespace WCFPata
             }
             catch { result = false; }
             return result;
+        }
+
+        public bool removePaciente(int idPaciente)
+        {
+
+            try
+            {
+
+                Paciente t = modelo.PacienteSet.Where(x => x.Id == idPaciente).First();
+                modelo.PacienteSet.Remove(t);
+                modelo.SaveChanges();
+                return true;
+            }
+            catch { return false; }
+
         }
 
 

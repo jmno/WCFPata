@@ -120,12 +120,24 @@ namespace WCFPata
         UriTemplate = "addPaciente?token={token}")]
         bool addPaciente(string token, PacienteWEB paciente);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "addPacienteClienteAdmin?token={token}")]
+        bool addPacienteClienteAdmin(string token, PacienteWEB paciente);
+
 
         [OperationContract]
         [WebInvoke(Method = "POST",
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "editPaciente?token={token}")]
         bool editPaciente(string token, PacienteWEB paciente);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "editPacienteClienteAdmin?token={token}")]
+        bool editPacienteClienteAdmin(string token, PacienteWEB paciente);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -176,6 +188,14 @@ namespace WCFPata
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "removeConta?token={token}&idConta={idConta}")]
         string removeConta(string token, int idConta);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "removePaciente?token={token}&idConta={idConta}")]
+        bool removePaciente(string token, int idPaciente);
+
+
 
 
 

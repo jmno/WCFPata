@@ -480,6 +480,24 @@ namespace WCFPata
             return resultado;
         }
 
+        public bool addPacienteClienteAdmin(string token, PacienteWEB paciente)
+        {
+            checkAuthentication(token, false);
+            bool resultado = false;
+          
+            Paciente p = new Paciente();
+            p.cc = paciente.cc;
+            p.dataNasc = getData(paciente.dataNasc.ToString());
+            p.morada = paciente.morada;
+            p.nome = paciente.nome;
+            p.telefone = paciente.telefone;
+            p.sexo = paciente.sexo;
+            p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
+            resultado = handler.addPaciente(p);
+
+            return resultado;
+        }
+
         public bool editPaciente(string token, PacienteWEB paciente)
         {
             checkAuthentication(token, false);
@@ -493,6 +511,26 @@ namespace WCFPata
             p.nome = paciente.nome;
             p.telefone = paciente.telefone;
             p.Terapeuta = handler.getTerapeutaByID(idConta);
+            p.Id = paciente.id;
+            p.sexo = paciente.sexo;
+            resultado = handler.editPaciente(p);
+
+            return resultado;
+        }
+
+        public bool editPacienteClienteAdmin(string token, PacienteWEB paciente)
+        {
+            checkAuthentication(token, false);
+            bool resultado = false;
+
+           
+            Paciente p = new Paciente();
+            p.cc = paciente.cc;
+            p.dataNasc = getData(paciente.dataNasc.ToString());
+            p.morada = paciente.morada;
+            p.nome = paciente.nome;
+            p.telefone = paciente.telefone;
+            p.Terapeuta = handler.getTerapeutaByHisID(paciente.terapeutaID);
             p.Id = paciente.id;
             p.sexo = paciente.sexo;
             resultado = handler.editPaciente(p);
@@ -649,6 +687,17 @@ namespace WCFPata
             bool resultado = false;
 
             resultado = handler.removeTerapeutaFromPaciente(idPaciente);
+
+            return resultado;
+
+        }
+
+        public bool removePaciente(string token, int idPaciente) {
+            bool resultado = false;
+            checkAuthentication(token, false);
+
+            resultado = handler.removePaciente(idPaciente);
+
 
             return resultado;
 
