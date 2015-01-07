@@ -224,6 +224,9 @@ namespace WCFPata
 
             try
             {
+
+            
+
                 Conta c = modelo.ContaSet.Where(x => x.Id == idConta).First();
 
                 modelo.ContaSet.Remove(c);
@@ -237,9 +240,18 @@ namespace WCFPata
         public bool removeTerapeuta(int idContaTerapeuta, int idTerapeuta)
         {
             bool result=false;
+            
             try
             {
-             
+                List<Paciente> listaPacientes = getAllPacientesByTerapeuta(idContaTerapeuta).ToList();
+
+                foreach (Paciente p in listaPacientes)
+                {
+                    if (p.Terapeuta.Id == idTerapeuta)
+                    {
+                        removeTerapeutaFromPaciente(p.Id);
+                    }
+                }
               
                     Terapeuta t = modelo.TerapeutaSet.Where(x=>x.Id==idTerapeuta).First();
                     modelo.TerapeutaSet.Remove(t);
