@@ -34,15 +34,15 @@ namespace WCFPata
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
 
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
-            Paciente p = new Paciente();
-            p.dataNasc = DateTime.Now;
-            p.nome = "joaquim" + DateTime.Now.ToString();
-            p.cc = "1234";
-            p.morada = "menfoeifn";
-            p.sexo = "H";
-            p.telefone = "5555";
-            p.Terapeuta = handler.getTerapeutaByID(2);
-            handler.addPaciente(p);
+            //Paciente p = new Paciente();
+            //p.dataNasc = DateTime.Now;
+            //p.nome = "joaquim" + DateTime.Now.ToString();
+            //p.cc = "1234";
+            //p.morada = "menfoeifn";
+            //p.sexo = "H";
+            //p.telefone = "5555";
+            //p.Terapeuta = handler.getTerapeutaByID(2);
+            //handler.addPaciente(p);
 
         }
         public string GetData(int value)
@@ -539,14 +539,14 @@ namespace WCFPata
         public bool removeTerapeuta(string token, int idContaTerapeuta, int idTerapeuta)
         {
             bool resultado = false;
-            try
-            {
+            //try
+            //{
                 checkAuthentication(token, false);
-                handler.removeTerapeuta(idContaTerapeuta, idTerapeuta);
+               resultado= handler.removeTerapeuta(idContaTerapeuta, idTerapeuta);
                 
-            }catch{
-                throw new FaultException("Erro Token");
-            }
+            //}catch{
+            //    throw new FaultException("Erro Token");
+            //}
 
             return resultado;
 
