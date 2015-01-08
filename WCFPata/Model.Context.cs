@@ -29,6 +29,5 @@ namespace WCFPata
         public DbSet<Terapeuta> TerapeutaSet { get; set; }
         public DbSet<Paciente> PacienteSet { get; set; }
         public DbSet<EpisodioClinico> EpisodioClinicoSet { get; set; }
-        public DbSet<DadosLogin> DadosLoginSet { get; set; }
     }
 }

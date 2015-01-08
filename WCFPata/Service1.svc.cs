@@ -27,6 +27,7 @@ namespace WCFPata
         private static string FILEPATH;
         private static string FILEPATHXSD;
 
+
         public Service1()
         {
 
@@ -34,7 +35,7 @@ namespace WCFPata
             this.tokens = new Dictionary<string, Token>();
             FILEPATH = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xml");
             FILEPATHXSD = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "teste.xsd");
-            verificarDadosLogin();
+
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
             //Paciente p = new Paciente();
             //p.dataNasc = DateTime.Now;
@@ -72,17 +73,7 @@ namespace WCFPata
                 this.conta = conta;
             }
 
-            public Token(ContaWEB conta, DateTime dataExpirar, DateTime dataLogin, string value)
-            {
-
-                this.value = value;
-                this.dataExpirar = dataExpirar;
-                this.conta = conta;
-                this.dataLogin = dataLogin;
-            }
-
-      
-            public string Value { get { return value; } set { this.value = value; } }
+            public string Value { get { return value; } }
             public DateTime DataExpirar { get { return dataExpirar; } }
             public DateTime DataLogin { get { return dataLogin; } }
             public int Horas { get { return HORAS; } }
@@ -127,13 +118,6 @@ namespace WCFPata
             {
                 Token tokenObject = new Token(contas[username]);
                 tokens.Add(tokenObject.Value, tokenObject);
-
-                DadosLogin d = new DadosLogin();
-                d.Property1 = tokenObject.Value;
-                d.dataLogin = tokenObject.DataLogin;
-                d.dataExpirar = tokenObject.DataExpirar;
-                d.idConta = tokenObject.Conta.id;
-                handler.addDadoLogin(d);
                 return tokenObject.Value;
             }
             else
@@ -158,51 +142,6 @@ namespace WCFPata
                 if (!verificaConta(con))
                     contas.Add(con.username, con);
             }
-
-
-
-        }
-
-        private void verificarDadosLogin()
-        {
-            try
-            {
-                List<DadosLogin> listaDadosLogin = handler.getListaDadosLogin();
-
-                if (listaDadosLogin.Count > 0)
-                {
-                    foreach (DadosLogin d in listaDadosLogin)
-                    {
-                        if (isDadoLoginExpirado(d))
-                        {
-                            handler.removerDadosLogin(d.idConta);
-                        }
-                        else
-                        {
-                            Conta c = handler.getContaByID(d.idConta);
-                            ContaWEB conta = new ContaWEB();
-                            conta.id = c.Id;
-                            conta.username = c.username;
-                            conta.password = c.password;
-                            conta.isAdmin = c.isAdmin;
-
-                            Token t = new Token(conta, d.dataExpirar, d.dataLogin, d.Property1);
-
-                            tokens.Add(d.Property1, t);
-                        }
-                    }
-                }
-            }
-            catch (Exception) {
-                throw new ArgumentException("ERROR: getting dados login");
-
-            }
-
-        }
-
-        public bool isDadoLoginExpirado(DadosLogin d)
-        {
-            return DateTime.Now > d.dataExpirar;
 
 
 
@@ -247,15 +186,7 @@ namespace WCFPata
         {
             string token = getToken(username);
             if (!token.Equals("NADA"))
-            {
-                Token t = tokens[token];
-                handler.removerDadosLogin(t.Conta.id);
                 tokens.Remove(token);
-                
-               
-
-            }
-            
         }
 
         private String getToken(string username)
@@ -319,12 +250,12 @@ namespace WCFPata
 
             try
             {
-                OperacoesXML.guardarXML(dados, FILEPATH,FILEPATHXSD);
+                OperacoesXML.guardarXML(dados, FILEPATH, FILEPATHXSD);
                 resultado = true;
             }
             catch (Exception ex)
             {
-                throw new FaultException(ex.Message);
+                Console.WriteLine(ex.ToString());
                 // resultado = false;
             }
 
@@ -509,6 +440,7 @@ namespace WCFPata
                 pa.diagnostico = p.diagnostico;
                 pa.id = p.Id;
                 pa.idPaciente = p.Paciente.Id;
+               
                 lista.Add(pa);
             }
 
@@ -562,7 +494,7 @@ namespace WCFPata
             p.nome = paciente.nome;
             p.telefone = paciente.telefone;
             p.sexo = paciente.sexo;
-
+            
 
             resultado = handler.addPaciente(p);
 
@@ -746,7 +678,7 @@ namespace WCFPata
             e.data = getData(episodio.data);
             e.diagnostico = episodio.diagnostico;
             e.Paciente = handler.getPacienteByID(episodio.idPaciente);
-
+            
             resultado = handler.addEpisodio(e);
 
             return resultado;
@@ -767,7 +699,7 @@ namespace WCFPata
         {
             bool resultado = false;
             checkAuthentication(token, false);
-
+            
             bool resRemAllEp = handler.removeAllEpisodiosFromPaciente(idPaciente);
             if (resRemAllEp)
             {

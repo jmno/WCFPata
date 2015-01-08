@@ -10,7 +10,6 @@
     <EntitySet Name="TerapeutaSet" EntityType="Model.Store.TerapeutaSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PacienteSet" EntityType="Model.Store.PacienteSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EpisodioClinicoSet" EntityType="Model.Store.EpisodioClinicoSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DadosLoginSet" EntityType="Model.Store.DadosLoginSet" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="TerapeutaConta" Association="Model.Store.TerapeutaConta">
       <End Role="Terapeuta" EntitySet="TerapeutaSet" />
       <End Role="Conta" EntitySet="ContaSet" />
@@ -65,16 +64,6 @@
     <Property Name="data" Type="datetime" Nullable="false" />
     <Property Name="diagnostico" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Paciente_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DadosLoginSet">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Property1" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="dataLogin" Type="datetime" Nullable="false" />
-    <Property Name="dataExpirar" Type="datetime" Nullable="false" />
-    <Property Name="idConta" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="TerapeutaConta">
     <End Role="Terapeuta" Type="Model.Store.TerapeutaSet" Multiplicity="*" />
@@ -133,7 +122,6 @@
             <End Role="EpisodioClinico" EntitySet="EpisodioClinicoSet" />
             <End Role="Paciente" EntitySet="PacienteSet" />
           </AssociationSet>
-          <EntitySet Name="DadosLoginSet" EntityType="Model.DadosLogin" />
         </EntityContainer>
         <EntityType Name="Conta">
           <Key>
@@ -192,16 +180,6 @@
           <End Type="Model.EpisodioClinico" Role="EpisodioClinico" Multiplicity="*" />
           <End Type="Model.Paciente" Role="Paciente" Multiplicity="1" />
         </Association>
-        <EntityType Name="DadosLogin">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Property1" Type="String" Nullable="false" />
-          <Property Name="dataLogin" Type="DateTime" Nullable="false" />
-          <Property Name="dataExpirar" Type="DateTime" Nullable="false" />
-          <Property Name="idConta" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -248,17 +226,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="data" ColumnName="data" />
           <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DadosLoginSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Model.DadosLogin)">
-        <MappingFragment StoreEntitySet="DadosLoginSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Property1" ColumnName="Property1" />
-          <ScalarProperty Name="dataLogin" ColumnName="dataLogin" />
-          <ScalarProperty Name="dataExpirar" ColumnName="dataExpirar" />
-          <ScalarProperty Name="idConta" ColumnName="idConta" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

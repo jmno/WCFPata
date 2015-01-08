@@ -11,10 +11,10 @@ namespace WCFPata
     public class OperacoesXML
     {
 
-        
-       
 
-        public static List<ContaWEB> lerContasFicheiroXml(String path) 
+
+
+        public static List<ContaWEB> lerContasFicheiroXml(String path)
         {
             List<ContaWEB> lista = new List<ContaWEB>();
             String xpath = "//Conta";
@@ -29,14 +29,14 @@ namespace WCFPata
                 c.isAdmin = Boolean.Parse(node.ChildNodes[2].InnerText.ToString());
                 c.id = Convert.ToInt32(node.ChildNodes[3].InnerText.ToString());
                 lista.Add(c);
-                    
+
 
             }
 
             return lista;
 
         }
-        public static void guardarXML(DadosWEB dados, String xmlPath,String xsdPath)
+        public static void guardarXML(DadosWEB dados, String xmlPath, String xsdPath)
         {
 
             if (dados != null)
@@ -79,14 +79,15 @@ namespace WCFPata
                 {
                     verificaXSD(xsdPath, xmlPath);
                 }
-                catch(Exception ex) {
+                catch (Exception ex)
+                {
 
                     throw new FaultException(ex.Message);
                 }
 
-                
+
             }
-            
+
         }
 
         public static String xpathExpression(String xmlPath, String xpath)
@@ -123,7 +124,7 @@ namespace WCFPata
         }
 
 
-        public static List<SistemaPericialWEB> getListaSistemaPericial(List<SintomaWEB> lista, String xmlPath) 
+        public static List<SistemaPericialWEB> getListaSistemaPericial(List<SintomaWEB> lista, String xmlPath)
         {
             List<SistemaPericialWEB> listaFinal = new List<SistemaPericialWEB>();
 
@@ -192,7 +193,7 @@ namespace WCFPata
 
             listaFinal.Sort(new ComparacaoResultados());
 
-             
+
 
             return listaFinal;
         }
@@ -293,7 +294,7 @@ namespace WCFPata
         {
             public int Compare(SistemaPericialWEB x, SistemaPericialWEB y)
             {
-               
+
                 decimal x1 = x.score;
                 decimal y2 = y.score;
                 //return x.CompareTo(y2);
@@ -345,10 +346,10 @@ namespace WCFPata
             switch (e.Severity)
             {
                 case XmlSeverityType.Error:
-                     throw new FaultException("Error: " + e.Message);
+                    throw new FaultException("Error: " + e.Message);
                     break;
                 case XmlSeverityType.Warning:
-                      throw new FaultException("Warning: " + e.Message);
+                    throw new FaultException("Warning: " + e.Message);
                     break;
             }
         }

@@ -10,9 +10,8 @@
         <AssociationConnector Association="Model.TerapeutaConta" />
         <EntityTypeShape EntityType="Model.Paciente" Width="1.5" PointX="7.875" PointY="0.625" />
         <AssociationConnector Association="Model.TerapeutaPaciente" />
-        <EntityTypeShape EntityType="Model.EpisodioClinico" Width="1.5" PointX="10" PointY="1.5" />
+        <EntityTypeShape EntityType="Model.EpisodioClinico" Width="1.5" PointX="9.375" PointY="3.375" />
         <AssociationConnector Association="Model.EpisodioClinicoPaciente" />
-        <EntityTypeShape EntityType="Model.DadosLogin" Width="1.5" PointX="3" PointY="3.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

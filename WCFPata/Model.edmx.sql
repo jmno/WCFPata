@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/07/2015 21:50:27
+-- Date Created: 01/07/2015 23:58:57
 -- Generated from EDMX file: C:\Users\nelson\Desktop\IS_3o_Ano_1S\IS\ProjetoInterS\WCFPata\WCFPata\Model.edmx
 -- --------------------------------------------------
 
@@ -90,16 +90,6 @@ CREATE TABLE [dbo].[EpisodioClinicoSet] (
 );
 GO
 
--- Creating table 'DadosLoginSet'
-CREATE TABLE [dbo].[DadosLoginSet] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [Property1] nvarchar(max)  NOT NULL,
-    [dataLogin] datetime  NOT NULL,
-    [dataExpirar] datetime  NOT NULL,
-    [idConta] int  NOT NULL
-);
-GO
-
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -125,12 +115,6 @@ GO
 -- Creating primary key on [Id] in table 'EpisodioClinicoSet'
 ALTER TABLE [dbo].[EpisodioClinicoSet]
 ADD CONSTRAINT [PK_EpisodioClinicoSet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'DadosLoginSet'
-ALTER TABLE [dbo].[DadosLoginSet]
-ADD CONSTRAINT [PK_DadosLoginSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

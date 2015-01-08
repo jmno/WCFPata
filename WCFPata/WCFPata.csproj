@@ -75,9 +75,6 @@
     <Compile Include="Conta.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="DadosLogin.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="EpisodioClinico.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
